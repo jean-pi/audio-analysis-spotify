@@ -1,0 +1,35 @@
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src/styles/pallette.module.scss" as *;
+
+.barSearchContainer{
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 28rem;
+    &_img{
+        position: absolute;
+        block-size: .8rem;
+        margin-left: .6rem;
+    }
+    &_inputText{
+        display: inline-block;
+        // background-color: rgba(0, 0, 0, 0);
+        border: none;
+        background-color: $uiGrey;
+        display: block;
+        border-radius: 2rem;
+        gap: .4rem;
+        padding: .56rem .6rem .56rem 1.8rem;
+        width: 100%;
+        box-shadow: rgba(15, 15, 15, 0.05) 0px 1px 2px;
+        @include inter-Font( $white_offWhite, 0.25vw, .1rem, 500);
+        // width: 100%;
+    }
+    &_inputText:focus{
+        outline: 2px solid $white_active;
+    }
+    &_inputText::placeholder{
+    }
+
+    
+}

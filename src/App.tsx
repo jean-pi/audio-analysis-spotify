@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { publicRoutes, restrictedRoutes } from "./constants"
 
 import { Landing } from "@/pages"
-import { AppPage } from "@/pages/AppPage"
+import { AppPage } from "@/pages"
 
 
 function App() {

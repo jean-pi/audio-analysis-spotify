@@ -8,9 +8,8 @@ import {
 	MAIN_TEXT_PRESENTATION, 
 	SECOND_TEXT_PRESENTATION, 
 	LINK_WARNING_PRIVACY,
-	TEXT_WARNING_PRIVACY,
-	IMG_SPOTIFY,
-	CONNECT_SPOTIFY_ACCOUNT_TEXT } from '@/constants';
+	TEXT_WARNING_PRIVACY } from '@/constants';
+import { ButtonConnectAcount } from './components/ButtonConnectAcount';
 
 export type LandingProps = {
 	// types...
@@ -18,9 +17,6 @@ export type LandingProps = {
 
 const Landing: React.FC<LandingProps>  = ({}) => {
 
-	const event = () =>{
-
-	}
 
 	return (
 		<div className={styles.landing}>
@@ -33,10 +29,9 @@ const Landing: React.FC<LandingProps>  = ({}) => {
 			</div>
 
 			<div className={styles.layerConnectAcount}>
-				<button className={styles.layerConnectAcount_button} onClick={event} >
-          			<img className={styles.layerConnectAcount_button_img} src={IMG_SPOTIFY.url} alt={IMG_SPOTIFY.alt} />
-          			<h4 className={styles.layerConnectAcount_button_h4}>{CONNECT_SPOTIFY_ACCOUNT_TEXT}</h4>
-      			</button>
+
+				<ButtonConnectAcount eventClick={() => console.log("connect")}/>
+
 				<p tabIndex={0} className={styles.layerConnectAcount_p}>
     				{TEXT_WARNING_PRIVACY}
         			<a className={styles.layerConnectAcount_p_a} href={LINK_WARNING_PRIVACY.url} target="_blank">{LINK_WARNING_PRIVACY.text}</a>
