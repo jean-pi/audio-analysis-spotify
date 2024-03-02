@@ -3,7 +3,8 @@ import { useEffect } from "react"
 
 import { publicRoutes, restrictedRoutes } from "./constants"
 
-import { Landing } from "./pages/Landing"
+import { Landing } from "@/pages"
+import { AppPage } from "@/pages/AppPage"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   return (
     <Routes>
       <Route path={publicRoutes.LANDING} element={<Landing/>} />
+      <Route path={restrictedRoutes.APP} element={<AppPage/>}/>
       <Route path="*" element={<div>404</div>} />
     </Routes>
   )

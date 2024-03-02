@@ -1,4 +1,2 @@
-// start:ng42.barrel
+export * from './actionTypes';
 export * from './routes';
-// end:ng42.barrel
-
