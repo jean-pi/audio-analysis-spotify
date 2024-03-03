@@ -1,15 +1,77 @@
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src/styles/pallette.module.scss" as *;
+
+
 .appPage {
-  
+    background-color: $completeBlack;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .layerHeaderApp{
-
+    flex: 1;
+    background-color: $nonBlack;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: .7rem 1rem;
+    container: layerHeaderApp / inline-size;
 }
 
 .layerMainApp{
+    flex: 1000;
+    padding: clamp(.5rem, .1rem + .5vw, 10rem);
+    display: flex;
+    gap: clamp(.5rem, .1rem + .5vw, 10rem);
+    &_usersLibraryContainer{
+        background-color: $nonBlack;
+        flex: 1.4;
+        border-radius: 10px;
+    }
+    &_songContainer{
+        background-color: $nonBlack;
+        flex: 3;
+        border-radius: 6px;
 
+    }
+    &_analysisAudioContainer{
+        background-color: $nonBlack;  
+        flex: 1.1;
+        border-radius: 6px;
+
+    }
 }
 
 .layerFooterApp{
-    
+    flex: 1;
+    display: flex;
+    gap: 1.1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 1.8rem 1.8rem 1.8rem;
+    @include inter-Font($white_font, .30vw, .7rem, 400);
+    @media (max-width: 25.938em) {
+        flex-direction: column;
+    }
+    &_linkLeft{
+
+        &_a{
+            margin: 0 1rem;
+            color: $white_font;
+            &:focus{
+                outline: 2px solid $white_active;
+            }
+        }
+    }
+    &_linkRight{
+        &_a{
+            margin: 0 1rem;
+            color: $white_font;
+            &:focus{
+                outline: 2px solid $white_active;
+            }
+        }
+    }
 }

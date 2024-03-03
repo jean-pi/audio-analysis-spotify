@@ -1,0 +1,19 @@
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src/styles/pallette.module.scss" as *;
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  &_nameUser{
+    @include inter-Font($white_font, .24vw, .6rem, 500);
+    &:focus{
+        outline: 2px solid $white_active;
+    }
+  }
+  &_imgUser{
+    border-radius: 100%;
+    block-size: 1.7rem;
+  }
+}
+

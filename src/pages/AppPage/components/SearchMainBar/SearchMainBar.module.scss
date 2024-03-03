@@ -5,13 +5,19 @@
     display: flex;
     align-items: center;
     position: relative;
-    max-width: 28rem;
+    max-width: 33rem;   
+    @container layerHeaderApp (max-width: 30.313em) {
+        display: none;
+    } 
+    flex: 2;
     &_img{
         position: absolute;
-        block-size: .8rem;
-        margin-left: .6rem;
+        block-size: .7rem;
+        margin-left: .7rem;
+        margin-bottom: .06rem;
     }
     &_inputText{
+        width: 100%;
         display: inline-block;
         // background-color: rgba(0, 0, 0, 0);
         border: none;
@@ -20,10 +26,8 @@
         border-radius: 2rem;
         gap: .4rem;
         padding: .56rem .6rem .56rem 1.8rem;
-        width: 100%;
         box-shadow: rgba(15, 15, 15, 0.05) 0px 1px 2px;
-        @include inter-Font( $white_offWhite, 0.25vw, .1rem, 500);
-        // width: 100%;
+        @include inter-Font( $white_offWhite, 0.27vw, .65rem, 500);
     }
     &_inputText:focus{
         outline: 2px solid $white_active;

@@ -34,3 +34,18 @@ export const ICON_FIND = {
     alt: "find a track to analyze",
 }
 
+
+
+// footer app
+
+export const LINKS_FOOTER_APP = {
+    mainLink: {text: "audioanalysispotify.xyc", url: " "},
+    github: {text: "Github", url: "https://github.com/jean-pi"},
+    x: {text: "X", url: "https://twitter.com/sweetJean26"},
+    instagran: {text: "Instagram", url: "https://www.instagram.com/jeanpierre_veliz/"}
+}
+
+
+//your library
+export const YOUR_LIBRARY = "Your library"
+
