@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
 import styles from './AppPage.module.scss';
-import { ButtonDisconnectAccount, SearchMainBar, UserInfo } from './components';
-import { LINKS_FOOTER_APP } from '@/constants';
+import { ButtonDisconnectAccount, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
+import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD } from '@/constants';
 
 export type AppPageProps = {
 	// types...
@@ -19,21 +19,41 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 			</header>
 
 			<main className={styles.layerMainApp}>
+
 				<div className={styles.layerMainApp_usersLibraryContainer}>
 					<div className={styles.layerMainApp_usersLibraryContainer_cabecera}>
-						<span></span>
-						<svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" className="Svg-sc-ytk21e-0 bneLcE"><path d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"></path></svg>
+						<div className={styles.layerMainApp_usersLibraryContainer_cabecera_yourLibrary}>
+							<img  className={styles.layerMainApp_usersLibraryContainer_cabecera_yourLibrary_img} src={YOUR_LIBRARY_HEAD.img} alt={YOUR_LIBRARY_HEAD.altImg} />
+							<span tabIndex={0} className={styles.layerMainApp_usersLibraryContainer_cabecera_yourLibrary_span}>{YOUR_LIBRARY_HEAD.text}</span>
+						</div>
+						<SearchYourLibrary/>
 					</div>
 					<div className={styles.layerMainApp_usersLibraryContainer_content}>
-
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[0]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[2]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[3]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[4]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[5]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[6]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[7]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[8]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[10]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[11]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[12]}/>
+						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[13]}/>
 					</div>
 				</div>
+
 				<div className={styles.layerMainApp_songContainer}>
 
 				</div>
+
 				<div className={styles.layerMainApp_analysisAudioContainer}>
 
 				</div>
+
 			</main>
 
 			<footer className={styles.layerFooterApp}>

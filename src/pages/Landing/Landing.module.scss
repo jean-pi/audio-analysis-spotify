@@ -25,8 +25,11 @@
         -ms-word-break: keep-all;   
         line-height: clamp(2.5rem, 5.903vw + -0.5rem, 4.0rem);
         padding: .15rem 0;
+        border: 1px solid #00000000;
         &:focus{
-            border: 2px solid $white_active;
+            outline: 1px solid $white_focus;
+            outline-offset: 1px;
+            border: 1px solid $blackActive;
         }
         @media (min-width: 91.25em) {
             line-height: clamp(2.5rem, 5.003vw +  -.5rem, 6.4rem);
@@ -46,8 +49,11 @@
         @include inter-Font($white_font, .7vw, 1rem, 300);
         border: 2px solid #ffffff00;
         line-height: 128%;
+        border: 1px solid #00000000;
         &:focus{
-            border: 2px solid $white_active;
+            outline: 1px solid $white_focus;
+            outline-offset: 1px;
+            border: 1px solid $blackActive;
         }
     }
 }
@@ -65,18 +71,20 @@
         text-align: center;
         line-height: 128%;
         letter-spacing: -0.000975rem;
-        border: 2px solid #ffffff00;
-     
+        border: 1px solid #00000000;
         &:focus{
-            border: 2px solid $white_active;
+            outline: 1px solid $white_focus;
+            outline-offset: 1px;
+            border: 1px solid $blackActive;
         }
         &_a{
             color: $white_font;
-            border: 2px solid #ffffff00;
             display: block;
+            border: 1px solid #00000000;
             &:focus{
-                border: 2px solid $white_active;
-            }
+                outline: 1px solid $white_focus;
+                outline-offset: 1px;
+                border: 1px solid $blackActive;            }
         }
     }
 }

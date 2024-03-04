@@ -1,0 +1,39 @@
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src//styles/pallette.module.scss" as *;
+
+.searchyourlibrary {
+    display: flex;
+    
+    &_span{
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #00000000;
+        padding: .4rem;
+        margin: -.4rem -.4rem 0 0;
+        cursor: pointer;
+        &:active{
+            outline: 1px solid none;
+            border: 1px solid none;
+        }
+        &:hover{
+            background-color: $uiGreyHover;
+            outline: 1px solid none;
+            border: 1px solid none;
+        }
+        &:focus{
+            outline: 1px solid $white_focus;
+            border: 1px solid $blackActive;
+        }
+        &_img{
+            block-size: 1.2rem;
+        }
+    }
+    &_input{
+        display: none;
+    }
+   
+    
+
+}

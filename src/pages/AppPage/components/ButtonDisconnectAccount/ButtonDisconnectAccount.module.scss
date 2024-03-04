@@ -6,7 +6,7 @@
     border-radius: 9rem;
     display: flex;
     gap: .4rem;
-    padding: .1rem 1rem;
+    padding: .9rem 1rem;
     max-height: 1.9rem;
     cursor: pointer;
     align-items: center;
@@ -15,8 +15,19 @@
     -webkit-box-shadow: 0px 0px 24px -4px #51515197;
     -moz-box-shadow: 0px 0px 24px -4px #51515197;
     box-shadow: 0px 0px 24px -4px #51515197;
+    border: 1px solid #ffffff00;
     &:focus{
-        outline: 2px solid $white_active;
+        outline: 1px solid $white_focus;
+        outline-offset: 1px;
+        border: 1px solid $blackActive;
+    }
+    &:hover{
+        outline: 1px solid $white_focus;
+        outline-offset: 1px;
+        border: 1px solid $blackActive;
+    }
+    &:active{
+        background-color: $green-main_active;
     }
     &_img{
         block-size: .9rem;

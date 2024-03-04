@@ -16,6 +16,7 @@
     display: flex;
     gap: 1rem;
     justify-content: space-between;
+    align-items: center;
     padding: .7rem 1rem;
     container: layerHeaderApp / inline-size;
 }
@@ -27,14 +28,53 @@
     gap: clamp(.5rem, .1rem + .5vw, 10rem);
     &_usersLibraryContainer{
         background-color: $nonBlack;
-        flex: 1.4;
-        border-radius: 10px;
+        flex: 1.85;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        border-radius: 6px;
+        padding-left: clamp(.5rem, .3rem + .5vw, 10rem);
+        padding-right: clamp(.5rem, .3rem + .5vw, 10rem);
+        padding-top: clamp(.5rem, .6rem + .5vw, 10rem);
+        &_cabecera{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: clamp(.5rem, .4rem + .3vw, 10rem);
+            padding-right: clamp(.5rem, .4rem + .3vw, 10rem);
+            &_yourLibrary{
+                display: flex;
+                gap: .7rem;
+                align-items: center;
+                &_img{
+                    block-size: 1.4rem;
+                    margin-bottom: .2rem;
+                }
+                &_span{
+                    border: 1px solid #00000000;
+                    @include inter-Font($white_offWhite_font, .44vw, .7rem, 600);
+                    &:focus{
+                    border-radius: 1px;
+                        outline: 1px solid $white_focus;
+                        outline-offset: 2px;
+                        border: 1px solid $blackActive;
+                    }
+                }
+            }
+        }
+        &_content{
+            height: 34.3rem;
+            display: grid;
+            gap: .3rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
     }
     &_songContainer{
         background-color: $nonBlack;
         flex: 3;
         border-radius: 6px;
-
     }
     &_analysisAudioContainer{
         background-color: $nonBlack;  
@@ -50,7 +90,7 @@
     gap: 1.1rem;
     align-items: center;
     justify-content: space-between;
-    padding: 1.2rem 1.8rem 1.8rem 1.8rem;
+    padding: .6rem 1.8rem 1.2rem 1.8rem;
     @include inter-Font($white_font, .30vw, .7rem, 400);
     @media (max-width: 25.938em) {
         flex-direction: column;
@@ -60,8 +100,13 @@
         &_a{
             margin: 0 1rem;
             color: $white_font;
+            border: 1px solid #00000000;
+            text-decoration: none;
             &:focus{
-                outline: 2px solid $white_active;
+                border-bottom: 2px solid white;
+            }
+            &:hover{
+                text-decoration: underline;
             }
         }
     }
@@ -69,8 +114,13 @@
         &_a{
             margin: 0 1rem;
             color: $white_font;
+            border: 1px solid #00000000;
+            text-decoration: none;
             &:focus{
-                outline: 2px solid $white_active;
+                border-bottom: 2px solid $white_focus;
+            }
+            &:hover{
+                text-decoration: underline;
             }
         }
     }

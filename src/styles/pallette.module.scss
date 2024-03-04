@@ -1,20 +1,26 @@
 
 
+//main colors
 $green-main: #11dd54;
+$green-main_active: #13c34e;
 $nonBlack: #121010;
 $completeBlack: #000000;
 
-$Selected: #292929;
-$SelectedHover: #44434321;
 
+
+
+// elementos ui como barras de busqueda , scrolls, seleccion de itens
 $uiGrey: #252424;
-$uiGreyHover: #252424;
+$uiGreyHover: #292929;
+$uiGreyHoverBorder: #575757;
 $uiGreyActive: #252424;
+$Selected: #292929;
+$SelectedHover: #a4443432;
 
 
 // fonts
 $black_font: #000000;
-$white_offWhite: #C0C0C0;
+$white_offWhite_font: #b4b4b4;
 $white_font: #ffffff;
 
 
@@ -22,18 +28,10 @@ $white_font: #ffffff;
 // tarjeta color dinamico
 
 //:actives 
-$white_active: #ffffff;
+$white_focus: #ffffff;
+$blackActive: #000000;
 
 
-
-
-@mixin neo ($colorBg, $font-size){
-    background-color: $colorBg;
-    font-size: $font-size;
-}
-.div{
-    @include neo( #11dd5499 , 10px)
-}
 
 //mixin
 //varibales

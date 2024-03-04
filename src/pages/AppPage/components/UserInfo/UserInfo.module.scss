@@ -7,8 +7,12 @@
     gap: .5rem;
   &_nameUser{
     @include inter-Font($white_font, .24vw, .6rem, 500);
+    border: 1px solid #00000000;
     &:focus{
-        outline: 2px solid $white_active;
+      border-radius: 1px;
+      outline: 1px solid $white_focus;
+      outline-offset: 2px;
+      border: 1px solid $blackActive;
     }
   }
   &_imgUser{
