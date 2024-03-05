@@ -51,13 +51,14 @@ export const LINKS_FOOTER_APP = {
 export const YOUR_LIBRARY_HEAD = {
     text: "Your library",
     img: yourLibraryIcon,
-    altImg: "your library spotify icon"
-}
+    altImg: "your library spotify icon",}
 
 export const YOUR_LIBRARY_SEARCH_BAR = {
     textPaceholder: "Search your library",
     img: lensIcon,
-    alt: "search your library - busca en tu biblioteca"
+    alt: "search your library - busca en tu biblioteca",
+    dataDescr: "Search in Your Library"
+
 }
 
 

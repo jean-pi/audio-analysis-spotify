@@ -17,7 +17,7 @@ const PlaylistAlbumCard: React.FC<PlaylistAlbumCardProps>  = ({objCard}) => {
 		<div className={styles.playlistAlbumCard}>
  			<img className={styles.playlistAlbumCard_img} src={objCard.img} alt="" />
 			<h5 className={styles.playlistAlbumCard_name}>{objCard.name}</h5>
-			<span className={styles.playlistAlbumCard_details}>{objCard.type} <span className={styles.playlistAlbumCard_details_separation}>•</span> {objCard.owner}</span>
+			<p className={styles.playlistAlbumCard_details}>{objCard.type} <span className={styles.playlistAlbumCard_details_separation}>•</span> {objCard.owner}</p>
  		</div>
 	);
 };

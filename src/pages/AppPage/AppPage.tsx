@@ -26,7 +26,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 					</div>
 					<SearchYourLibrary/>
 				</div>
-				<div className={styles.usersLibraryContainer_content}>
+				<div tabIndex={0} className={styles.usersLibraryContainer_content}>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[0]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[2]}/>

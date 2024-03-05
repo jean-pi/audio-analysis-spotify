@@ -2,17 +2,30 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 .playlistAlbumCard {
-    padding: clamp(.5rem, .4rem + .3vw, 10rem);
+    max-width: 12rem;
+    padding: clamp(.2rem, .4rem + .3vw, 10rem);
+    border-radius: 6px;
+    transition: background-color .1s ease-in 0ms;
+    &:hover{
+        background-color: $albumSongHover;
+    }
     &_img{
         width: 100%;
         border-radius: 6px;
-        margin-bottom: .6rem
+        margin-bottom: .7rem
     }
     &_name{
-        @include inter-Font($white_font, .30vw, .7rem, 500);
+        @include inter-Font($white_font, .35vw, .7rem, 600);
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
     }
     &_details{
-        @include inter-Font($white_offWhite_font, .20vw, .7rem, 400);
+        @include inter-Font($white_offWhite_font, .29vw, .7rem, 500);
+        margin-top: .5rem;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
         &_separation{
             @include inter-Font($white_offWhite_font, .12vw, .4rem, 400);
         }
