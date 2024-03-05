@@ -18,43 +18,43 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 				<UserInfo userDisplayName='JeanPierreVeliz' userImgUrl='https://i.scdn.co/image/ab67757000003b82faa77c142b065d812528d329'/>
 			</header>
 
-			<main className={styles.layerMainApp}>
-
-				<div className={styles.layerMainApp_usersLibraryContainer}>
-					<div className={styles.layerMainApp_usersLibraryContainer_cabecera}>
-						<div className={styles.layerMainApp_usersLibraryContainer_cabecera_yourLibrary}>
-							<img  className={styles.layerMainApp_usersLibraryContainer_cabecera_yourLibrary_img} src={YOUR_LIBRARY_HEAD.img} alt={YOUR_LIBRARY_HEAD.altImg} />
-							<span tabIndex={0} className={styles.layerMainApp_usersLibraryContainer_cabecera_yourLibrary_span}>{YOUR_LIBRARY_HEAD.text}</span>
-						</div>
-						<SearchYourLibrary/>
+			<div className={styles.usersLibraryContainer}>
+				<div className={styles.usersLibraryContainer_cabecera}>
+					<div className={styles.usersLibraryContainer_cabecera_yourLibrary}>
+						<img  className={styles.usersLibraryContainer_cabecera_yourLibrary_img} src={YOUR_LIBRARY_HEAD.img} alt={YOUR_LIBRARY_HEAD.altImg} />
+						<span tabIndex={0} className={styles.usersLibraryContainer_cabecera_yourLibrary_span}>{YOUR_LIBRARY_HEAD.text}</span>
 					</div>
-					<div className={styles.layerMainApp_usersLibraryContainer_content}>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[0]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[2]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[3]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[4]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[5]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[6]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[7]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[8]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[10]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[11]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[12]}/>
-						<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[13]}/>
-					</div>
+					<SearchYourLibrary/>
 				</div>
-
-				<div className={styles.layerMainApp_songContainer}>
-
+				<div className={styles.usersLibraryContainer_content}>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[0]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[2]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[3]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[4]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[5]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[6]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[7]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[8]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[10]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[11]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[12]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[13]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[4]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[5]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[6]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[7]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[8]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/>
 				</div>
+			</div>
 
-				<div className={styles.layerMainApp_analysisAudioContainer}>
+			<div className={styles.songContainer}>
+			</div>
 
-				</div>
-
-			</main>
+			<div className={styles.analysisAudioContainer}>
+			</div>
 
 			<footer className={styles.layerFooterApp}>
 				<div className={styles.layerFooterApp_linkLeft}>

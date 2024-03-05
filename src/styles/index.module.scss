@@ -6,16 +6,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
-  ::-webkit-scrollbar {
-    display: none;
-  }
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; 
 }
 
-
+body{
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
