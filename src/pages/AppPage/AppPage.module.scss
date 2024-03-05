@@ -9,13 +9,16 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1.6fr 3fr 1.1fr;
-    grid-template-rows: auto 83vh auto;
+    grid-template-rows: 3.3rem calc(100vh - 7.8rem) 3.5rem;
+    @media (max-width: 25.938em) {
+        grid-template-columns: 98%;
+    }
     gap: .5rem;
 }
 
 
 .layerHeaderApp{
-    max-height: 3.5rem;
+    max-width: 100vw;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -78,6 +81,9 @@
         gap: .1rem;
         grid-template-columns: 1fr 1fr 1fr;
         overflow-y: scroll;
+        @media (max-width: 20em) {
+            grid-template-columns: 1fr 1fr;
+        }
         &::-webkit-scrollbar {
             width: .5rem;
         }
@@ -91,6 +97,7 @@
 .songContainer{
     background-color: $nonBlack;
     border-radius: 6px;
+
 }
 
 .analysisAudioContainer{
@@ -105,7 +112,7 @@
     grid-row-start: 3;
     grid-row-end: 4;
     display: flex;
-    max-height: 6rem;
+    // max-height: 6rem;
     gap: 1.1rem;
     align-items: center;
     justify-content: space-between;
