@@ -1,0 +1,54 @@
+
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src/styles/pallette.module.scss" as *;
+
+.container{
+    display: grid;
+    grid-template-columns: 6% 50% 44%;
+    align-items: center;
+    gap: .3rem;
+    &_numDiv{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        @include inter-Font($white_font, .26vw, .5rem, 600);
+    }
+    &_imgSongNameArtist{
+        // margin-right: 2rem;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: flex;
+        gap: .5rem;
+        &_img{
+            width: clamp( 1.7rem, 1.2rem + 1.3vw, 3rem);
+            border-radius: 4px;
+        }
+        &_subContainerTotext{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: .1rem;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow: ellipsis;
+            &_p:nth-child(1){
+                @include inter-Font($white_font, .35vw, .5rem, 600);
+                overflow:hidden;
+                white-space:nowrap;
+                text-overflow: ellipsis;
+            }
+            &_p:nth-child(2){
+                @include inter-Font($white_offWhite_font, .25vw, .5rem, 600);
+                overflow:hidden;
+                white-space:nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    &_album{
+        grid-column-start: 3;
+        grid-column-end: 4  ;
+        @include inter-Font($white_font, .26vw, .5rem, 600);
+
+    }
+
+}

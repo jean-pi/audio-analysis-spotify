@@ -109,6 +109,19 @@
     background-color: $nonBlack;
     border-radius: 6px;
     padding: clamp(.2rem, .3rem + .5vw, 2rem);
+    &_cabezeraSongs{
+        display: grid;
+        grid-template-columns: 6% 50% 44%;
+        gap: .3rem;
+        border-bottom: 1px solid $white_offWhite_font;
+        padding-bottom: .3rem;
+        &_span{
+            @include inter-Font($white_offWhite_font, .26vw, .5rem, 600);
+            &:nth-child(1){
+                text-align: center;
+            }
+        }
+    }
 }
 
 .analysisAudioContainer{

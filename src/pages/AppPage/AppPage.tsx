@@ -2,8 +2,9 @@
 import React from 'react';
 import styles from './AppPage.module.scss';
 import { ButtonDisconnectAccount, HeadAlbumPlaylist, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
-import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD } from '@/constants';
+import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
+import { SongIten } from './components/SongIten';
 
 export type AppPageProps = {
 	// types...
@@ -61,8 +62,18 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 					duracion=" 61h 14min"
 				/>
 				<SearchSongBar/>
-				
-
+				<div className={styles.songContainer_cabezeraSongs}>
+					<span className={styles.songContainer_cabezeraSongs_span}>{HEAD_SONG_CONTAINER.numSong}</span>
+					<span className={styles.songContainer_cabezeraSongs_span}>{HEAD_SONG_CONTAINER.title}</span>
+					<span className={styles.songContainer_cabezeraSongs_span}>{HEAD_SONG_CONTAINER.album}</span>
+				</div>
+				<SongIten 
+					numSong={1000} 
+					img='https://i.scdn.co/image/ab67616d00001e029478c87599550dd73bfa7e02'
+					nameSong='Summer bummer (feat. A$AP Rocky & Playboy carti'
+					artist='Lana del rey, A$AP Rocky & playboy Carti'
+					album='Lust fot life'
+					/>
 
 			</div>
 

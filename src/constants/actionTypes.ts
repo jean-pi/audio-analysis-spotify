@@ -63,7 +63,7 @@ export const YOUR_LIBRARY_SEARCH_BAR = {
 }
 
 // # - titulo - album
-export const headSongContainer = {
+export const HEAD_SONG_CONTAINER = {
     numSong:"#",
     title: "Title",
     album: "Álbum"
