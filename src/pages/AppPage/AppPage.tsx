@@ -1,8 +1,9 @@
 "use client";
 import React from 'react';
 import styles from './AppPage.module.scss';
-import { ButtonDisconnectAccount, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
+import { ButtonDisconnectAccount, HeadAlbumPlaylist, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
 import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD } from '@/constants';
+import { SearchSongBar } from './components/SearchSongBar';
 
 export type AppPageProps = {
 	// types...
@@ -26,7 +27,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 					</div>
 					<SearchYourLibrary/>
 				</div>
-				<div tabIndex={0} className={styles.usersLibraryContainer_content}>
+				<div className={styles.usersLibraryContainer_content}>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[0]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[2]}/>
@@ -51,7 +52,21 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 			</div>
 
 			<div className={styles.songContainer}>
+				<HeadAlbumPlaylist 
+					imgUrl='https://misc.scdn.co/liked-songs/liked-songs-300.png'
+					name= "did you know there's a tunnel under ocean blvd"
+					type='Playlist'
+					by='JeanPierre'
+					numCaciones={10123}
+					duracion=" 61h 14min"
+				/>
+				<SearchSongBar/>
+				
+
+
 			</div>
+
+
 
 			<div className={styles.analysisAudioContainer}>
 			</div>

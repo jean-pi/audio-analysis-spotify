@@ -18,12 +18,10 @@
     border: 1px solid #ffffff00;
     &:focus{
         outline: 1px solid $white_focus;
-        outline-offset: 1px;
         border: 1px solid $blackActive;
     }
     &:hover{
         outline: 1px solid $white_focus;
-        outline-offset: 1px;
         border: 1px solid $blackActive;
     }
     &:active{

@@ -101,17 +101,14 @@
             border-radius: 20px;  
  
         }
-        &:focus{
-            border-bottom: 1px solid $white_focus;
-            outline-offset: -1rem;
-        }
+
     }
 }
 
 .songContainer{
     background-color: $nonBlack;
     border-radius: 6px;
-
+    padding: clamp(.2rem, .3rem + .5vw, 2rem);
 }
 
 .analysisAudioContainer{

@@ -1,0 +1,44 @@
+
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src/styles/pallette.module.scss" as *;
+
+.barSearchContainer{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: .8rem 0 ;
+    flex: 2;
+    &_img{
+        position: absolute;
+        block-size: .8rem;
+        margin-left: .7rem;
+        margin-bottom: .06rem;
+    }
+    &_inputText{
+        width: 100%;
+        display: inline-block;
+        // background-color: rgba(0, 0, 0, 0);
+        border: none;
+        background-color: $uiGrey;
+        display: block;
+        border-radius: 4px;
+        gap: .4rem;
+        padding: .56rem .6rem .56rem 1.8rem;
+        box-shadow: rgba(15, 15, 15, 0.05) 0px 1px 2px;
+        @include inter-Font( $white_offWhite_font, 0.3vw, .65rem, 500);
+        border: 1px solid #00000000;
+        &:hover{
+            background-color: $uiGreyHover;
+            // outline: 1px solid $uiGreyHoverBorder;
+        }
+        &:focus{
+            background-color: $uiGreyHover;
+            // outline: 1px solid $uiGreyHoverBorder;
+        }
+    }
+    &_inputText::placeholder{
+    }
+
+    
+}

@@ -6,7 +6,7 @@
     align-items: center;
     gap: .5rem;
   &_nameUser{
-    @include inter-Font($white_font, .24vw, .6rem, 500);
+    @include inter-Font($white_font, .24vw, .6rem, 600);
     border: 1px solid #00000000;
     &:focus{
       border-radius: 1px;

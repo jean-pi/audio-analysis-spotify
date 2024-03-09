@@ -1,0 +1,34 @@
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src/styles/pallette.module.scss" as *;
+
+.container{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    gap: 1rem;
+    align-items: center;
+    padding-right: 1rem;
+    &_img{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        width: 100%;
+        max-width: 15rem;
+        border-radius: 6px;
+    }   
+    &_detailsTextContainer{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        &_secondText{
+            @include inter-Font($white_offWhite_font, .34vw, .5rem, 500);
+            &_pointSeparator{
+                margin: 0 .2rem;
+            }
+        }
+        &_mainText{
+            @include inter-Font($white_font, 1.6vw, .5rem, 800);
+        }
+    }
+}
