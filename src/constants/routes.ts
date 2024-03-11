@@ -4,5 +4,5 @@ export const publicRoutes = {
 }
 
 export const restrictedRoutes = {
-    APP: "/app/:id"
+    APP: "/app"
 }

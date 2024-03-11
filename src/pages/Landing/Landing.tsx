@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import styles from './Landing.module.scss';
+import { useEffect } from 'react';
 
 import { HydraBackground } from './components';
 
@@ -11,7 +12,7 @@ import {
 	TEXT_WARNING_PRIVACY } from '@/constants';
 
 import { ButtonConnectAcount } from './components/ButtonConnectAcount';
-import { codeChallenge } from '@/services/auth/codeChallengeGenerator';
+import { linkAuth } from '@/services/auth/authSpotify';
 
 export type LandingProps = {
 	// types...
@@ -19,6 +20,9 @@ export type LandingProps = {
 
 const Landing: React.FC<LandingProps>  = ({}) => {
 
+	useEffect(()=>{
+		localStorage.clear();
+	},[])
 
 	return (
 		<div className={styles.landing}>
@@ -32,7 +36,7 @@ const Landing: React.FC<LandingProps>  = ({}) => {
 
 			<div className={styles.layerConnectAcount}>
 
-				<ButtonConnectAcount eventClick={() => console.log(codeChallenge)}/>
+				<ButtonConnectAcount eventClick={linkAuth}/>
 
 				<p tabIndex={0} className={styles.layerConnectAcount_p}>
     				{TEXT_WARNING_PRIVACY}
