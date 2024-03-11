@@ -4,7 +4,7 @@ import styles from './SongIten.module.scss';
 
 
 export type SongItenProps = {
- 	numSong: number,
+ 	numSong: string,
 	img: string,
 	nameSong: string,
 	artist: string,

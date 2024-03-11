@@ -1,5 +1,3 @@
-
-
 import spotifyLogo_black from "@/assets/spotifyLogo_black.png"
 import lensIcon from "@/assets/lensIcon.png"
 import yourLibraryIcon from "@/assets/yourLibraryIcon.png"
@@ -18,6 +16,7 @@ export const LINK_WARNING_PRIVACY = {
     text: "Spotify privacy policy",
     url: "https://www.spotify.com/us/legal/privacy-policy/"
 }
+
 // text of landin page
 export const MAIN_TEXT_PRESENTATION = {
     line1: "audio",
@@ -37,9 +36,7 @@ export const ICON_FIND = {
 }
 
 
-
 // footer app
-
 export const LINKS_FOOTER_APP = {
     mainLink: {text: "audioanalysispotify.xyc", url: " "},
     github: {text: "Github", url: "https://github.com/jean-pi"},
@@ -68,6 +65,11 @@ export const HEAD_SONG_CONTAINER = {
     title: "Title",
     album: "Álbum"
 }
+
+
+
+
+
 
 
 // test styles data

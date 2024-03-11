@@ -43,11 +43,8 @@
     display: flex;
     flex-direction: column;
     gap: .8rem;
-    margin-left: .5rem;
     border-radius: 6px;
-    // padding-left: clamp(.3rem, .3rem + .5vw, 2rem);
-    padding-right: calc(clamp(.2rem, .3rem + .5vw, 2rem) - .5rem);
-    // padding-top: clamp(.5rem, .6rem + .5vw, 10rem);
+    margin-left: .46rem;
     &_cabecera{
         display: flex;
         justify-content: space-between;
@@ -79,27 +76,38 @@
     &_content{
         display: grid;
         gap: .1rem;
-        padding-left: clamp(.3rem, .3rem + .3vw, 10rem);
-        padding-right: clamp(.3rem, .2rem + .3vw, 10rem);
+        padding-right: clamp(.3rem, .2rem + .2vw, 3rem);
+        padding-left: clamp(.3rem, .3rem + .3vw, 3rem);
         grid-template-columns: 33.333% 33.333% 33.333%;
         overflow-y: scroll;
         overflow-x: hidden;
+        position: relative;
         @media (max-width: 20em) {
             grid-template-columns: 50% 50%;
         }
         @media (max-width: 27.118em) {
             padding-right: clamp(.3rem, .5rem + .4vw, 10rem);
         }  
+        &:hover::-webkit-scrollbar-thumb{
+            background-color: $scroll;
+        }
+        &::-webkit-scrollbar-thumb:active{
+            background-color: $scrollActive;
+        }
+        &::-webkit-scrollbar-thumb {       
+            background-color: #00000000;
+            border-radius: 20px;  
+            transition: background-color 5s ease-in 1000ms;
+        }
         &::-webkit-scrollbar {
+            position: absolute;
+
             width: .5rem;
+            transition: background-color 2s ease-in 100ms;
+    
             @media (max-width: 27.118em) {
                 display: none;
             }  
-        }
-        &::-webkit-scrollbar-thumb {
-            background-color: $uiGrey;    
-            border-radius: 20px;  
- 
         }
 
     }
@@ -109,12 +117,35 @@
     background-color: $nonBlack;
     border-radius: 6px;
     padding: clamp(.2rem, .3rem + .5vw, 2rem);
+    padding-right: clamp(.2rem, .1rem + .2vw, 2rem);
+    overflow-y: scroll ;
+    overflow-x: hidden;
+    &:hover::-webkit-scrollbar-thumb{
+        background-color: $uiGrey;
+    }
+    &::-webkit-scrollbar-thumb:active{
+        background-color: $uiGreyActive;
+    }
+    &::-webkit-scrollbar {
+        width: .5rem;
+        transition: background-color 2s ease-in 100ms;
+
+        @media (max-width: 27.118em) {
+            display: none;
+        }  
+    }
+    &::-webkit-scrollbar-thumb {       
+        background-color: #00000000;
+        border-radius: 20px;  
+        transition: background-color 5s ease-in 1000ms;
+    }
     &_cabezeraSongs{
         display: grid;
-        grid-template-columns: 6% 50% 44%;
+        grid-template-columns: 6% 52% calc(42% - .6rem);
         gap: .3rem;
         border-bottom: 1px solid $white_offWhite_font;
         padding-bottom: .3rem;
+        margin-bottom: .4rem;
         &_span{
             @include inter-Font($white_offWhite_font, .26vw, .5rem, 600);
             &:nth-child(1){
@@ -127,7 +158,7 @@
 .analysisAudioContainer{
     background-color: $nonBlack;  
     border-radius: 6px;
-    margin-right: .5rem;
+    margin-right: .46rem;
 }
 
 .layerFooterApp{

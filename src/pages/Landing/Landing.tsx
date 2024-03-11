@@ -9,7 +9,9 @@ import {
 	SECOND_TEXT_PRESENTATION, 
 	LINK_WARNING_PRIVACY,
 	TEXT_WARNING_PRIVACY } from '@/constants';
+
 import { ButtonConnectAcount } from './components/ButtonConnectAcount';
+import { codeChallenge } from '@/services/auth/codeChallengeGenerator';
 
 export type LandingProps = {
 	// types...
@@ -21,7 +23,7 @@ const Landing: React.FC<LandingProps>  = ({}) => {
 	return (
 		<div className={styles.landing}>
  			
-			<HydraBackground/>	
+			{/* <HydraBackground/>	 */}
 
 			<div className={styles.layerMainText}>
 				<h1 tabIndex={0} className={styles.layerMainText_h1}><span className={styles.layerMainText_h1_span}>{MAIN_TEXT_PRESENTATION.line1} {MAIN_TEXT_PRESENTATION.line2}&nbsp;{MAIN_TEXT_PRESENTATION.line3}</span><br /><span className={styles.layerMainText_h1_span}>{MAIN_TEXT_PRESENTATION.line4}</span></h1>
@@ -30,7 +32,7 @@ const Landing: React.FC<LandingProps>  = ({}) => {
 
 			<div className={styles.layerConnectAcount}>
 
-				<ButtonConnectAcount eventClick={() => console.log("connect")}/>
+				<ButtonConnectAcount eventClick={() => console.log(codeChallenge)}/>
 
 				<p tabIndex={0} className={styles.layerConnectAcount_p}>
     				{TEXT_WARNING_PRIVACY}

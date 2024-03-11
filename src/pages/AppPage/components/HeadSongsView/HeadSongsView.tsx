@@ -1,9 +1,9 @@
 "use client";
 import React from 'react';
-import styles from './HeadAlbumPlaylist.module.scss';
+import styles from './HeadSongsView.module.scss';
 
 
-export type HeadAlbumPLaylistProps = {
+export type HeadSongsViewProps = {
 	imgUrl: string,
 	name: string,
 	type: string,
@@ -12,7 +12,7 @@ export type HeadAlbumPLaylistProps = {
 	duracion: string
 }
 
-const HeadAlbumPLaylist: React.FC<HeadAlbumPLaylistProps>  = ({imgUrl,name, type,by,numCaciones,duracion}) => {
+const HeadSongsView: React.FC<HeadSongsViewProps>  = ({imgUrl,name, type,by,numCaciones,duracion}) => {
 	return (
 		<div className={styles.container}>
 			<img className={styles.container_img} src={imgUrl} alt="" />
@@ -31,4 +31,4 @@ const HeadAlbumPLaylist: React.FC<HeadAlbumPLaylistProps>  = ({imgUrl,name, type
 	);
 };
 
-export default HeadAlbumPLaylist;
+export default HeadSongsView;

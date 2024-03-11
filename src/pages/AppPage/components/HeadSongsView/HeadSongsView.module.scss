@@ -4,7 +4,7 @@
 .container{
     display: grid;
     grid-template-columns: 15% 85%;
-    gap: 1rem;
+    gap: clamp(.5rem , .35rem + .35vw, 1.4rem);
     align-items: center;
     padding-right: 1rem;
     &_img{
