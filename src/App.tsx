@@ -22,16 +22,10 @@ function App() {
   return (
     <Routes>
       <Route element={<AuthGuard/>}>
-        <Route path={publicRoutes.LANDING} element={<Landing/>} />
-        <Route path={restrictedRoutes.APP} element={<AppPage/>}/>
-        <Route path="*" element={<div>404</div>} />
-      </Route>
-      {/* <Route element={<AuthGuard/>}>
         <Route path={restrictedRoutes.APP} element={<AppPage/>}/>
       </Route>
-      <Route element={<AuthGuard/>}>
-        <Route path="*" element={<div>404</div>} />
-      </Route> */}
+      <Route path={publicRoutes.LANDING} element={<Landing/>} />
+      <Route path="*" element={<div>404</div>} />
     </Routes>
   )
 }
