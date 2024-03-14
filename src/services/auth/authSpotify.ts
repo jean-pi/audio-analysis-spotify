@@ -1,5 +1,5 @@
 import { codeVerifier,codeChallenge } from "./codeChallengeVerifierGenerator";
-import { clientId } from "../credentials";
+import { clientId } from "../credentialsSpotifyAppDev";
 
 const redirectUri = 'http://localhost:5173/app/';
 const scope = 'user-read-private user-read-email';
