@@ -1,16 +1,22 @@
 "use client";
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './AppPage.module.scss';
 import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
 import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
+import { getDataUserEndPoint } from '@/services';
 
 export type AppPageProps = {
 	// types...
 }
 
 const AppPage: React.FC<AppPageProps>  = ({}) => {
+
+	useEffect(()=>{
+
+	},[])
+
 	return (
 		<div className={styles.appPage}>
  			
@@ -25,6 +31,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 					<div className={styles.usersLibraryContainer_cabecera_yourLibrary}>
 						<img  className={styles.usersLibraryContainer_cabecera_yourLibrary_img} src={YOUR_LIBRARY_HEAD.img} alt={YOUR_LIBRARY_HEAD.altImg} />
 						<span tabIndex={0} className={styles.usersLibraryContainer_cabecera_yourLibrary_span}>{YOUR_LIBRARY_HEAD.text}</span>
+						<button onClick={getDataUserEndPoint}>aaaa</button>
 					</div>
 					<SearchYourLibrary/>
 				</div>

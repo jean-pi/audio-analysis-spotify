@@ -14,6 +14,7 @@ const AuthGuard: React.FC<AuthGuardrops> = () => {
     const accessRespondUrl = urlParams.get("error");    
     const dataLocalStorage = localStorage.getItem('code_verifier');
 
+
     return dataLocalStorage && !accessRespondUrl? <Outlet/> : <Navigate replace to={publicRoutes.LANDING} />;   
 }
 
