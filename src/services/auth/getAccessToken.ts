@@ -9,7 +9,7 @@ export const getAccessToken = async (): Promise<any> => {
         const codeVerifier: string | null = localStorage.getItem('code_verifier');
         const clientId = import.meta.env.VITE_APP_CLIENT_ID;
         const clientSecret = import.meta.env.VITE_APP_CLIENT_SECRET;
-
+        
         if (!codeUrl || !codeVerifier) {
             throw new Error('Código de autorización o verificador de código no encontrados.');
         }
@@ -28,6 +28,7 @@ export const getAccessToken = async (): Promise<any> => {
                 code_verifier: codeVerifier,
             }),
         });
+
 
         const data = await response.json();
         return data.access_token;

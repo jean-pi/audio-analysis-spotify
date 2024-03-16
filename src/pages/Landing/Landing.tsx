@@ -9,12 +9,10 @@ import {
 	MAIN_TEXT_PRESENTATION, 
 	SECOND_TEXT_PRESENTATION, 
 	LINK_WARNING_PRIVACY,
-	TEXT_WARNING_PRIVACY, 
-	restrictedRoutes} from '@/constants';
+	TEXT_WARNING_PRIVACY } from '@/constants';
 
 import { ButtonConnectAcount } from './components/ButtonConnectAcount';
 import { linkAuth } from '@/services/auth/authSpotify';
-import { useNavigate } from 'react-router-dom';
 
 export type LandingProps = {
 	// types...
@@ -22,12 +20,11 @@ export type LandingProps = {
 
 const Landing: React.FC<LandingProps>  = ({}) => {
 
-	const navigate = useNavigate();
 
-	// useEffect(()=>{
-	// 	const dataLocalStorage = localStorage.getItem('code_verifier');
-	// 	if (dataLocalStorage) navigate(restrictedRoutes.APP);
-	// },[])
+
+	useEffect(()=>{
+		localStorage.clear();
+	},[])
 
 	return (
 		<div className={styles.landing}>
