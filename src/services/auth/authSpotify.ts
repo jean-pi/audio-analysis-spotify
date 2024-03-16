@@ -1,16 +1,16 @@
 import { codeVerifier,codeChallenge } from "./codeChallengeVerifierGenerator";
 
-const redirectUri = 'http://localhost:5173/app/';
-const scopes = 'user-read-private user-read-email';
-const authUrl = new URL("https://accounts.spotify.com/authorize")
-
-
 export const linkAuth = () =>{
+  
+  const redirectUri = 'http://localhost:5173/app/';
+  const scopes = 'user-read-private user-read-email';
+  const authUrl = new URL("https://accounts.spotify.com/authorize")
+  const clientId = import.meta.env.VITE_APP_CLIENT_ID;
   window.localStorage.setItem('code_verifier', codeVerifier);
 
   const params =  {
     response_type: 'code',
-    client_id: "89654d500fb846f398c518323434fb65",
+    client_id: clientId,
     scope: scopes,
     code_challenge_method: 'S256',
     code_challenge: codeChallenge,

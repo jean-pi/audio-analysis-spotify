@@ -24,6 +24,14 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 		}
 
 
+		// getDataUserEndPoint()
+		// 	.then(user => {
+		// 		console.log(user)
+		// 	})
+		// 	.catch(err =>{
+		// 		console.log(err)
+		// 	})
+
 	},[])
 
 	return (

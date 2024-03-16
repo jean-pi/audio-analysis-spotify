@@ -11,11 +11,11 @@ export const getDataUserEndPoint = async(): Promise<any> =>{
     try {
         const apiUrl:string = "https://api.spotify.com/v1/me";
         const accessToken:string | null = localStorage.getItem("access_token");
-
+        console.log(accessToken)
         const options = {
-            method: "GET", 
+            method: 'GET', 
             headers: {
-                "Authorization" : "Bearer" + accessToken,
+                'Authorization': 'Bearer ' + accessToken
             }
         }
         const response = await fetch(apiUrl, options);
