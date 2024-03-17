@@ -5,7 +5,7 @@ import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBa
 import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
-import { getAccessToken, getDataUserEndPoint} from '@/services';
+import { getAccessToken} from '@/services';
 
 export type AppPageProps = {
 	// types...
@@ -19,18 +19,10 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 			localStorage.setItem("access_token", accessToken);
 		}
 		const isAccessToken = localStorage.getItem("access_token");
+
 		if(!isAccessToken){
 			accessTokenInLocalstorage();
 		}
-
-
-		// getDataUserEndPoint()
-		// 	.then(user => {
-		// 		console.log(user)
-		// 	})
-		// 	.catch(err =>{
-		// 		console.log(err)
-		// 	})
 
 	},[])
 
@@ -38,9 +30,9 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 		<div className={styles.appPage}>
  			
 			<header className={styles.layerHeaderApp}>
-				<ButtonDisconnectAccount eventClick={ () => console.log("disconnect")}/>
+				<ButtonDisconnectAccount/>
 				<SearchMainBar/>
-				<UserInfo userDisplayName='JeanPierreVeliz' userImgUrl='https://i.scdn.co/image/ab67757000003b82faa77c142b065d812528d329'/>
+				<UserInfo/>
 			</header>
 
 			<div className={styles.usersLibraryContainer}>
@@ -48,7 +40,6 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 					<div className={styles.usersLibraryContainer_cabecera_yourLibrary}>
 						<img  className={styles.usersLibraryContainer_cabecera_yourLibrary_img} src={YOUR_LIBRARY_HEAD.img} alt={YOUR_LIBRARY_HEAD.altImg} />
 						<span tabIndex={0} className={styles.usersLibraryContainer_cabecera_yourLibrary_span}>{YOUR_LIBRARY_HEAD.text}</span>
-						<button onClick={getDataUserEndPoint}>get</button>
 					</div>
 					<SearchYourLibrary/>
 				</div>

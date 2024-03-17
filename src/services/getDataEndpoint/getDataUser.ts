@@ -1,17 +1,14 @@
 
-//https://api.spotify.com/v1/me
-import { userEndpoint } from "@/models/endPoints";
 
 /**
- * @return  json with user actual info
+ * @param accessToken access token "guardado en local storage" 
+ * @return  respuesta del endpoint de curren user
  */
 
-export const getDataUserEndPoint = async(): Promise<any> =>{
 
+export const getDataUserEndPoint = async(accessToken: string | null): Promise<any> =>{
     try {
         const apiUrl:string = "https://api.spotify.com/v1/me";
-        const accessToken:string | null = localStorage.getItem("access_token");
-        console.log(accessToken)
         const options = {
             method: 'GET', 
             headers: {
@@ -22,7 +19,6 @@ export const getDataUserEndPoint = async(): Promise<any> =>{
     
         if(response.ok){
             const userData = response.json();
-            console.log(userData);
             return userData;
         } else{
             throw new Error("not ok: error al obtener el current user, getDataUser.ts" + response.status)
@@ -31,8 +27,5 @@ export const getDataUserEndPoint = async(): Promise<any> =>{
         console.log(error);
         console.log("algun error al obtener current user at getDataUser.ts")
     }
-    
-    
-    
-
 }
+

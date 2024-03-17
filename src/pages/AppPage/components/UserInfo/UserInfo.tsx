@@ -1,18 +1,32 @@
 "use client";
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './UserInfo.module.scss';
+import { getDataUserEndPoint } from '@/services';
+import { adapterUser } from '@/adapters';
+import { User } from '@/models';
 
-export type UserInfoProps = {
-	userDisplayName: string,
-	userImgUrl: string
-}
 
-const UserInfo: React.FC<UserInfoProps>  = ({userDisplayName, userImgUrl}) => {
+const UserInfo: React.FC  = () => {
+
+	const [objUser, setObjUser] = useState<User>()
+
+	useEffect( ()=>{
+		const accessToken:string | null = localStorage.getItem("access_token");
+		console.log(accessToken);
+		getDataUserEndPoint(accessToken)
+		.then(response =>{
+			const userOjb =  adapterUser(response)
+			setObjUser(userOjb)
+		})
+
+	},[])
+
+
 	return (
-		<div className={styles.userInfo}>
- 			<span tabIndex={0} className={styles.userInfo_nameUser}>{userDisplayName}</span>
-			<img className={styles.userInfo_imgUser} src={userImgUrl} />
- 		</div>
+		<a tabIndex={0} className={styles.userInfo} href={objUser?._urlToPerfil} target='_blank'>
+ 			<span className={styles.userInfo_nameUser}>{objUser?.getdisplayName}</span>
+			<img className={styles.userInfo_imgUser} src={objUser?.getPhotoUrl} />
+ 		</a>
 	);
 };
 

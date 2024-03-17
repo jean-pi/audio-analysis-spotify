@@ -1,5 +1,6 @@
 export * from './ButtonDisconnectAccount';
 export * from './HeadSongsView';
+export * from './LazyWaiting';
 export * from './PlaylistAlbumCard';
 export * from './SearchMainBar';
 export * from './SearchSongBar';

@@ -5,15 +5,17 @@
     display: flex;
     align-items: center;
     gap: .5rem;
-  &_nameUser{
-    @include inter-Font($white_font, .24vw, .6rem, 600);
     border: 1px solid #00000000;
+    text-decoration: none;
+    padding-left: 6px;
     &:focus{
-      border-radius: 1px;
+      border-radius: 100px;
       outline: 1px solid $white_focus;
-      outline-offset: 2px;
+      outline-offset: 1px;
       border: 1px solid $blackActive;
     }
+  &_nameUser{
+    @include inter-Font($white_font, .24vw, .6rem, 600);
   }
   &_imgUser{
     border-radius: 100%;

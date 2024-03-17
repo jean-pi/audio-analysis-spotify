@@ -1,0 +1,7 @@
+@use "/src/styles/pallette.module.scss" as *;
+
+.lazywaiting {
+  width: 100vw;
+  height: 100vh;
+  background-color:$nonBlack;
+}
