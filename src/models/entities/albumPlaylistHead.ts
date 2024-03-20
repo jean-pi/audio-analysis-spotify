@@ -19,6 +19,3 @@ class AlbumPlaylistCabecera extends AlbumPLaylistCard{
     }
 }
 
-
-const a = new AlbumPlaylistCabecera(1,1,"1","1","1",true)
-console.log(a)

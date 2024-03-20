@@ -11,14 +11,14 @@ const UserInfo: React.FC  = () => {
 	const [objUser, setObjUser] = useState<User>()
 
 	useEffect( ()=>{
-		const accessToken:string | null = localStorage.getItem("access_token");
-		console.log(accessToken);
-		getDataUserEndPoint(accessToken)
-		.then(response =>{
-			const userOjb =  adapterUser(response)
-			setObjUser(userOjb)
-		})
 
+		const getInfoAndAdapter = async() =>{
+			const accessToken:string | null = localStorage.getItem("access_token");
+			const userdataJson = await getDataUserEndPoint(accessToken);
+			const userOjb = adapterUser(userdataJson);
+			setObjUser(userOjb);
+		} 
+		getInfoAndAdapter();
 	},[])
 
 

@@ -2,15 +2,16 @@
 
 /**
  * @param accessToken access token "guardado en local storage" 
- * @return  json del endpoint de current user
+ * @return  json del endpoint de las playlist guardadas por el usuario
  */
 
 import { endPoints } from "@/constants";
 
 
-export const getDataUserEndPoint = async(accessToken: string | null): Promise<any> =>{
+export const getSavedPlaylist = async(accessToken: string | null): Promise<any> =>{
     try {
-        const apiUrl:string = endPoints.currentUser;
+
+        const apiUrl:string = endPoints.savedPlaylist;
         const options = {
             method: 'GET', 
             headers: {
@@ -21,10 +22,11 @@ export const getDataUserEndPoint = async(accessToken: string | null): Promise<an
     
         if(!response.ok) throw new Error("not ok: error al obtener el current user, getDataUser.ts" + response.status)
 
-        const userData = response.json();
+        const userData =  response.json();
         return userData;
+    
+
     } catch (error) {
         console.log(error);
     }
 }
-    

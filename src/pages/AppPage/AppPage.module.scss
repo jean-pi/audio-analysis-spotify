@@ -4,8 +4,7 @@
 
 .appPage {
     background-color: $completeBlack;
-    min-width: 100vw;
-    max-width: 100vw;
+    width: calc(100vw - 1rem);
     min-height: 100vh;
     display: grid;
     grid-template-columns: 31% calc(49% - 1rem) 20%;

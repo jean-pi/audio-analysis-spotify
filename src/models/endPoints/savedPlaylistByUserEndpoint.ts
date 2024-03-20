@@ -3,7 +3,7 @@ import {userEndpointModel} from "./userEndpoint"
 
 
 
-export interface playlistUser{
+export interface playlistUserEndpointModel{
     // Playlist user (sin tracks)
     // https://api.spotify.com/v1/me/playlists
     href: string,
@@ -12,7 +12,7 @@ export interface playlistUser{
     offset: number,
     previous: string,
     total: number,
-    items: playlistUser[]
+    items: playlistUserIten[]
 }
 
 export interface playlistUserIten{

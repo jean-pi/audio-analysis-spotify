@@ -1,22 +1,22 @@
 
 export class User{
-    _displayName: string;
-    _photoUrl: string;
-    _urlToPerfil: string;
+    #displayName: string;
+    #photoUrl: string;
+    #urlToPerfil: string;
 
     constructor(displayName: string, photoUrl: string, urlToPerfil: string){
-        this._displayName = displayName;
-        this._photoUrl = photoUrl;
-        this._urlToPerfil = urlToPerfil;
+        this.#displayName = displayName;
+        this.#photoUrl = photoUrl;
+        this.#urlToPerfil = urlToPerfil;
     }
 
     get getdisplayName(): string{
-        return this._displayName;
+        return this.#displayName;
     }
     get getPhotoUrl(): string{
-        return this._photoUrl;
+        return this.#photoUrl;
     }
     get getUrlToPerfil(): string{
-        return this._urlToPerfil;
+        return this.#urlToPerfil;
     }
 }

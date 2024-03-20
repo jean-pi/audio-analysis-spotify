@@ -1,6 +1,6 @@
 import { externalUrl, followers, idsExterno, img, infoArtistLessInformation, reasonForRestrictions } from "./reusableInterface"
 
-export interface savedTrack{
+export interface savedTrackModel{
     // modelo de "tus me gustas"
     // https://api.spotify.com/v1/me/tracks
     href: string,

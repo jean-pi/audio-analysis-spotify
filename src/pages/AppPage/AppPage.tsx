@@ -16,18 +16,20 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 	const [tokenLoaded, setTokenLoaded] = useState(false);
 
 	useEffect(()=>{
-		const accessTokenInLocalstorage = async() => {
+		const isAccessToken = localStorage.getItem("access_token");
+
+		const getInfoAndAdapter = async() => {
 			const accessToken =  await getAccessToken();
 			localStorage.setItem("access_token", accessToken);
 			setTokenLoaded(true)
 		}
-		const isAccessToken = localStorage.getItem("access_token");
 
 		if(!isAccessToken){
-			accessTokenInLocalstorage();
+			getInfoAndAdapter();
 		}else{
 			setTokenLoaded(true)
 		}
+
 
 	},[])
 
