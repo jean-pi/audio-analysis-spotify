@@ -5,7 +5,6 @@
   /* suaviza los bordes de las letras */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -13,9 +12,11 @@
 }
 
 body{
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+  overflow-x: hidden;
+
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

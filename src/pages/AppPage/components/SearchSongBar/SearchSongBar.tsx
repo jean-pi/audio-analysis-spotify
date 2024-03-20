@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React from 'react';
 import styles from './SearchSongBar.module.scss';
 import { ICON_FIND, PLACEHOLDER_SEARCH_SONG_BAR_TEXT } from '@/constants';

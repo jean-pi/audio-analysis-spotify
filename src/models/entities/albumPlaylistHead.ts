@@ -18,3 +18,7 @@ class AlbumPlaylistCabecera extends AlbumPLaylistCard{
         return this._duration;
     }
 }
+
+
+const a = new AlbumPlaylistCabecera(1,1,"1","1","1",true)
+console.log(a)

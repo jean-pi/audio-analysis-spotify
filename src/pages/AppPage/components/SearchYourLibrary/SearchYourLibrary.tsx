@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import React from 'react';
 import styles from './SearchYourLibrary.module.scss';
 import { YOUR_LIBRARY_SEARCH_BAR } from '@/constants';

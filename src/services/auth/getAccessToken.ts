@@ -1,9 +1,11 @@
+import { endPoints, redirectUrlConstant } from "@/constants";
 
 
 export const getAccessToken = async (): Promise<any> => {
     try {
-        const accessTokenUrl: string = "https://accounts.spotify.com/api/token";
-        const redirectUrl: string = "http://localhost:5173/app/";
+        const accessTokenUrl: string = endPoints.accessToken;
+          const redirectUrl: string = redirectUrlConstant;
+
         const urlParams = new URLSearchParams(window.location.search);
         const codeUrl: string | null = urlParams.get("code");
         const codeVerifier: string | null = localStorage.getItem('code_verifier');

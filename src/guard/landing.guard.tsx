@@ -1,7 +1,7 @@
-"use client";
+// "use client";
 import { Navigate, Outlet } from "react-router-dom";
 import React from 'react';
-import { restrictedRoutes } from "@/constants";
+import { restrictedRoutes } from "../constants/routes";
 
 
 export type LandindGuardProps = {

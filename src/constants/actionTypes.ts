@@ -17,7 +17,7 @@ export const LINK_WARNING_PRIVACY = {
     url: "https://www.spotify.com/us/legal/privacy-policy/"
 }
 
-// text of landin page
+// main text of landin page
 export const MAIN_TEXT_PRESENTATION = {
     line1: "audio",
     line2: "analysis",
@@ -44,6 +44,7 @@ export const LINKS_FOOTER_APP = {
     instagran: {text: "Instagram", url: "https://www.instagram.com/jeanpierre_veliz/"}
 }
 
+export const DATA_DESCR_USER_CARD = "go to your spotify profile"
 
 //your library
 export const YOUR_LIBRARY_HEAD = {

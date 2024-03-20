@@ -1,5 +1,5 @@
 import { externalUrl, followers, img } from "./reusableInterface"
-import { user } from "./userEndpoint"
+import {userEndpointModel} from "./userEndpoint"
 
 
 
@@ -36,7 +36,7 @@ export interface playlistUserItenOwnerData{
     followers: followers,
     href: string,
     id: string,
-    type: user,
+    type: userEndpointModel,
     uri: string,
     display_name: string
 }

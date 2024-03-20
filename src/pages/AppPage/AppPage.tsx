@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect } from 'react';
+// "use client";
+import React, { useEffect, useState } from 'react';
 import styles from './AppPage.module.scss';
 import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
 import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/constants';
@@ -13,20 +13,34 @@ export type AppPageProps = {
 
 const AppPage: React.FC<AppPageProps>  = ({}) => {
 
+	const [tokenLoaded, setTokenLoaded] = useState(false);
+
 	useEffect(()=>{
 		const accessTokenInLocalstorage = async() => {
 			const accessToken =  await getAccessToken();
 			localStorage.setItem("access_token", accessToken);
+			setTokenLoaded(true)
 		}
 		const isAccessToken = localStorage.getItem("access_token");
 
 		if(!isAccessToken){
 			accessTokenInLocalstorage();
+		}else{
+			setTokenLoaded(true)
 		}
 
 	},[])
 
+	if(!tokenLoaded){
+		return(
+			<div className={styles.appPage}></div>
+		)
+
+	}
+
+	if(tokenLoaded){
 	return (
+
 		<div className={styles.appPage}>
  			
 			<header className={styles.layerHeaderApp}>
@@ -247,8 +261,6 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 			</div>
 
-
-
 			<div className={styles.analysisAudioContainer}>
 			</div>
 
@@ -265,6 +277,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 
  		</div>
 	);
+}
 };
 
 export default AppPage;

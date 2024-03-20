@@ -1,9 +1,9 @@
-"use client";
+// "use client";
 import React from 'react';
 import styles from './Landing.module.scss';
 import { useEffect } from 'react';
 
-import { HydraBackground } from './components';
+// import { HydraBackground } from './components';
 
 import { 
 	MAIN_TEXT_PRESENTATION, 
