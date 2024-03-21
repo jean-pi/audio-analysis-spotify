@@ -100,10 +100,8 @@
         }
         &::-webkit-scrollbar {
             position: absolute;
-
             width: .5rem;
             transition: background-color 2s ease-in 100ms;
-    
             @media (max-width: 27.118em) {
                 display: none;
             }  

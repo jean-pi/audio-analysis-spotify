@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './AppPage.module.scss';
 import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
-import { ALBUM_PLAYLIST_DATA, LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/constants';
+import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
@@ -60,8 +60,8 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 					<SearchYourLibrary/>
 				</div>
 				<div className={styles.usersLibraryContainer_content}>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[0]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
+					<PlaylistAlbumCard/>
+					{/* <PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[2]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[3]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[4]}/>
@@ -79,7 +79,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[6]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[7]}/>
 					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[8]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/>
+					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/> */}
 				</div>
 			</div>
 

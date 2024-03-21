@@ -1,21 +1,21 @@
 
 
 export class AlbumPlaylistCardEntitie{
-    private name: string;
-    private photoUrl: string;
-    private type: string;
-    private numberOfSongs: number;
-    private duration: string;
-    private isSelected: boolean;
+    name: string;
+    photoUrl: string;
+    type: string;
+    numberOfSongs: number;
+    owner: string
+    isSelected: boolean;
 
     
-    constructor(name: string, photoUrl: string, type: string, isSelected: boolean = false, numberOfSongs: number, duration: string){
+    constructor(name: string, photoUrl: string, type: string, numberOfSongs: number, owner: string){
         this.name = name;
         this.photoUrl = photoUrl;
         this.type = type;
         this.numberOfSongs = numberOfSongs;
-        this.duration = duration;
-        this.isSelected = isSelected;
+        this.owner = owner;
+        this.isSelected = false;
     }
 
     
@@ -57,14 +57,6 @@ export class AlbumPlaylistCardEntitie{
 
     public setNumberOfSongs(numberOfSongs: number): void {
         this.numberOfSongs = numberOfSongs;
-    }
-
-    public getDuration(): string {
-        return this.duration;
-    }
-
-    public setDuration(duration: string): void {
-        this.duration = duration;
     }
 
     public isIsSelected(): boolean {

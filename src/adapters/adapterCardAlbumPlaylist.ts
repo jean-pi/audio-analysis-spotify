@@ -1,7 +1,7 @@
 
 import { AlbumPlaylistCardEntitie } from "@/models";
 import { playlistUserEndpointModel } from "@/models";
-import { userAlbumEndpointModel } from "@/models";
+// import { userAlbumEndpointModel } from "@/models";
 
 /**
  * @param jsonPlaylistUser json de respuesta del endpoint basado en el model "playlistUserEndpointModel"
@@ -12,7 +12,10 @@ import { userAlbumEndpointModel } from "@/models";
 
 export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointModel) =>{
     const itens = jsonPlaylistUser.items;
-
-    console.log(itens);
-    
+    const playlist: AlbumPlaylistCardEntitie[] = [];
+    itens.forEach(iten =>{
+        let objPlaylist = new AlbumPlaylistCardEntitie(iten.name,iten.images[0].url, iten.type, iten.tracks.total, iten.owner.display_name)
+        playlist.push(objPlaylist);
+    })
+    return playlist;
 }

@@ -1,3 +1,2 @@
-export * from './albumPlaylistCard';
-export * from './albumPlaylistHead';
+export * from './AlbumPlaylistCardEntitie';
 export * from './user';
