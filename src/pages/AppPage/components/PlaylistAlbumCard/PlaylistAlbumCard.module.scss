@@ -12,7 +12,9 @@
     &_img{
         width: 100%;
         border-radius: 6px;
-        margin-bottom: .7rem
+        margin-bottom: .5rem;
+        aspect-ratio: 1/1;
+        object-fit: cover;
     }
     &_name{
         @include inter-Font($white_font, .35vw, .7rem, 600);
@@ -22,7 +24,7 @@
     }
     &_details{
         @include inter-Font($white_offWhite_font, .29vw, .7rem, 500);
-        margin-top: .5rem;
+        margin-top: .3rem;
         overflow:hidden;
         white-space:nowrap;
         text-overflow: ellipsis;

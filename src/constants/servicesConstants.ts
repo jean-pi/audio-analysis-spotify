@@ -8,8 +8,9 @@ export const endPoints = {
     currentUser: "https://api.spotify.com/v1/me",
     savedTracks: "https://api.spotify.com/v1/me/tracks",
     savedPlaylist: "https://api.spotify.com/v1/me/playlists",
+    savedAlbums: "https://api.spotify.com/v1/me/albums",
 }
 
-export const scopesAuth = 'user-read-private user-read-email playlist-read-private';
+export const scopesAuth = 'user-read-private user-read-email playlist-read-private user-library-read';
 
 

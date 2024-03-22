@@ -8,10 +8,10 @@
 import { endPoints } from "@/constants";
 
 
-export const getSavedPlaylist = async(accessToken: string | null): Promise<any> =>{
+export const getSavedAlbum = async(accessToken: string | null): Promise<any> =>{
     try {
 
-        const apiUrl:string = endPoints.savedPlaylist + "?limit=10";
+        const apiUrl:string = endPoints.savedAlbums + "?limit=10";
         const options = {
             method: 'GET', 
             headers: {

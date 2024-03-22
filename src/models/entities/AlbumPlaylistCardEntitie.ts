@@ -1,20 +1,22 @@
 
 
 export class AlbumPlaylistCardEntitie{
-    name: string;
-    photoUrl: string;
-    type: string;
-    numberOfSongs: number;
-    owner: string
-    isSelected: boolean;
+    private name: string;
+    private photoUrl: string;
+    private type: string;
+    private numberOfSongs: number;
+    private owner: string;
+    private id: string;
+    private isSelected: boolean;
 
     
-    constructor(name: string, photoUrl: string, type: string, numberOfSongs: number, owner: string){
+    constructor(name: string, photoUrl: string, type: string, numberOfSongs: number, owner: string, id: string){
         this.name = name;
         this.photoUrl = photoUrl;
-        this.type = type;
+        this.type = type.charAt(0).toUpperCase() + type.slice(1);;
         this.numberOfSongs = numberOfSongs;
         this.owner = owner;
+        this.id = id;
         this.isSelected = false;
     }
 
@@ -31,41 +33,32 @@ export class AlbumPlaylistCardEntitie{
         return this.name;
     }
 
-    public setName(name: string): void {
-        this.name = name;
-    }
-
     public getPhotoUrl(): string {
         return this.photoUrl;
-    }
-
-    public setPhotoUrl(photoUrl: string): void {
-        this.photoUrl = photoUrl;
     }
 
     public getType(): string {
         return this.type;
     }
 
-    public setType(type: string): void {
-        this.type = type;
-    }
-
     public getNumberOfSongs(): number {
         return this.numberOfSongs;
-    }
-
-    public setNumberOfSongs(numberOfSongs: number): void {
-        this.numberOfSongs = numberOfSongs;
     }
 
     public isIsSelected(): boolean {
         return this.isSelected;
     }
 
-    public setIsSelected(isSelected: boolean): void {
-        this.isSelected = isSelected;
+    public getOwner(): string {
+        return this.owner;
     }
-  
+
+    public getId(): string {
+        return this.id;
+    }
+
+
+
+
 }
 
