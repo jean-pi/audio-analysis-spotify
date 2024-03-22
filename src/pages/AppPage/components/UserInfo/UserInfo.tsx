@@ -5,10 +5,12 @@ import { getDataUserEndPoint } from '@/services';
 import { adapterUser } from '@/adapters';
 import { User } from '@/models';
 import { DATA_DESCR_USER_CARD } from '@/constants';
+import useAppContext from '../../hooks/useAppContext';
 
 const UserInfo: React.FC  = () => {
 
-	const [objUser, setObjUser] = useState<User>()
+	const [objUser, setObjUser] = useState<User>();
+	const {infoInContext, setInfoInContext} = useAppContext();
 
 	useEffect( ()=>{
 
@@ -17,6 +19,9 @@ const UserInfo: React.FC  = () => {
 			const userdataJson = await getDataUserEndPoint(accessToken);
 			const userOjb = adapterUser(userdataJson);
 			setObjUser(userOjb);
+			setInfoInContext({
+				userName: userOjb.getdisplayName,
+			})
 		} 
 		getInfoAndAdapter();
 	},[])

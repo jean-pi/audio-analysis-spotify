@@ -27,6 +27,8 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointM
     //     owner: 
     // }
 
+  
+
     const playlist: AlbumPlaylistCardEntitie[] = [];
     itemsPlaylistUser.forEach(iten =>{
         let objPlaylist = new AlbumPlaylistCardEntitie(iten.name,iten.images[0].url, iten.type, iten.tracks.total, iten.owner.display_name, iten.id)

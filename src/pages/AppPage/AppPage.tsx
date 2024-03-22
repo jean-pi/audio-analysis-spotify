@@ -6,6 +6,7 @@ import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/const
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
+import useAppContext from './hooks/useAppContext';
 
 export type AppPageProps = {
 	// types...
@@ -14,6 +15,8 @@ export type AppPageProps = {
 const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 	const [tokenLoaded, setTokenLoaded] = useState(false);
+	const {infoInContext, setInfoInContext} = useAppContext();
+
 
 	useEffect(()=>{
 		const isAccessToken = localStorage.getItem("access_token");
@@ -32,6 +35,11 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 
 	},[])
+
+
+	useEffect(()=>{
+		console.log(infoInContext)
+	},[infoInContext])
 
 	if(!tokenLoaded){
 		return(
@@ -61,25 +69,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 				</div>
 				<div className={styles.usersLibraryContainer_content}>
 					<PlaylistAlbumCard/>
-					{/* <PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[1]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[2]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[3]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[4]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[5]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[6]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[7]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[8]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[10]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[11]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[12]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[13]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[4]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[5]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[6]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[7]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[8]}/>
-					<PlaylistAlbumCard objCard={ALBUM_PLAYLIST_DATA[9]}/> */}
+
 				</div>
 			</div>
 
