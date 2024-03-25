@@ -2,7 +2,7 @@
 import { 
         AlbumPlaylistCardEntitie, 
         playlistUserIten, 
-        userAlbumEndpointModel, 
+        AlbumsUserEndpointModel, 
         playlistUserEndpointModel, 
         userAlbumItens} from "@/models";
 
@@ -13,21 +13,10 @@ import {
  * @return  album_playlist_user[{},{},{},{}...], array que contiene objetos de album y playlist guardados por el user
  */
 
-
-export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointModel, jsonAlbumsUser: userAlbumEndpointModel) =>{
+ 
+export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointModel, jsonAlbumsUser: AlbumsUserEndpointModel) =>{
     const itemsPlaylistUser: playlistUserIten[] = jsonPlaylistUser.items;
     const itemsAlbumsUser: userAlbumItens[]  = jsonAlbumsUser.items;
-
-
-    // const jsonLikedSong = {
-    //     name: "Liked Songs",
-    //     imageUrl: "",
-    //     type: "Playlist",
-    //     numOfTracks: 0,
-    //     owner: 
-    // }
-
-  
 
     const playlist: AlbumPlaylistCardEntitie[] = [];
     itemsPlaylistUser.forEach(iten =>{

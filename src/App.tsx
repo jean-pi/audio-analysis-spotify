@@ -11,20 +11,24 @@ import AppContextProvider from "@/pages/AppPage/context/appContext"
 const AppPage = lazy(()=> import("@/pages/AppPage/AppPage"));
 const Landing = lazy(()=> import("@/pages/Landing/Landing"));
 
+import {QueryClient,  QueryClientProvider} from '@tanstack/react-query'
+
+const queryClient = new QueryClient()
+
 function App() {
   return (
     <Suspense fallback={<LazyWaiting/>}>
-      <Routes>
-        <Route element={<AuthGuard/>}>
-          <AppContextProvider>
-            <Route path={restrictedRoutes.APP} element={<AppPage/>}/>
-          </AppContextProvider>
-        </Route>
-        <Route element={<LandindGuard/>}>
-          <Route path={publicRoutes.LANDING} element={<Landing/>}/>
-        </Route>
-        <Route path="*" element={<Navigate to={restrictedRoutes.APP}/>} />
-      </Routes>
+      <QueryClientProvider client={queryClient}>
+        <Routes>
+          <Route element={<AuthGuard/>}>
+              <Route path={restrictedRoutes.APP} element={<AppContextProvider> <AppPage/> </AppContextProvider>}/>
+          </Route>
+          <Route element={<LandindGuard/>}>
+            <Route path={publicRoutes.LANDING} element={<Landing/>}/>
+          </Route>
+          <Route path="*" element={<Navigate to={restrictedRoutes.APP}/>} />
+        </Routes>
+      </QueryClientProvider>
     </Suspense>
   )
 }

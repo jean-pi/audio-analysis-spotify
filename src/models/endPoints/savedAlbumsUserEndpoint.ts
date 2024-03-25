@@ -1,7 +1,7 @@
 import { externalUrl, idsExterno, img, infoArtistLessInformation, reasonForRestrictions } from "./reusableInterface"
 
 
-export interface userAlbumEndpointModel{
+export interface AlbumsUserEndpointModel{
     // albunes del usuario actual
     // https://api.spotify.com/v1/me/albums
     href: string,

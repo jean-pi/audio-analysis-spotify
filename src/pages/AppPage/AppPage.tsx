@@ -15,7 +15,6 @@ export type AppPageProps = {
 const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 	const [tokenLoaded, setTokenLoaded] = useState(false);
-	const {infoInContext, setInfoInContext} = useAppContext();
 
 
 	useEffect(()=>{
@@ -37,9 +36,6 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 	},[])
 
 
-	useEffect(()=>{
-		console.log(infoInContext)
-	},[infoInContext])
 
 	if(!tokenLoaded){
 		return(

@@ -1,12 +1,13 @@
 // "use client";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import styles from './PlaylistAlbumCard.module.scss';
 import { getSavedPlaylist } from '@/services';
-import { playlistUserEndpointModel, userAlbumEndpointModel} from '@/models';
+import { playlistUserEndpointModel, AlbumsUserEndpointModel} from '@/models';
 import { adapterCardAlbumPlaylist } from '@/adapters';
 import { AlbumPlaylistCardEntitie } from "@/models";
 import { getSavedAlbum } from '@/services/getDataEndpoint/getSavedAlbum';
+import { useQuery } from '@tanstack/react-query';
 
 
 
@@ -16,27 +17,48 @@ const PlaylistAlbumCard: React.FC  = () => {
 	const [arrPlaylistAlbumByUser, setArrPlylistAlbumByUser] = useState<AlbumPlaylistCardEntitie[]>([])
 
 
-	useEffect(()=>{
+	const queryGetSavedAlbum = useQuery({
+		queryKey: ['cacheSavedAlbums'], // manejo de cache
+		queryFn: getSavedAlbum,  // este servicion deve devolver la data o error, 
+		//saber cuando esta cargando, cuando da un error, cuando devuelve la data
+	})
 
-		const accessToken = localStorage.getItem("access_token")
+	const queryGetSavedPlaylist = useQuery({
+		queryKey: ['cacheSavedPlaylist'],
+		queryFn: getSavedPlaylist,
+	})
 
-		const getAndAdapterPlaylistAlbumUser = async() =>{
-			const jsonSavedPlaylistByUser: playlistUserEndpointModel = await getSavedPlaylist(accessToken);
-			const jsonSavedAlbumsByUser: userAlbumEndpointModel = await getSavedAlbum(accessToken);
+	if(queryGetSavedAlbum.isError || queryGetSavedPlaylist.isError){
+		console.log(queryGetSavedAlbum.error, queryGetSavedPlaylist.error);
+	}
 
-			const playlistList: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(jsonSavedPlaylistByUser,jsonSavedAlbumsByUser);
+	if(queryGetSavedAlbum.isLoading || queryGetSavedPlaylist.isLoading){
+		console.log("...")
+	}
 
-			setArrPlylistAlbumByUser(playlistList);
-		}
+	if(queryGetSavedAlbum.data && queryGetSavedPlaylist.data){
+		(async() => {
+			const jsonSavedPlaylist:playlistUserEndpointModel = await queryGetSavedPlaylist.data.json();
+			// const jsonSavedAlbums:AlbumsUserEndpointModel = await queryGetSavedAlbum.data.json();
+			// const playlistList: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(jsonSavedPlaylist,jsonSavedAlbums);
+			// console.log(playlistList)
+			// setArrPlylistAlbumByUser(playlistList);	
+		}) ();
+	}
 
-		getAndAdapterPlaylistAlbumUser()
+	// const getAndAdapterPlaylistAlbumUser = async() =>{
+	// 	const resServiceGetSavedAlbum = await getSavedAlbum();
+	// 	const resServiceGetSavedPlaylist = await getSavedPlaylist();
+	// 	if(!resServiceGetSavedAlbum.ok) throw new Error("not ok: error al obtener los albums del usuario, getSavedAlbum.ts" + resServiceGetSavedAlbum.status);
+	// 	if(!resServiceGetSavedPlaylist.ok) throw new Error("not ok: error al obtener las playlist del usuario, getSavedAlbum.ts" + resServiceGetSavedAlbum.status)
+	// 	const jsonSavedAlbumsByUser: userAlbumEndpointModel = await resServiceGetSavedAlbum.json();
+	// 	const jsonSavedPlaylistByUser: playlistUserEndpointModel = await resServiceGetSavedPlaylist.json();
+	// 	const playlistList: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(jsonSavedPlaylistByUser,jsonSavedAlbumsByUser);
+	// 	setArrPlylistAlbumByUser(playlistList);	
+	// }
 
-	},[])
-
-	
 
 	return (
-
 		<>
 			{arrPlaylistAlbumByUser.map(iten => (
 				<div key={iten.getId()} className={styles.playlistAlbumCard}>

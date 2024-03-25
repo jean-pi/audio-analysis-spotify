@@ -3,7 +3,6 @@ import { codeVerifier, generateCodeChallenge } from "./codeChallengeVerifierGene
 
 export const linkAuth = async() =>{
   
-  // const redirectUri: string = 'http://localhost:5173/app/';
   const redirectUri: string = redirectUrlConstant;
   const scopes: string = scopesAuth;
   const authUrl: URL = new URL(endPoints.authorize)
