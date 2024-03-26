@@ -18,7 +18,7 @@ export const getDataUserEndPoint = async(): Promise<any> =>{
     }
     
         const apiUrl:string = endPoints.currentUser;
-        return await fetch(apiUrl, options);
+        return (await fetch(apiUrl, options)).json();
 
 }
     

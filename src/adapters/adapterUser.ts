@@ -7,10 +7,10 @@ import { userEndpointModel } from "@/models/endPoints";
  * @return  objeto que contiene la parametros del usuario lista para usar en componentes
  */
 
-export const adapterUser = (userJson: userEndpointModel) =>{
+export const adapterUser = (userJson: userEndpointModel): User =>{
     const photoUrl = userJson.images[0].url;
     const displayName = userJson.display_name;
     const urlToPerfil = userJson.external_urls.spotify;
-    let user = new User(displayName, photoUrl, urlToPerfil);
+    let user: User = new User(displayName, photoUrl, urlToPerfil);
     return user;
 }

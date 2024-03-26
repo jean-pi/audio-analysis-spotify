@@ -5,12 +5,12 @@ export class AlbumPlaylistCardEntitie{
     private photoUrl: string;
     private type: string;
     private numberOfSongs: number;
-    private owner: string;
+    private owner: string | undefined;
     private id: string;
     private isSelected: boolean;
 
     
-    constructor(name: string, photoUrl: string, type: string, numberOfSongs: number, owner: string, id: string){
+    constructor(name: string, photoUrl: string, type: string, numberOfSongs: number, owner: string | undefined, id: string){
         this.name = name;
         this.photoUrl = photoUrl;
         this.type = type.charAt(0).toUpperCase() + type.slice(1);;
@@ -49,7 +49,7 @@ export class AlbumPlaylistCardEntitie{
         return this.isSelected;
     }
 
-    public getOwner(): string {
+    public getOwner(): string | undefined {
         return this.owner;
     }
 
