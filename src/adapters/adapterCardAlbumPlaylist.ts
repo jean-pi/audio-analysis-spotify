@@ -1,10 +1,8 @@
 
 import { 
-        AlbumPlaylistCardEntitie, 
-        playlistUserIten, 
+        AlbumPlaylistCardEntitie,  
         AlbumsUserEndpointModel, 
-        playlistUserEndpointModel, 
-        userAlbumItens} from "@/models";
+        playlistUserEndpointModel, } from "@/models";
 
 
 /**
@@ -15,16 +13,33 @@ import {
 
  
 export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointModel, jsonAlbumsUser: AlbumsUserEndpointModel) =>{
-    const itemsPlaylistUser: playlistUserIten[] = jsonPlaylistUser.items;
-    const itemsAlbumsUser: userAlbumItens[]  = jsonAlbumsUser.items;
 
     const playlist: AlbumPlaylistCardEntitie[] = [];
-    itemsPlaylistUser.forEach(iten =>{
-        let objPlaylist = new AlbumPlaylistCardEntitie(iten.name,iten.images[0].url, iten.type, iten.tracks.total, iten.owner.display_name, iten.id)
+
+    // const savedSongs = new AlbumPlaylistCardEntitie(
+    //     "Saved Songs",
+
+    // )
+
+    jsonPlaylistUser.items.forEach(item =>{
+        let objPlaylist = new AlbumPlaylistCardEntitie(
+            item.name,
+            item.images[0].url,
+            item.type, 
+            item.tracks.total, 
+            item.owner.display_name, 
+            item.id)
         playlist.push(objPlaylist);
     })
-    itemsAlbumsUser.forEach(iten =>{
-        let objPlaylist = new AlbumPlaylistCardEntitie(iten.album.name,iten.album.images[0].url, iten.album.type, iten.album.tracks.total, iten.album.artists[0].name, iten.album.id)
+
+    jsonAlbumsUser.items.forEach(item =>{
+        let objPlaylist = new AlbumPlaylistCardEntitie(
+            item.album.name,
+            item.album.images[0].url, 
+            item.album.type, 
+            item.album.tracks.total, 
+            item.album.artists[0].name, 
+            item.album.id)
         playlist.push(objPlaylist);
     })
     

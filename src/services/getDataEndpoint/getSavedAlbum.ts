@@ -5,10 +5,16 @@
  * @return  json del endpoint de las playlist guardadas por el usuario
  */
 
-import { endPoints, options } from "@/constants";
+import { endPoints} from "@/constants";
 
 
 export const getSavedAlbum = async(): Promise<any> =>{
+    const options = {
+        method: 'GET', 
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+        }
+    }
     const apiUrl:string = endPoints.savedAlbums + "?limit=10";
-    return await fetch(apiUrl, options);
+    return (await fetch(apiUrl, options)).json();
 }

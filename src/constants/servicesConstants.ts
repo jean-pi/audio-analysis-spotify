@@ -13,9 +13,4 @@ export const endPoints = {
 
 export const scopesAuth = 'user-read-private user-read-email playlist-read-private user-library-read';
 
-export const options = {
-    method: 'GET', 
-    headers: {
-        'Authorization': 'Bearer ' + localStorage.getItem("access_token")
-    }
-}
+

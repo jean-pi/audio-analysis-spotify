@@ -1,5 +1,5 @@
 // "use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from 'react';
 import styles from './PlaylistAlbumCard.module.scss';
 import { getSavedPlaylist } from '@/services';
@@ -7,7 +7,7 @@ import { playlistUserEndpointModel, AlbumsUserEndpointModel} from '@/models';
 import { adapterCardAlbumPlaylist } from '@/adapters';
 import { AlbumPlaylistCardEntitie } from "@/models";
 import { getSavedAlbum } from '@/services/getDataEndpoint/getSavedAlbum';
-import { useQuery } from '@tanstack/react-query';
+import { useQueryFetch } from '../../hooks';
 
 
 
@@ -15,18 +15,8 @@ import { useQuery } from '@tanstack/react-query';
 const PlaylistAlbumCard: React.FC  = () => {
 
 	const [arrPlaylistAlbumByUser, setArrPlylistAlbumByUser] = useState<AlbumPlaylistCardEntitie[]>([])
-
-
-	const queryGetSavedAlbum = useQuery({
-		queryKey: ['cacheSavedAlbums'], // manejo de cache
-		queryFn: getSavedAlbum,  // este servicion deve devolver la data o error, 
-		//saber cuando esta cargando, cuando da un error, cuando devuelve la data
-	})
-
-	const queryGetSavedPlaylist = useQuery({
-		queryKey: ['cacheSavedPlaylist'],
-		queryFn: getSavedPlaylist,
-	})
+	const queryGetSavedAlbum = useQueryFetch<AlbumsUserEndpointModel>(["getSavedAlbum"], getSavedAlbum);
+	const queryGetSavedPlaylist = useQueryFetch<playlistUserEndpointModel>(["getSavedPlaylist"],getSavedPlaylist)
 
 	if(queryGetSavedAlbum.isError || queryGetSavedPlaylist.isError){
 		console.log(queryGetSavedAlbum.error, queryGetSavedPlaylist.error);
@@ -36,15 +26,15 @@ const PlaylistAlbumCard: React.FC  = () => {
 		console.log("...")
 	}
 
-	if(queryGetSavedAlbum.data && queryGetSavedPlaylist.data){
-		(async() => {
-			const jsonSavedPlaylist:playlistUserEndpointModel = await queryGetSavedPlaylist.data.json();
-			// const jsonSavedAlbums:AlbumsUserEndpointModel = await queryGetSavedAlbum.data.json();
-			// const playlistList: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(jsonSavedPlaylist,jsonSavedAlbums);
-			// console.log(playlistList)
-			// setArrPlylistAlbumByUser(playlistList);	
-		}) ();
-	}
+	// podria usar directamente la info cuando llegue del useQueryFetch() pero necesito pasarla primero por mi adapter
+	useEffect(() => {
+        if (queryGetSavedAlbum.data && queryGetSavedPlaylist.data) {
+            const jsonSavedPlaylist: playlistUserEndpointModel = queryGetSavedPlaylist.data;
+            const jsonSavedAlbums: AlbumsUserEndpointModel = queryGetSavedAlbum.data;
+            const objsPlaylistAlbum: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(jsonSavedPlaylist, jsonSavedAlbums);
+            setArrPlylistAlbumByUser(objsPlaylistAlbum);
+        }
+    }, [queryGetSavedAlbum.data, queryGetSavedPlaylist.data]);
 
 	// const getAndAdapterPlaylistAlbumUser = async() =>{
 	// 	const resServiceGetSavedAlbum = await getSavedAlbum();

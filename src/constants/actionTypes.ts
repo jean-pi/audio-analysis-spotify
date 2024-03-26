@@ -67,3 +67,8 @@ export const HEAD_SONG_CONTAINER = {
     album: "Álbum"
 }
 
+// saved songs card
+
+export const SAVED_SONGS_CARD_CONTANTS = {
+    name: "Saved Songs"
+}
