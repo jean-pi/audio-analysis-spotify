@@ -48,3 +48,23 @@
   }
 }
 
+
+.loadingContainer{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  border: 1px solid #00000000;
+  text-decoration: none;
+  padding-left: 6px;
+  &_text{
+    @include inter-Font(#00000000, .24vw, .6rem, 600);
+    background-color: $loadingExistingItem;
+    border-radius: 4px;
+  }
+  &_img{
+    border-radius: 100%;
+    min-width: 1.6rem;
+    min-height: 1.6rem;
+    background-color: $loadingExistingItem;
+  }
+}

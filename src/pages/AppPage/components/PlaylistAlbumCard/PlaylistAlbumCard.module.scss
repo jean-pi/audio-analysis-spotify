@@ -38,27 +38,26 @@
 .albumPlaylistCardLoading{
     padding: clamp(.1rem, .3rem + .3vw, 10rem);
     border-radius: 6px;
-    background-color: $albumSongHover;
+    background-color: $loadingAroundItem;
     margin: .3rem;
     &_img{
         width: 100%;
         border-radius: 6px;
         margin-bottom: clamp(.2rem, .4rem + .3vw, 10rem);
         aspect-ratio: 1/1;
-        background-color: rgb(28, 28, 28);
+        background-color: $loadingExistingItem;
     }
     &_name{
         min-width: 100%;
         @include inter-Font(rgba(255, 255, 255, 0), .29vw, .7rem, 600);
-        background-color: rgb(28, 28, 28);
+        background-color: $loadingExistingItem;
         border-radius: 6px;
         margin-bottom: .4rem;
     }
     &_details{
         width: 80%;
         @include inter-Font(rgba(255, 255, 255, 0), .24vw, .7rem, 500);
-        color: rgba(255, 255, 255, 0);
         border-radius: 6px;
-        background-color: rgb(28, 28, 28);
+        background-color: $loadingExistingItem;
     }
 }

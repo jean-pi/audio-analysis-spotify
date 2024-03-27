@@ -67,11 +67,3 @@ export const HEAD_SONG_CONTAINER = {
     album: "Álbum"
 }
 
-// saved songs card
-
-export const SAVED_SONGS_CARD_CONSTANTS = {
-    name: "Saved Songs",
-    img: "https://misc.scdn.co/liked-songs/liked-songs-300.png",
-    type: "Playlist",
-    id: "0"
-}

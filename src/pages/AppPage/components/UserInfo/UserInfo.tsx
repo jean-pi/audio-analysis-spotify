@@ -5,62 +5,39 @@ import { getDataUserEndPoint } from '@/services';
 import { adapterUser } from '@/adapters';
 import { User, userEndpointModel } from '@/models';
 import { DATA_DESCR_USER_CARD } from '@/constants';
-// import useAppContext from '../../hooks/useAppContext';
+import useAppContext from '../../hooks/useAppContext';
 import { useQueryFetch } from '../../hooks';
+import { useEffect } from 'react';
 
 const UserInfo: React.FC  = () => {
 
-	// const [objUser, setObjUser] = useState<User>();
-	// const {setInfoInContext} = useAppContext();
-	const queryGetSavedPlaylist = useQueryFetch<userEndpointModel>(["getDataUser"], getDataUserEndPoint)
+	const {setInfoInContext} = useAppContext();
+	const queryGetUserData = useQueryFetch<userEndpointModel>(["getDataUser"], getDataUserEndPoint)
 
+	useEffect(()=>{
+		if(!queryGetUserData.isLoading && queryGetUserData.data){
+			const objUser: User = adapterUser(queryGetUserData.data)
+			setInfoInContext({
+				userName: objUser.getdisplayName
+			})
+		}
+	},[queryGetUserData.isLoading,queryGetUserData.data])
+	
 
-	if(queryGetSavedPlaylist.isError){
-		console.log(queryGetSavedPlaylist.error)
+	if(queryGetUserData.isError){
+		console.log(queryGetUserData.error)
 	}
 
-	if(queryGetSavedPlaylist.isLoading){
+	if(queryGetUserData.isLoading){
 		return (
-			<div>...........###</div>
+			<div className={styles.loadingContainer}>
+				<div className={styles.loadingContainer_text}>#########</div>
+				<div className={styles.loadingContainer_img}></div>
+			</div>
 		)
 	}
 
-	const objUser: User | null = queryGetSavedPlaylist.data ? adapterUser(queryGetSavedPlaylist.data) : null;
-
-	// setInfoInContext({
-	// 	userName: userOjb.getdisplayName,
-	// })
-	// useEffect(()=>{
-	// 	if(queryGetSavedPlaylist.data){
-	// 		const userOjb: User = adapterUser(queryGetSavedPlaylist.data);
-	// 		// setObjUser(userOjb);
-	// 		setInfoInContext({
-	// 			userName: userOjb.getdisplayName,
-	// 		})
-	// 	}
-
-	// },[queryGetSavedPlaylist.data])
-
-
-	// useEffect( ()=>{
-
-	// 	const getInfoAndAdapter = async() =>{
-	// 		try {
-	// 			const resUserdata = await getDataUserEndPoint();
-	// 			if(!resUserdata.ok) throw new Error("not ok: error al obtener usar data" + resUserdata.status);
-	// 			const jsonUserData:userEndpointModel =  await resUserdata.json()
-	// 			const userOjb = adapterUser(jsonUserData);
-	// 			setObjUser(userOjb);
-	// 			setInfoInContext({
-	// 				userName: userOjb.getdisplayName,
-	// 			})
-	// 		} catch (error) {
-				
-	// 		}
-
-	// 	} 
-	// 	getInfoAndAdapter();
-	// },[])
+	const objUser: User | null = !queryGetUserData.isLoading && queryGetUserData.data ? adapterUser(queryGetUserData.data) : null;
 
 
 	return (

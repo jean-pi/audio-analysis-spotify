@@ -16,6 +16,7 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointM
 
     const playlistEnAlbums: AlbumPlaylistCardEntitie[] = [];
 
+    
     jsonPlaylistUser.items.forEach(item =>{
         let objPlaylist = new AlbumPlaylistCardEntitie(
             item.name,
