@@ -6,7 +6,6 @@ import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/const
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
-import useAppContext from './hooks/useAppContext';
 
 export type AppPageProps = {
 	// types...

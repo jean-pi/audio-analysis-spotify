@@ -29,7 +29,7 @@ const Landing: React.FC<LandingProps>  = ({}) => {
 	return (
 		<div className={styles.landing}>
  			
-			{/* <HydraBackground/>	 */}
+			<HydraBackground/>	
 
 			<div className={styles.layerMainText}>
 				<h1 tabIndex={0} className={styles.layerMainText_h1}><span className={styles.layerMainText_h1_span}>{MAIN_TEXT_PRESENTATION.line1} {MAIN_TEXT_PRESENTATION.line2}&nbsp;{MAIN_TEXT_PRESENTATION.line3}</span><br /><span className={styles.layerMainText_h1_span}>{MAIN_TEXT_PRESENTATION.line4}</span></h1>

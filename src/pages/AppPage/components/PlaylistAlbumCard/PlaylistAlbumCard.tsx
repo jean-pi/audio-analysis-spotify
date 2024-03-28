@@ -1,4 +1,3 @@
-// "use client";
 import React from 'react';
 import styles from './PlaylistAlbumCard.module.scss';
 import { getSavedPlaylist } from '@/services';
@@ -9,9 +8,6 @@ import { getSavedAlbum } from '@/services/getDataEndpoint/getSavedAlbum';
 import { useQueryFetch } from '../../hooks';
 import useAppContext from '../../hooks/useAppContext';
 
-
-
-
 const PlaylistAlbumCard: React.FC  = () => {
 
 	// const [arrPlaylistAlbumByUser, setArrPlylistAlbumByUser] = useState<AlbumPlaylistCardEntitie[]>([])
@@ -20,21 +16,14 @@ const PlaylistAlbumCard: React.FC  = () => {
     const {infoInContext} = useAppContext();
 	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0") 
 	
+	const objUser: AlbumPlaylistCardEntitie[] | null = 
+	!queryGetSavedPlaylist.isLoading && queryGetSavedPlaylist.data && !queryGetSavedAlbum.isLoading && queryGetSavedAlbum.data
+	? adapterCardAlbumPlaylist(queryGetSavedPlaylist.data, queryGetSavedAlbum.data, savedSongsObj) 
+	: null;
+
 	if(queryGetSavedAlbum.isError || queryGetSavedPlaylist.isError){
 		console.log(queryGetSavedAlbum.error, queryGetSavedPlaylist.error);
 	}
-
-	// useEffect(() => {
-    //     if (queryGetSavedAlbum.data && queryGetSavedPlaylist.data) {
-    //         const jsonSavedPlaylist: playlistUserEndpointModel = queryGetSavedPlaylist.data;
-    //         const jsonSavedAlbums: AlbumsUserEndpointModel = queryGetSavedAlbum.data;
-
-		
-    //         const objsPlaylistAlbum: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(jsonSavedPlaylist, jsonSavedAlbums, savedSongs);
-    //         setArrPlylistAlbumByUser(objsPlaylistAlbum);
-    //     }
-    // }, [queryGetSavedAlbum.data, queryGetSavedPlaylist.data]);
-
 
 	if(queryGetSavedAlbum.isLoading || queryGetSavedPlaylist.isLoading){
 		const htmlLoading = (
@@ -58,15 +47,6 @@ const PlaylistAlbumCard: React.FC  = () => {
 		)
 	}
 
-
-	const objUser: AlbumPlaylistCardEntitie[] | null = 
-	!queryGetSavedPlaylist.isLoading && queryGetSavedPlaylist.data && !queryGetSavedAlbum.isLoading && queryGetSavedAlbum.data
-	? adapterCardAlbumPlaylist(queryGetSavedPlaylist.data, queryGetSavedAlbum.data, savedSongsObj) 
-	: null;
-
-
-
-
 	if(queryGetSavedAlbum.data && queryGetSavedPlaylist.data){
 		return (
 			<>
@@ -81,11 +61,6 @@ const PlaylistAlbumCard: React.FC  = () => {
 			</>
 		)
 	}
-
-
-
-
-
 
 };
 

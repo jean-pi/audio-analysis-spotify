@@ -8,6 +8,6 @@ export const getSavedPlaylist = async(): Promise<playlistUserEndpointModel> =>{
             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
     }
-    const apiUrl:string = endPoints.savedPlaylist + "?limit=8";
+    const apiUrl:string = endPoints.savedPlaylist + "?limit=9";
     return (await fetch(apiUrl, options)).json();
 }

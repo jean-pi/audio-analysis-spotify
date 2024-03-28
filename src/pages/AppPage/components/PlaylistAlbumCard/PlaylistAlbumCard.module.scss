@@ -36,7 +36,7 @@
 
 
 .albumPlaylistCardLoading{
-    padding: clamp(.1rem, .3rem + .3vw, 10rem);
+    padding: clamp(.2rem, .3rem + .3vw, 10rem);
     border-radius: 6px;
     background-color: $loadingAroundItem;
     margin: .3rem;
