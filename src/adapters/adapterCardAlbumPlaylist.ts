@@ -14,7 +14,7 @@ import {
  
 export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointModel, jsonAlbumsUser: AlbumsUserEndpointModel, likedSongs: AlbumPlaylistCardEntitie): AlbumPlaylistCardEntitie[] =>{
 
-    const playlistEnAlbums: AlbumPlaylistCardEntitie[] = [];
+    const playlistAndAlbums: AlbumPlaylistCardEntitie[] = [];
 
     
     jsonPlaylistUser.items.forEach(item =>{
@@ -25,7 +25,7 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointM
             item.tracks.total, 
             item.owner.display_name, 
             item.id)
-            playlistEnAlbums.push(objPlaylist);
+            playlistAndAlbums.push(objPlaylist);
     });
 
     jsonAlbumsUser.items.forEach(item =>{
@@ -36,12 +36,11 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointM
             item.album.tracks.total, 
             item.album.artists[0].name, 
             item.album.id)
-            playlistEnAlbums.push(objPlaylist);
+            playlistAndAlbums.push(objPlaylist);
     });
 
     function mixArrWithSeed<T>(array: T[], semilla: number): T[] {
-        const arrayRevuelto = array.slice(); // Copia el array original para no modificarlo
-        // Usamos la misma función de comparación con una semilla para garantizar la consistencia
+        const arrayRevuelto = array.slice(); 
         arrayRevuelto.sort(() => {
           const random = (Math.sin(semilla++) * 10000) % 25;
           return random > 1 ? 1 : -1;
@@ -49,7 +48,7 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserEndpointM
         return arrayRevuelto;
       }
     
-    const randomPosition =  mixArrWithSeed(playlistEnAlbums, 1);
+    const randomPosition =  mixArrWithSeed(playlistAndAlbums, 1);
     randomPosition.unshift(likedSongs);
     return randomPosition;
 }
