@@ -20,6 +20,6 @@ export const getSavedPlaylist = async({pageParam} : {pageParam: number}): Promis
             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
     }
-    const apiUrl:string = endPoints.savedPlaylist + `?limit=13&offset=${pageParam}`;
+    const apiUrl:string = endPoints.savedPlaylist + `?limit=12&offset=${pageParam}`;
     return (await fetch(apiUrl, options)).json();
 }

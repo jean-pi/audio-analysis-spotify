@@ -75,8 +75,6 @@ const PlaylistAlbumCard: React.FC  = () => {
 	const fetchAlbumsUser = useInfiniteQueryFetch<AlbumsUserEndpointModel>(["albums"], getSavedAlbum);
 	const fetchPlaylistUser = useInfiniteQueryFetch<playlistUserEndpointModel>(["playlist"], getSavedPlaylist)
 
-	console.log(fetchAlbumsUser.data)
-	console.log(fetchPlaylistUser.data)
 
 	const objUser: AlbumPlaylistCardEntitie[] | null = 
 	fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success"

@@ -32,6 +32,6 @@ export const getSavedAlbum = async({pageParam}: {pageParam: number}): Promise<Al
             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
     }
-    const apiUrl:string = endPoints.savedAlbums + `?limit=13&offset=${pageParam}`;
+    const apiUrl:string = endPoints.savedAlbums + `?limit=12&offset=${pageParam}`;
     return (await fetch(apiUrl, options)).json();
 }
