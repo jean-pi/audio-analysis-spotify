@@ -8,7 +8,7 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 31% calc(49% - 1rem) 20%;
-    grid-template-rows: 3.3rem calc(100vh - 7.8rem) 3.5rem;
+    grid-template-rows: 3.3rem calc(100vh - 7.3rem) 3rem;
     @media (max-width: 27.188em) {
         grid-template-columns: calc(100vw - .5rem);
     }
@@ -41,19 +41,19 @@
     flex: 1.8;
     display: flex;
     flex-direction: column;
-    gap: .8rem;
+    gap: .4rem;
     border-radius: 6px;
-    margin-left: .46rem;
+    margin-left: .38rem;
     &_cabecera{
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-left: clamp(.5rem, .4rem + 1vw, 10rem);
         padding-right: clamp(.5rem, .4rem + 1vw, 10rem);
-        padding-top: clamp(.5rem, .4rem + 1vw, 10rem);
+        padding-top: clamp(.4rem, .3rem + .8vw, 10rem);
         &_yourLibrary{
             display: flex;
-            gap: .7rem;
+            gap: .3rem;
             align-items: center;
             &_img{
                 block-size: 1.4rem;
@@ -65,7 +65,7 @@
                 &:focus{
                 border-radius: 1px;
                     outline: 1px solid $white_focus;
-                    outline-offset: 2px;
+                    outline-offset: 1px;
                     border: 1px solid $blackActive;
                 }
             }
@@ -140,9 +140,10 @@
         display: grid;
         grid-template-columns: 6% 52% calc(42% - .6rem);
         gap: .3rem;
-        border-bottom: 1px solid $white_offWhite_font;
+        border-bottom: 1px solid #4d4d4d;
         padding-bottom: .3rem;
         margin-bottom: .4rem;
+        margin-top: 1rem;
         &_span{
             @include inter-Font($white_offWhite_font, .26vw, .5rem, 600);
             &:nth-child(1){

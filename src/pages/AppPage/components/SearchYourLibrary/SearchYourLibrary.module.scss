@@ -2,8 +2,8 @@
 @use "/src//styles/pallette.module.scss" as *;
 
 .searchyourlibrary {
-    display: flex;
-    
+    // display: flex;
+    display: none;
     &_span{
         border-radius: 100%;
         display: flex;

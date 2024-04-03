@@ -2,13 +2,11 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 .barSearchContainer{
-    display: flex;
+    display:none;
+    // display: flex;
     align-items: center;
     position: relative;
     max-width: 33rem;   
-    @container layerHeaderApp (max-width: 30.313em) {
-        display: none;
-    } 
     flex: 2;
     &_img{
         position: absolute;

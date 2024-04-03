@@ -3,7 +3,8 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 .barSearchContainer{
-    display: flex;
+    // display: flex;
+    display: none;
     align-items: center;
     position: relative;
     width: 100%;

@@ -14,7 +14,7 @@ export function useInfiniteQueryFetch<T>(queryKey: string[], queryFn: queryFnTyp
         queryKey: queryKey,
         queryFn: queryFn,
         initialPageParam: 1,
-        getNextPageParam: (lastPage:AlbumsUserEndpointModel |  playlistUserEndpointModel) => {
+        getNextPageParam: (lastPage: GetNextPageParamFunction<T>) => {
             console.log(lastPage)
             return 13; 
             

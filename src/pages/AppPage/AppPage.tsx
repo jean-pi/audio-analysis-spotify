@@ -85,98 +85,98 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 				</div>
 
 				<SongIten 
-					numSong="6"
+					numSong="1"
 					img='https://i.scdn.co/image/ab67616d00001e0250a3147b4edd7701a876c6ce'
 					nameSong='Summer bummer (feat. A$AP Rocky & Playboy carti'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Tango'
 				/>
 				<SongIten 
-					numSong="7"
+					numSong="2"
 					img='https://i.scdn.co/image/ab67616d00001e02c5649add07ed3720be9d5526'
 					nameSong='Quizas Quizas Quizas'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Lust fot life'
 				/>
 				<SongIten 
-					numSong="8"
+					numSong="3"
 					img='https://i.scdn.co/image/ab67616d00001e022a7db835b912dc5014bd37f4'
 					nameSong='Do ya like x resonance (speed up)'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Destroy myself just for you'
 				/>
 				<SongIten 
-					numSong="9"
+					numSong="4"
 					img='https://i.scdn.co/image/ab67616d00001e029478c87599550dd73bfa7e02'
 					nameSong='No more?'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='DAMN.'
 				/>
 				<SongIten 
-					numSong="10"
+					numSong="5"
 					img='https://i.scdn.co/image/ab67616d00001e0249d694203245f241a1bcaa72'
 					nameSong='Blue Hair'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='808s & Heartbreak'
 				/>
 				<SongIten 
-					numSong="11"
+					numSong="6"
 					img='https://i.scdn.co/image/ab67616d00001e02f30764d5fa1e439ad6a7742f'
 					nameSong='Everybody'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Samba esquema novo'
 				/>
 				<SongIten 
-					numSong="12"
+					numSong="7"
 					img='https://i.scdn.co/image/ab67616d00001e021dacfbc31cc873d132958af9'
 					nameSong='I Love Kanye'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Eazy-Duz-It'
 				/>
 				<SongIten 
-					numSong="13"
+					numSong="8"
 					img='https://i.scdn.co/image/ab67616d00001e02696b4e67423edd64784bfbb4'
 					nameSong='There Is a Light That Never Goes Out'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Graduation'
 				/>
 				<SongIten 
-					numSong="14"
+					numSong="9"
 					img='https://i.scdn.co/image/ab67616d00001e02519266cd05491a5b5bc22d1e'
 					nameSong='The end (feat. BABYMETAL)'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Circle'
 				/>
 				<SongIten 
-					numSong="1"
+					numSong="10"
 					img='https://i.scdn.co/image/ab67616d00001e029478c87599550dd73bfa7e02'
 					nameSong='Summer bummer (feat. A$AP Rocky & Playboy carti'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Dark red'
 				/>
 				<SongIten 
-					numSong="2"
+					numSong="11"
 					img='https://i.scdn.co/image/ab67616d00001e02de7b9af78fbdda96c5a0635b'
 					nameSong='Si preguntas por mi'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='The life of pablo'
 				/>
 				<SongIten 
-					numSong="3"
+					numSong="12"
 					img='https://i.scdn.co/image/ab67616d00001e029478c87599550dd73bfa7e02'
 					nameSong='Summer bummer (feat. A$AP Rocky & Playboy carti'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Lust fot life'
 				/>
 				<SongIten 
-					numSong="4"
+					numSong="13"
 					img='https://i.scdn.co/image/ab67616d00001e0271b706835a873e7a3144f6fa'
 					nameSong='Summer bummer (feat. A$AP Rocky & Playboy carti'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
 					album='Lust fot life'
 				/>
 				<SongIten 
-					numSong="5"
+					numSong="14"
 					img='https://i.scdn.co/image/ab67616d00001e02c91ab2dd6fcff9b7228ff7ac'
 					nameSong='Summer bummer (feat. A$AP Rocky & Playboy carti'
 					artist='Lana del rey, A$AP Rocky & playboy Carti'
