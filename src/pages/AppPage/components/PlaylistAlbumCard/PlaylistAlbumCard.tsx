@@ -43,42 +43,63 @@ const PlaylistAlbumCard: React.FC  = () => {
 		for (let i = 0; i < 30; i++) {
 			htmlLoadingArr.push(htmlLoading);
 		}
-		return (
+
+		return(
 			<>
 				{htmlLoadingArr.map((item, index) =>(
 					<div key={index}>{item}</div>
 				))}
 			</>
 		)
+
 	}
 
 
-	if(fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success"){
-		console.log(fetchPlaylistUser.data)
-		const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages[0] , fetchAlbumsUser.data.pages[0], savedSongsObj)
-		return (
-			<>
-				{objUserPlaylistAlbumUser && objUserPlaylistAlbumUser.map((iten, index) => {
-					if(objUserPlaylistAlbumUser.length - 3 === index){
-						return(
-							<div key={iten.getId()} ref={ref} className={styles.playlistAlbumCard}>
-								<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
-								<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-								<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
-							</div>
-						) 
-					}  
-					return(
-						<div key={iten.getId()} className={styles.playlistAlbumCard}>
-							<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
-							<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-							<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
-						</div>
-					) 
-				})}
-			</>
-		)
-	}
+	return (
+		<>
+			{fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success" &&
+				adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj).map((iten, index) => (
+					<div key={iten.getId()} className={styles.playlistAlbumCard}>
+						<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
+						<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
+						<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+					</div>
+				))
+			}
+			{fetchAlbumsUser.isFetchingNextPage || fetchPlaylistUser.isFetchingNextPage && console.log("a")}
+
+			<div ref={ref}>a</div>
+
+		</>
+	)
+
+	// if(fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success"){
+
+
+	// 	const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj)
+	// 	return (
+	// 		<>
+	// 			{objUserPlaylistAlbumUser && objUserPlaylistAlbumUser.map((iten, index) => {
+	// 				if(objUserPlaylistAlbumUser.length - 1 === index){
+	// 					return(
+	// 						<div key={iten.getId()} ref={ref} className={styles.playlistAlbumCard}>
+	// 							<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
+	// 							<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
+	// 							<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+	// 						</div>
+	// 					) 
+	// 				}  
+	// 				return(
+	// 					<div key={iten.getId()} className={styles.playlistAlbumCard}>
+	// 						<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
+	// 						<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
+	// 						<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+	// 					</div>
+	// 				) 
+	// 			})}
+	// 		</>
+	// 	)
+	// }
 
 
 
