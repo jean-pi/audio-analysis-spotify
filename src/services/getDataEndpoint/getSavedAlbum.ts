@@ -6,7 +6,7 @@
  */
 
 import { endPoints} from "@/constants";
-import { AlbumsUserEndpointModel } from "@/models";
+import { AlbumsUserEndpointModel, userAlbumItens } from "@/models";
 
     //antes de usar useInfiniteQuery()
 // export const getSavedAlbum = async(): Promise<AlbumsUserEndpointModel> =>{
@@ -23,7 +23,7 @@ import { AlbumsUserEndpointModel } from "@/models";
 
 
 
-export const getSavedAlbum = async({pageParam}: {pageParam: number}): Promise<AlbumsUserEndpointModel> =>{
+export const getSavedAlbum = async({pageParam}: {pageParam: number}): Promise<userAlbumItens[]> =>{
     // se debe usar la variable exacta pageParam, ya que reactQuery useInfiniteQuery() le pasa a la funcion que le pasamos en queryFn
     // puedo a acceder a unas pocas propiedades que gracias a reactQuery las puedo acceder desde aqui
     const options = {
@@ -32,6 +32,7 @@ export const getSavedAlbum = async({pageParam}: {pageParam: number}): Promise<Al
             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
     }
-    const apiUrl:string = endPoints.savedAlbums + `?limit=12&offset=${pageParam}`;
-    return (await fetch(apiUrl, options)).json();
+    const apiUrl:string = endPoints.savedAlbums + `?limit=10&offset=${pageParam}`;
+    let albumUser: Promise<AlbumsUserEndpointModel> = (await fetch(apiUrl, options)).json()
+    return (await albumUser).items;
 }

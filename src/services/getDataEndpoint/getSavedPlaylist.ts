@@ -1,4 +1,4 @@
-import { playlistUserEndpointModel } from "@/models";
+import { playlistUserEndpointModel, playlistUserIten } from "@/models";
 import { endPoints} from "@/constants";
  
 // export const getSavedPlaylist = async(): Promise<playlistUserEndpointModel> =>{
@@ -13,13 +13,14 @@ import { endPoints} from "@/constants";
 // }
 
 
-export const getSavedPlaylist = async({pageParam} : {pageParam: number}): Promise<playlistUserEndpointModel> =>{
+export const getSavedPlaylist = async({pageParam} : {pageParam: number}): Promise<playlistUserIten[]> =>{
     const options = {
         method: 'GET', 
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
     }
-    const apiUrl:string = endPoints.savedPlaylist + `?limit=12&offset=${pageParam}`;
-    return (await fetch(apiUrl, options)).json();
+    const apiUrl:string = endPoints.savedPlaylist + `?limit=10&offset=${pageParam}`;
+    const playlistUserItens: Promise<playlistUserEndpointModel> = (await fetch(apiUrl, options)).json();
+    return (await playlistUserItens).items;
 }

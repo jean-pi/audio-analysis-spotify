@@ -2,8 +2,8 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 .barSearchContainer{
-    display:none;
-    // display: flex;
+    // display:none;
+    display: flex;
     align-items: center;
     position: relative;
     max-width: 33rem;   
@@ -37,8 +37,8 @@
             // border: 1px solid $blackActive;
         }
     }
-    &_inputText::placeholder{
-    }
+    // &_inputText::placeholder{
+    // }
 
     
 }
