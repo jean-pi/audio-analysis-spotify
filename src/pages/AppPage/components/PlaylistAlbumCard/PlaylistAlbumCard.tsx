@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState} from 'react';
 import styles from './PlaylistAlbumCard.module.scss';
 import { getSavedPlaylist, getSavedAlbum } from '@/services';
 import { userAlbumItens, playlistUserIten} from '@/models';
@@ -31,77 +31,91 @@ const PlaylistAlbumCard: React.FC  = () => {
 		console.log(fetchAlbumsUser.error, fetchPlaylistUser.error);
 	}
 
-	if(fetchAlbumsUser.isLoading || fetchPlaylistUser.isLoading){
-		const htmlLoading = (
+
+	
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
+
+    useEffect(() => {
+        setIsLoadingMore(fetchAlbumsUser.isFetchingNextPage || fetchPlaylistUser.isFetchingNextPage);
+    }, [fetchAlbumsUser.isFetchingNextPage, fetchPlaylistUser.isFetchingNextPage]);
+
+
+	const htmlLoadingArr: JSX.Element[] = Array.from({ length: 50 }, (_, index) => (
+		<div key={index}>
 			<div className={styles.albumPlaylistCardLoading}>
 				<div className={styles.albumPlaylistCardLoading_img}></div>
 				<div className={styles.albumPlaylistCardLoading_name}>######</div>
 				<div className={styles.albumPlaylistCardLoading_details}>####</div>
 			</div>
-		)
-		const htmlLoadingArr: JSX.Element[] = [];
-		for (let i = 0; i < 30; i++) {
-			htmlLoadingArr.push(htmlLoading);
-		}
+		</div>
+	));
 
-		return(
+
+    if (fetchAlbumsUser.isLoading || fetchPlaylistUser.isLoading) {
+		console.log("aaa")
+        return (
+            <>
+                {htmlLoadingArr.map((item, index) => (
+                    <div key={index}>{item}</div>
+                ))}
+            </>
+        )
+    }
+
+	if(fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success"){
+		const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj)
+		return (
 			<>
-				{htmlLoadingArr.map((item, index) =>(
-					<div key={index}>{item}</div>
-				))}
+
+				{objUserPlaylistAlbumUser && objUserPlaylistAlbumUser.map((iten, index) => {
+					if(objUserPlaylistAlbumUser.length - 1 === index){
+						return(
+							<div key={iten.getId()} ref={ref} className={styles.playlistAlbumCard}>
+								<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
+								<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
+								<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+							</div>
+						) 
+					}  
+					return(
+						<div key={iten.getId()} className={styles.playlistAlbumCard}>
+							<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
+							<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
+							<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+						</div>
+					) 
+				})}
+
+				{isLoadingMore && (
+                    <>
+                        {htmlLoadingArr.map((item, index) => (
+                            <div key={index}>{item}</div>
+                        ))}
+                    </>
+                )}
 			</>
 		)
-
 	}
+	
 
 
-	return (
-		<>
-			{fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success" &&
-				adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj).map((iten, index) => (
-					<div key={iten.getId()} className={styles.playlistAlbumCard}>
-						<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
-						<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-						<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
-					</div>
-				))
-			}
-			{fetchAlbumsUser.isFetchingNextPage || fetchPlaylistUser.isFetchingNextPage && console.log("a")}
-
-			<div ref={ref}>a</div>
-
-		</>
-	)
-
-	// if(fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success"){
+	// return (
+	// 	<>
+	// 		{fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success" &&
+	// 			adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj).map((iten, index) => (
+	// 				<div key={iten.getId()} className={styles.playlistAlbumCard}>
+	// 					<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt=""/>
+	// 					<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
+	// 					<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+	// 				</div>
+	// 			))
+	// 		}
 
 
-	// 	const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj)
-	// 	return (
-	// 		<>
-	// 			{objUserPlaylistAlbumUser && objUserPlaylistAlbumUser.map((iten, index) => {
-	// 				if(objUserPlaylistAlbumUser.length - 1 === index){
-	// 					return(
-	// 						<div key={iten.getId()} ref={ref} className={styles.playlistAlbumCard}>
-	// 							<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
-	// 							<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-	// 							<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
-	// 						</div>
-	// 					) 
-	// 				}  
-	// 				return(
-	// 					<div key={iten.getId()} className={styles.playlistAlbumCard}>
-	// 						<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
-	// 						<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-	// 						<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
-	// 					</div>
-	// 				) 
-	// 			})}
-	// 		</>
-	// 	)
-	// }
+	// 		<div ref={ref}>a</div>
 
-
+	// 	</>
+	// )
 
 
 

@@ -2,6 +2,9 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 .barSearchContainer{
+    @media (max-width: 27.118em) {
+        display:none;
+    }  
     // display:none;
     display: flex;
     align-items: center;
