@@ -10,10 +10,9 @@ import { useInView } from 'react-intersection-observer';
 
 const PlaylistAlbumCard: React.FC  = () => {
 
-    const {infoInContext} = useAppContext();
-	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0") 
+    const {infoInContext, setInfoInContext} = useAppContext();
+	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0", setInfoInContext) 
 	const {ref, inView} = useInView();
-
 
 	const fetchAlbumsUser = useInfiniteQueryFetch<userAlbumItens[]>(["albums"], getSavedAlbum);
 	const fetchPlaylistUser = useInfiniteQueryFetch<playlistUserIten[]>(["playlist"], getSavedPlaylist)
@@ -40,7 +39,7 @@ const PlaylistAlbumCard: React.FC  = () => {
     }, [fetchAlbumsUser.isFetchingNextPage, fetchPlaylistUser.isFetchingNextPage]);
 
 
-	const htmlLoadingArr: JSX.Element[] = Array.from({ length: 50 }, (_, index) => (
+	const htmlLoadingArr: JSX.Element[] = Array.from({ length: 18 }, (_, index) => (
 		<div key={index}>
 			<div className={styles.albumPlaylistCardLoading}>
 				<div className={styles.albumPlaylistCardLoading_img}></div>
@@ -52,7 +51,6 @@ const PlaylistAlbumCard: React.FC  = () => {
 
 
     if (fetchAlbumsUser.isLoading || fetchPlaylistUser.isLoading) {
-		console.log("aaa")
         return (
             <>
                 {htmlLoadingArr.map((item, index) => (
@@ -63,25 +61,25 @@ const PlaylistAlbumCard: React.FC  = () => {
     }
 
 	if(fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success"){
-		const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj)
+		const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj, setInfoInContext)
 		return (
 			<>
 
-				{objUserPlaylistAlbumUser && objUserPlaylistAlbumUser.map((iten, index) => {
-					if(objUserPlaylistAlbumUser.length - 1 === index){
+				{objUserPlaylistAlbumUser && objUserPlaylistAlbumUser.map((item, index) => {
+					if(objUserPlaylistAlbumUser.length - 5 === index){
 						return(
-							<div key={iten.getId()} ref={ref} className={styles.playlistAlbumCard}>
-								<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
-								<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-								<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+							<div key={item.getId()} ref={ref} className={styles.playlistAlbumCard} onClick={()=> item.eventClick()}>
+								<img className={styles.playlistAlbumCard_img} src={item.getPhotoUrl()} alt="" />
+								<h5 className={styles.playlistAlbumCard_name}>{item.getName()}</h5>
+								<p className={styles.playlistAlbumCard_details}>{item.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {item.getOwner()}</p>
 							</div>
 						) 
 					}  
 					return(
-						<div key={iten.getId()} className={styles.playlistAlbumCard}>
-							<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt="" />
-							<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-							<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
+						<div key={item.getId()} className={styles.playlistAlbumCard} onClick={item.eventClick}>
+							<img className={styles.playlistAlbumCard_img} src={item.getPhotoUrl()} alt="" />
+							<h5 className={styles.playlistAlbumCard_name}>{item.getName()}</h5>
+							<p className={styles.playlistAlbumCard_details}>{item.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {item.getOwner()}</p>
 						</div>
 					) 
 				})}
@@ -96,27 +94,6 @@ const PlaylistAlbumCard: React.FC  = () => {
 			</>
 		)
 	}
-	
-
-
-	// return (
-	// 	<>
-	// 		{fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success" &&
-	// 			adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj).map((iten, index) => (
-	// 				<div key={iten.getId()} className={styles.playlistAlbumCard}>
-	// 					<img className={styles.playlistAlbumCard_img} src={iten.getPhotoUrl()} alt=""/>
-	// 					<h5 className={styles.playlistAlbumCard_name}>{iten.getName()}</h5>
-	// 					<p className={styles.playlistAlbumCard_details}>{iten.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {iten.getOwner()}</p>
-	// 				</div>
-	// 			))
-	// 		}
-
-
-	// 		<div ref={ref}>a</div>
-
-	// 	</>
-	// )
-
 
 
 };

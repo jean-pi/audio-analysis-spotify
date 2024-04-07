@@ -5,7 +5,7 @@
  * @return  json del endpoint de las playlist guardadas por el usuario
  */
 
-import { endPoints} from "@/constants";
+import { endPoints, limitAlbumPlaylistItens} from "@/constants";
 import { AlbumsUserEndpointModel, userAlbumItens } from "@/models";
 
     //antes de usar useInfiniteQuery()
@@ -32,7 +32,7 @@ export const getSavedAlbum = async({pageParam}: {pageParam: number}): Promise<us
             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
     }
-    const apiUrl:string = endPoints.savedAlbums + `?limit=10&offset=${pageParam}`;
+    const apiUrl:string = endPoints.savedAlbums + `?limit=${limitAlbumPlaylistItens}&offset=${pageParam}`;
     let albumUser: Promise<AlbumsUserEndpointModel> = (await fetch(apiUrl, options)).json()
     return (await albumUser).items;
 }

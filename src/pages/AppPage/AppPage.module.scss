@@ -8,8 +8,10 @@
     min-height: 100vh;
     display: grid;
     grid-template-columns: 31% calc(49% - 1rem) 20%;
-    // grid-template-rows: 3.3rem calc(100vh - 7.3rem) 3rem;
-    grid-template-rows: 3.3rem 100% 3rem;
+    grid-template-rows: 3.3rem calc(100vh - 7.3rem) 3rem;
+    @media (max-width: 27.118em) {
+        grid-template-rows: 3.3rem 100% 3rem;
+    }  
     @media (max-width: 27.188em) {
         grid-template-columns: calc(100vw - .5rem);
     }

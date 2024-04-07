@@ -1,5 +1,5 @@
 import { playlistUserEndpointModel, playlistUserIten } from "@/models";
-import { endPoints} from "@/constants";
+import { endPoints, limitAlbumPlaylistItens} from "@/constants";
  
 // export const getSavedPlaylist = async(): Promise<playlistUserEndpointModel> =>{
 //     const options = {
@@ -20,7 +20,7 @@ export const getSavedPlaylist = async({pageParam} : {pageParam: number}): Promis
             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
         }
     }
-    const apiUrl:string = endPoints.savedPlaylist + `?limit=10&offset=${pageParam}`;
+    const apiUrl:string = endPoints.savedPlaylist + `?limit=${limitAlbumPlaylistItens}&offset=${pageParam}`;
     const playlistUserItens: Promise<playlistUserEndpointModel> = (await fetch(apiUrl, options)).json();
     return (await playlistUserItens).items;
 }

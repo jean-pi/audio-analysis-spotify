@@ -1,3 +1,4 @@
+import { limitAlbumPlaylistItens } from "@/constants";
 import { useInfiniteQuery } from "@tanstack/react-query"
 
 type queryFnType<T> = ({}:any) => Promise<T>;
@@ -15,7 +16,7 @@ export function useInfiniteQueryFetch<T>(queryKey: string[], queryFn: queryFnTyp
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages) =>{ // primero se escribe lastPage, tenia escrito all pages primero y me devolvia loas valores de allpages y lastPages invertidos
 
-            const nextPage = lastPage.length === 0? undefined : allPages.length * 10 + 1 ;
+            const nextPage = (lastPage as any[]).length === 0 ? undefined : allPages.length * limitAlbumPlaylistItens + 1;
             // puedo detectar cuanto ya no tenga paginas con el hasNextPage
             // cuando en esta funcion no retorno un numero hasNextPage será falso
             return nextPage;

@@ -3,6 +3,7 @@ import {
         AlbumPlaylistCardEntitie,  
         playlistUserIten,
         userAlbumItens, } from "@/models";
+import { infoInContext } from "@/pages/AppPage/context";
 
 
 /**
@@ -12,10 +13,9 @@ import {
  */
 
  
-export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][], jsonAlbumsUser: userAlbumItens[][], likedSongs: AlbumPlaylistCardEntitie): AlbumPlaylistCardEntitie[] =>{
+export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][], jsonAlbumsUser: userAlbumItens[][], likedSongs: AlbumPlaylistCardEntitie, setInfoInContext:  (value: React.SetStateAction<infoInContext | null>) => void): AlbumPlaylistCardEntitie[] =>{
 
     const playlistAndAlbums: AlbumPlaylistCardEntitie[] = [];
-
 
     jsonPlaylistUser.forEach(page =>{
       page.forEach(item =>{
@@ -25,11 +25,11 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][],
         item.type, 
         item.tracks.total, 
         item.owner.display_name, 
-        item.id)
+        item.id, 
+        setInfoInContext)
         playlistAndAlbums.push(objPlaylist);
       })
     });
-
     jsonAlbumsUser.forEach(page =>{
       page.forEach(item =>{
         let objPlaylist = new AlbumPlaylistCardEntitie(
@@ -38,7 +38,8 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][],
         item.album.type, 
         item.album.tracks.total, 
         item.album.artists[0].name, 
-        item.album.id)
+        item.album.id,
+        setInfoInContext)
         playlistAndAlbums.push(objPlaylist);
       })
     });
@@ -59,3 +60,5 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][],
     playlistAndAlbums.unshift(likedSongs);
     return playlistAndAlbums;
 }
+
+

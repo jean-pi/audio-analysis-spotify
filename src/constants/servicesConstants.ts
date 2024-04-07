@@ -11,6 +11,8 @@ export const endPoints = {
     savedAlbums: "https://api.spotify.com/v1/me/albums",
 }
 
+export const limitAlbumPlaylistItens = 15;
+
 export const scopesAuth = 'user-read-private user-read-email playlist-read-private user-library-read';
 
 
