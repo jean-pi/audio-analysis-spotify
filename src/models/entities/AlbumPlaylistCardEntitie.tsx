@@ -30,7 +30,7 @@ export class AlbumPlaylistCardEntitie{
         // mete la info del adapter en el estado de contex
         // los componenetes siempre miran a este estado y estan atentos al cambio
         console.log("event click entitie obj");
-        console.log(this.setInfoInContext)
+        // console.log(this.setInfoInContext)
         // this.setInfoInContext({
         //     albumPlaylistSelected: {
         //         photoUrl: "aa",

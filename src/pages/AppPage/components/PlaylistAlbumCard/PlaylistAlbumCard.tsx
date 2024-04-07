@@ -25,11 +25,9 @@ const PlaylistAlbumCard: React.FC  = () => {
 	},[inView, fetchAlbumsUser.hasNextPage, fetchPlaylistUser.hasNextPage])
 
 
-
 	if(fetchAlbumsUser.isError || fetchPlaylistUser.isError){
 		console.log(fetchAlbumsUser.error, fetchPlaylistUser.error);
 	}
-
 
 	
     const [isLoadingMore, setIsLoadingMore] = useState(false);

@@ -30,6 +30,16 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][],
         playlistAndAlbums.push(objPlaylist);
       })
     });
+
+    // setInfoInContext({
+    //     albumPlaylistSelected: {
+    //         photoUrl: "aa",
+    //         type: "aaaaa",
+    //         numOfSongs: 100,
+    //         duration: "10h10m",
+    //         name: "anana",
+    //     }
+    // });
     jsonAlbumsUser.forEach(page =>{
       page.forEach(item =>{
         let objPlaylist = new AlbumPlaylistCardEntitie(
