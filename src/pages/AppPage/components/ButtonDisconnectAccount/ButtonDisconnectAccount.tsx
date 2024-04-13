@@ -1,9 +1,10 @@
 // "use client";
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './ButtonDisconnectAccount.module.scss';
 
 import { IMG_SPOTIFY, DISCONNECT_SPOTIFY_ACCOUNT_TEXT, publicRoutes } from '@/constants';
 import { useNavigate } from 'react-router-dom';
+import useAppContext from '../../hooks/useAppContext';
 
 
 
@@ -11,6 +12,23 @@ const ButtonDisconnectAccount: React.FC  = () => {
 
 	const navigate = useNavigate();
 
+    const {infoInContext, setInfoInContext} = useAppContext();
+	
+	useEffect(()=>{
+		setInfoInContext({
+            albumPlaylistSelected: {
+                photoUrl: "aa",
+                type: "aaaaa",
+                numOfSongs: 100,
+                duration: "10h10m",
+                name: "anana",
+            }
+        })
+
+
+		console.log("a")
+	},[])
+	
 	const logOut = () =>{
 		window.localStorage.clear();
 		navigate(publicRoutes.LANDING);

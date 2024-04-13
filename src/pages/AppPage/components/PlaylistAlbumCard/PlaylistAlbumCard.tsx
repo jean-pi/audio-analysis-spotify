@@ -36,6 +36,18 @@ const PlaylistAlbumCard: React.FC  = () => {
         setIsLoadingMore(fetchAlbumsUser.isFetchingNextPage || fetchPlaylistUser.isFetchingNextPage);
     }, [fetchAlbumsUser.isFetchingNextPage, fetchPlaylistUser.isFetchingNextPage]);
 
+	// useEffect(()=>{
+	// 	setInfoInContext({
+    //         albumPlaylistSelected: {
+    //             photoUrl: "aa",
+    //             type: "aaaaa",
+    //             numOfSongs: 100,
+    //             duration: "10h10m",
+    //             name: "anana",
+    //         }
+    //     })
+	// },[])
+
 
 	const htmlLoadingArr: JSX.Element[] = Array.from({ length: 18 }, (_, index) => (
 		<div key={index}>
