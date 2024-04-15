@@ -1,11 +1,16 @@
 import create from "zustand";
 
-export interface infoInContext{
-    userName?:string,
-    albumPlaylistSelected?: albumPlaylistProperties | null;
+interface GenerationBookState {
+    infoInContext: InfoInContext;
+    setInfoInContext: (infoInContext: InfoInContext) => void;
 }
 
-interface albumPlaylistProperties {
+export interface InfoInContext{
+    userName?:string,
+    albumPlaylistSelected?: AlbumPlaylistProperties;
+}
+
+interface AlbumPlaylistProperties {
     photoUrl: string,
     type: string,
     numOfSongs: number | null,
@@ -13,7 +18,16 @@ interface albumPlaylistProperties {
     name: string,
 }
 
-
-export const useBookStore = create<infoInContext>( ()=> ({
-    
-}));
+export const useBookStore = create<GenerationBookState>()((set) => ({
+    infoInContext: {
+        userName: "",
+        albumPlaylistSelected: {
+            photoUrl: "",
+            type: "",
+            numOfSongs: 0,
+            duration: "",
+            name: "",
+        }
+    },
+    setInfoInContext: (setInfoInContextInput: InfoInContext) => set({setInfoInContextInput})
+}))

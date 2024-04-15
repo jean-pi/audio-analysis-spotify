@@ -33,7 +33,6 @@ export const getAccessToken = async (): Promise<any> => {
 
 
         const data = await response.json();
-        console.log(data)
         return data.access_token;
         
     } catch (error) {

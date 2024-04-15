@@ -1,6 +1,7 @@
 // "use client";
 import React from 'react';
 import styles from './HeadSongsView.module.scss';
+import { useBookStore } from '@/store';
 
 
 export type HeadSongsViewProps = {
@@ -13,6 +14,10 @@ export type HeadSongsViewProps = {
 }
 
 const HeadSongsView: React.FC<HeadSongsViewProps>  = ({imgUrl,name, type,by,numCaciones,duracion}) => {
+
+	const {infoInContext} = useBookStore();
+	console.log(infoInContext)
+
 	return (
 		<div className={styles.container}>
 			<img className={styles.container_img} src={imgUrl} alt="" />

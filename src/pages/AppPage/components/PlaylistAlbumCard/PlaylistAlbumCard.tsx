@@ -7,15 +7,30 @@ import { AlbumPlaylistCardEntitie } from "@/models";
 import { useInfiniteQueryFetch } from '../../hooks';
 import useAppContext from '../../hooks/useAppContext';
 import { useInView } from 'react-intersection-observer';
+import { useBookStore } from '@/store';
 
 const PlaylistAlbumCard: React.FC  = () => {
 
     const {infoInContext} = useAppContext();
-	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0") 
+	const {setInfoInContext} = useBookStore();
+
+	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0");
+	// setInfoInContext({
+	// 	userName: "prueba",
+    //  albumPlaylistSelected: {
+    //      photoUrl: savedSongsObj.getPhotoUrl(),
+    //      type: savedSongsObj.getType(),
+    //      numOfSongs: savedSongsObj.getNumberOfSongs(),
+    //      duration: "2dias",
+    //      name: savedSongsObj.getName(),
+    //  }
+	// })
+
 	const {ref, inView} = useInView();
 
 	const fetchAlbumsUser = useInfiniteQueryFetch<userAlbumItens[]>(["albums"], getSavedAlbum);
 	const fetchPlaylistUser = useInfiniteQueryFetch<playlistUserIten[]>(["playlist"], getSavedPlaylist)
+
 
 	useEffect(()=>{
 		if(inView && (fetchAlbumsUser.hasNextPage || fetchPlaylistUser.hasNextPage)){
@@ -28,7 +43,6 @@ const PlaylistAlbumCard: React.FC  = () => {
 	if(fetchAlbumsUser.isError || fetchPlaylistUser.isError){
 		console.log(fetchAlbumsUser.error, fetchPlaylistUser.error);
 	}
-
 	
     const [isLoadingMore, setIsLoadingMore] = useState(false);
 
