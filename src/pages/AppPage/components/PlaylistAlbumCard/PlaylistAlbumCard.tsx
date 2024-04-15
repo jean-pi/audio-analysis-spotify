@@ -10,8 +10,8 @@ import { useInView } from 'react-intersection-observer';
 
 const PlaylistAlbumCard: React.FC  = () => {
 
-    const {infoInContext, setInfoInContext} = useAppContext();
-	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0", setInfoInContext) 
+    const {infoInContext} = useAppContext();
+	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0") 
 	const {ref, inView} = useInView();
 
 	const fetchAlbumsUser = useInfiniteQueryFetch<userAlbumItens[]>(["albums"], getSavedAlbum);
@@ -36,17 +36,6 @@ const PlaylistAlbumCard: React.FC  = () => {
         setIsLoadingMore(fetchAlbumsUser.isFetchingNextPage || fetchPlaylistUser.isFetchingNextPage);
     }, [fetchAlbumsUser.isFetchingNextPage, fetchPlaylistUser.isFetchingNextPage]);
 
-	// useEffect(()=>{
-	// 	setInfoInContext({
-    //         albumPlaylistSelected: {
-    //             photoUrl: "aa",
-    //             type: "aaaaa",
-    //             numOfSongs: 100,
-    //             duration: "10h10m",
-    //             name: "anana",
-    //         }
-    //     })
-	// },[])
 
 
 	const htmlLoadingArr: JSX.Element[] = Array.from({ length: 18 }, (_, index) => (
@@ -71,7 +60,7 @@ const PlaylistAlbumCard: React.FC  = () => {
     }
 
 	if(fetchAlbumsUser.status === "success" && fetchPlaylistUser.status === "success"){
-		const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj, setInfoInContext)
+		const objUserPlaylistAlbumUser: AlbumPlaylistCardEntitie[] = adapterCardAlbumPlaylist(fetchPlaylistUser.data.pages , fetchAlbumsUser.data.pages, savedSongsObj)
 		return (
 			<>
 

@@ -3,7 +3,6 @@ import {
         AlbumPlaylistCardEntitie,  
         playlistUserIten,
         userAlbumItens, } from "@/models";
-import { infoInContext } from "@/pages/AppPage/context";
 
 
 /**
@@ -13,7 +12,7 @@ import { infoInContext } from "@/pages/AppPage/context";
  */
 
  
-export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][], jsonAlbumsUser: userAlbumItens[][], likedSongs: AlbumPlaylistCardEntitie, setInfoInContext:  (value: React.SetStateAction<infoInContext | null>) => void): AlbumPlaylistCardEntitie[] =>{
+export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][], jsonAlbumsUser: userAlbumItens[][], likedSongs: AlbumPlaylistCardEntitie): AlbumPlaylistCardEntitie[] =>{
 
     const playlistAndAlbums: AlbumPlaylistCardEntitie[] = [];
 
@@ -25,21 +24,12 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][],
         item.type, 
         item.tracks.total, 
         item.owner.display_name, 
-        item.id, 
-        setInfoInContext)
+        item.id)
         playlistAndAlbums.push(objPlaylist);
       })
     });
 
-    // setInfoInContext({
-    //     albumPlaylistSelected: {
-    //         photoUrl: "aa",
-    //         type: "aaaaa",
-    //         numOfSongs: 100,
-    //         duration: "10h10m",
-    //         name: "anana",
-    //     }
-    // });
+
     jsonAlbumsUser.forEach(page =>{
       page.forEach(item =>{
         let objPlaylist = new AlbumPlaylistCardEntitie(
@@ -48,8 +38,7 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][],
         item.album.type, 
         item.album.tracks.total, 
         item.album.artists[0].name, 
-        item.album.id,
-        setInfoInContext)
+        item.album.id)
         playlistAndAlbums.push(objPlaylist);
       })
     });
@@ -65,7 +54,6 @@ export const adapterCardAlbumPlaylist = (jsonPlaylistUser: playlistUserIten[][],
     
     const randomPosition =  mixArrWithSeed(playlistAndAlbums, 1);
     randomPosition.unshift(likedSongs);
-    // return randomPosition;
 
     playlistAndAlbums.unshift(likedSongs);
     return playlistAndAlbums;

@@ -15,7 +15,15 @@ const ButtonDisconnectAccount: React.FC  = () => {
     const {infoInContext, setInfoInContext} = useAppContext();
 	
 	useEffect(()=>{
+
+		console.log(infoInContext)
+
+	},[infoInContext])
+	
+
+	useEffect(()=>{
 		setInfoInContext({
+			...infoInContext,
             albumPlaylistSelected: {
                 photoUrl: "aa",
                 type: "aaaaa",
@@ -24,11 +32,10 @@ const ButtonDisconnectAccount: React.FC  = () => {
                 name: "anana",
             }
         })
-
-
-		console.log("a")
+		console.log(infoInContext)
 	},[])
 	
+
 	const logOut = () =>{
 		window.localStorage.clear();
 		navigate(publicRoutes.LANDING);
