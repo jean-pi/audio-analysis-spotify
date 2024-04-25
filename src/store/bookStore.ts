@@ -1,5 +1,4 @@
-import create from "zustand";
-
+import { create } from 'zustand'
 interface GenerationBookState {
     infoInContext: InfoInContext;
     setInfoInContext: (infoInContext: InfoInContext) => void;
@@ -13,21 +12,24 @@ export interface InfoInContext{
 interface AlbumPlaylistProperties {
     photoUrl: string,
     type: string,
+    owner: string | undefined
     numOfSongs: number | null,
     duration: string,
     name: string,
 }
 
-export const useBookStore = create<GenerationBookState>()((set) => ({
+
+export const zustandBookStore = create<GenerationBookState>((set) => ({
     infoInContext: {
         userName: "",
         albumPlaylistSelected: {
             photoUrl: "",
             type: "",
+            owner: "",
             numOfSongs: 0,
             duration: "",
             name: "",
         }
     },
-    setInfoInContext: (setInfoInContextInput: InfoInContext) => set({setInfoInContextInput})
+    setInfoInContext: (infoInContextInput: InfoInContext) => set({ infoInContext: infoInContextInput })
 }))

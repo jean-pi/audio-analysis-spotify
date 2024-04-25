@@ -6,7 +6,6 @@ import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/const
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
-import { useBookStore } from '@/store';
 
 export type AppPageProps = {
 	// types...
@@ -34,18 +33,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 
 	},[])
-	const {setInfoInContext} = useBookStore();
 
-	// setInfoInContext({
-	// 	userName: "prueba",
-    //  albumPlaylistSelected: {
-    //      photoUrl: "photo url",
-    //      type: "playlist",
-    //      numOfSongs: 1000,
-    //      duration: "2dias",
-    //      name: "a",
-    //  }
-	// })
 
 	if(!tokenLoaded){
 		return(
@@ -53,6 +41,12 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 		)
 
 	}
+
+
+
+
+
+
 
 	if(tokenLoaded){
 	return (
@@ -64,7 +58,6 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 				<SearchMainBar/>
 				<UserInfo/>
 			</header>
-
 			<div className={styles.usersLibraryContainer}>
 				<div className={styles.usersLibraryContainer_cabecera}>
 					<div className={styles.usersLibraryContainer_cabecera_yourLibrary}>

@@ -1,7 +1,7 @@
 // "use client";
 import React from 'react';
 import styles from './HeadSongsView.module.scss';
-import { useBookStore } from '@/store';
+import { zustandBookStore } from '@/store';
 
 
 export type HeadSongsViewProps = {
@@ -15,22 +15,22 @@ export type HeadSongsViewProps = {
 
 const HeadSongsView: React.FC<HeadSongsViewProps>  = ({imgUrl,name, type,by,numCaciones,duracion}) => {
 
-	const {infoInContext} = useBookStore();
-	console.log(infoInContext)
+	const {infoInContext} = zustandBookStore();
+
 
 	return (
 		<div className={styles.container}>
-			<img className={styles.container_img} src={imgUrl} alt="" />
+			<img className={styles.container_img} src={infoInContext.albumPlaylistSelected?.photoUrl} alt="" />
 			<div className={styles.container_detailsTextContainer}>
+				<h3 className={styles.container_detailsTextContainer_mainText}>{infoInContext.albumPlaylistSelected?.name}</h3>
 				<h4 className={styles.container_detailsTextContainer_secondText}>
-					{type} 
+					{infoInContext.albumPlaylistSelected?.type} 
 					<span className={styles.container_detailsTextContainer_secondText_pointSeparator}>•</span>  
-					by {by}
+					by {infoInContext.albumPlaylistSelected?.owner}
 					<span className={styles.container_detailsTextContainer_secondText_pointSeparator}>•</span>  
 					{numCaciones} canciones , 
 					{ duracion }
 				</h4>
-				<h3 className={styles.container_detailsTextContainer_mainText}>{name}</h3>
 			</div>
 		</div>
 	);

@@ -68,9 +68,9 @@
     align-items: center;
     margin: auto;
     &_p{
-        @include inter-Font( $white_font, 0.20vw, .61rem, 200);
+        @include inter-Font( $white_font, 0.18vw, .61rem, 200);
         text-align: center;
-        font-weight: 400;
+        font-weight: 300;
         line-height: 128%;
         letter-spacing: -0.000975rem;
         border: 1px solid #00000000;

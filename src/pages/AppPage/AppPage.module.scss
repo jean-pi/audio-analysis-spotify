@@ -2,6 +2,7 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 
+
 .appPage {
     background-color: $completeBlack;
     width: calc(100vw - 1rem);
@@ -44,7 +45,6 @@
     flex: 1.8;
     display: flex;
     flex-direction: column;
-    gap: .4rem;
     border-radius: 6px;
     margin-left: .38rem;
     &_cabecera{
@@ -54,6 +54,7 @@
         padding-left: clamp(.5rem, .4rem + 1vw, 10rem);
         padding-right: clamp(.5rem, .4rem + 1vw, 10rem);
         padding-top: clamp(.4rem, .3rem + .8vw, 10rem);
+        padding-bottom: .8rem; 
         &_yourLibrary{
             display: flex;
             gap: .3rem;

@@ -1,3 +1,4 @@
+import { zustandBookStore } from "@/store";
 
 export class AlbumPlaylistCardEntitie{
     private name: string;
@@ -20,12 +21,20 @@ export class AlbumPlaylistCardEntitie{
 
     
     eventClick(){
-        //actualiza el estado context
-        // deja ver que playlist album esta seleccionado
-        // consume un adapter 
-        // mete la info del adapter en el estado de contex
-        // los componenetes siempre miran a este estado y estan atentos al cambio
-       
+
+        zustandBookStore.getState().setInfoInContext(
+            {
+                userName: zustandBookStore.getState().infoInContext.userName,
+                albumPlaylistSelected: {
+                    photoUrl: this.photoUrl,
+                    type: this.type,
+                    owner: this.owner,
+                    numOfSongs: this.numberOfSongs,
+                    duration: "2h50min",
+                    name: this.name
+                }
+            })
+
     }
     
     public getName(): string {

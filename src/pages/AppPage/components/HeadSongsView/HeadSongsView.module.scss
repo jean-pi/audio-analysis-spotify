@@ -4,7 +4,7 @@
 .container{
     display: grid;
     grid-template-columns: 15% 85%;
-    gap: clamp(.5rem , .35rem + .35vw, 1.4rem);
+    gap: clamp(.7rem , .45rem + .45vw, 1.4rem);
     align-items: center;
     padding-right: 1rem;
     &_img{
@@ -13,6 +13,8 @@
         width: 100%;
         max-width: 15rem;
         border-radius: 6px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
     }   
     &_detailsTextContainer{
         grid-column-start: 2;
@@ -20,15 +22,15 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        
+        gap: .3rem;
         &_secondText{
-            @include inter-Font($white_offWhite_font, .34vw, .5rem, 500);
+            @include inter-Font($white_offWhite_font, .34vw, .5rem, 600);
             &_pointSeparator{
                 margin: 0 .2rem;
             }
         }
         &_mainText{
-            @include inter-Font($white_font, 1.6vw, .5rem, 800);
+            @include inter-Font($white_font, 2.8vw, .2rem, 700);
         }
     }
 }
