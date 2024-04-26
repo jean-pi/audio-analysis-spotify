@@ -5,21 +5,19 @@ import { getDataUserEndPoint } from '@/services';
 import { adapterUser } from '@/adapters';
 import { User, userEndpointModel } from '@/models';
 import { DATA_DESCR_USER_CARD } from '@/constants';
-import useAppContext from '../../hooks/useAppContext';
 import { useQueryFetch } from '../../hooks';
 import { useEffect } from 'react';
+import { zustandBookStore } from '@/store';
 
 const UserInfo: React.FC  = () => {
 
-	const {setInfoInContext} = useAppContext();
+	const {setUserName} = zustandBookStore();
 	const queryGetUserData = useQueryFetch<userEndpointModel>(["getDataUser"], getDataUserEndPoint)
 
 	useEffect(()=>{
 		if(!queryGetUserData.isLoading && queryGetUserData.data){
 			const objUser: User = adapterUser(queryGetUserData.data)
-			setInfoInContext({
-				userName: objUser.getdisplayName
-			})
+			setUserName(objUser.getdisplayName)
 		}
 	},[queryGetUserData.isLoading,queryGetUserData.data])
 	

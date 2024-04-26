@@ -5,25 +5,25 @@ import { userAlbumItens, playlistUserIten} from '@/models';
 import { adapterCardAlbumPlaylist } from '@/adapters';
 import { AlbumPlaylistCardEntitie } from "@/models";
 import { useInfiniteQueryFetch } from '../../hooks';
-import useAppContext from '../../hooks/useAppContext';
 import { useInView } from 'react-intersection-observer';
+import { zustandBookStore } from '@/store';
+
 
 const PlaylistAlbumCard: React.FC  = () => {
 
-    const {infoInContext} = useAppContext();
-	
+	const {userName, setAlbumPlaylistSelected, albumPlaylistSelected} = zustandBookStore()
 
-	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, infoInContext?.userName, "0");
-	// setInfoInContext({
-	// 	userName: "prueba",
-    //  albumPlaylistSelected: {
-    //      photoUrl: savedSongsObj.getPhotoUrl(),
-    //      type: savedSongsObj.getType(),
-    //      numOfSongs: savedSongsObj.getNumberOfSongs(),
-    //      duration: "2dias",
-    //      name: savedSongsObj.getName(),
-    //  }
-	// })
+	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, userName, "0");
+
+	// useEffect(()=> {
+	// 	setAlbumPlaylistSelected({
+	// 		photoUrl: savedSongsObj.getPhotoUrl(),
+	// 		type: savedSongsObj.getType(),
+	// 		owner: savedSongsObj.getOwner(),
+	// 		numOfSongs: savedSongsObj.getNumberOfSongs(),
+	// 		name: savedSongsObj.getName()
+	// 	})
+	// },[])
 
 	const {ref, inView} = useInView();
 

@@ -7,20 +7,20 @@ import { zustandBookStore } from '@/store';
 
 const HeadSongsView: React.FC = () => {
 
-	const {infoInContext} = zustandBookStore();
+	const {albumPlaylistSelected} = zustandBookStore();
 
 
 	return (
 		<div className={styles.container}>
-			<img className={styles.container_img} src={infoInContext.albumPlaylistSelected?.photoUrl} alt="" />
+			<img className={styles.container_img} src={albumPlaylistSelected?.photoUrl} alt="" />
 			<div className={styles.container_detailsTextContainer}>
-				<h3 className={styles.container_detailsTextContainer_mainText}>{infoInContext.albumPlaylistSelected?.name}</h3>
+				<h3 className={styles.container_detailsTextContainer_mainText}>{albumPlaylistSelected?.name}</h3>
 				<h4 className={styles.container_detailsTextContainer_secondText}>
-					{infoInContext.albumPlaylistSelected?.type} 
+					{albumPlaylistSelected?.type} 
 					<span className={styles.container_detailsTextContainer_secondText_pointSeparator}>•</span>  
-					by {infoInContext.albumPlaylistSelected?.owner}
+					by {albumPlaylistSelected?.owner}
 					<span className={styles.container_detailsTextContainer_secondText_pointSeparator}>•</span>  
-					{infoInContext.albumPlaylistSelected?.numOfSongs} songs
+					{albumPlaylistSelected?.numOfSongs} songs
 				</h4>
 			</div>
 		</div>

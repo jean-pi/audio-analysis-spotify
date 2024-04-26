@@ -22,17 +22,12 @@ export class AlbumPlaylistCardEntitie{
     
     eventClick(){
 
-        zustandBookStore.getState().setInfoInContext(
-            {
-                userName: zustandBookStore.getState().infoInContext.userName,
-                albumPlaylistSelected: {
-                    photoUrl: this.photoUrl,
-                    type: this.type,
-                    owner: this.owner,
-                    numOfSongs: this.numberOfSongs,
-                    duration: "2h50min",
-                    name: this.name
-                }
+        zustandBookStore.getState().setAlbumPlaylistSelected({
+                photoUrl: this.photoUrl,
+                type: this.type,
+                owner: this.owner,
+                numOfSongs: this.numberOfSongs,
+                name: this.name
             })
 
     }

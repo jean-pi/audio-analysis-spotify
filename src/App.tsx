@@ -6,7 +6,6 @@ import AuthGuard from "@/guard/auth.guard"
 import LandindGuard from "@/guard/landing.guard"
 import { Suspense, lazy } from "react"
 import {LazyWaiting} from "@/pages/AppPage/components/LazyWaiting"
-import AppContextProvider from "@/pages/AppPage/context/appContext"
 
 const AppPage = lazy(()=> import("@/pages/AppPage/AppPage"));
 const Landing = lazy(()=> import("@/pages/Landing/Landing"));
@@ -21,7 +20,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route element={<AuthGuard/>}>
-              <Route path={restrictedRoutes.APP} element={<AppContextProvider> <AppPage/> </AppContextProvider>}/>
+              <Route path={restrictedRoutes.APP} element={<AppPage/>}/>
           </Route>
           <Route element={<LandindGuard/>}>
             <Route path={publicRoutes.LANDING} element={<Landing/>}/>
