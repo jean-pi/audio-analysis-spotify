@@ -4,16 +4,8 @@ import styles from './HeadSongsView.module.scss';
 import { zustandBookStore } from '@/store';
 
 
-export type HeadSongsViewProps = {
-	imgUrl: string,
-	name: string,
-	type: string,
-	by: string,
-	numCaciones: number,
-	duracion: string
-}
 
-const HeadSongsView: React.FC<HeadSongsViewProps>  = ({imgUrl,name, type,by,numCaciones,duracion}) => {
+const HeadSongsView: React.FC = () => {
 
 	const {infoInContext} = zustandBookStore();
 
@@ -28,8 +20,7 @@ const HeadSongsView: React.FC<HeadSongsViewProps>  = ({imgUrl,name, type,by,numC
 					<span className={styles.container_detailsTextContainer_secondText_pointSeparator}>•</span>  
 					by {infoInContext.albumPlaylistSelected?.owner}
 					<span className={styles.container_detailsTextContainer_secondText_pointSeparator}>•</span>  
-					{numCaciones} canciones , 
-					{ duracion }
+					{infoInContext.albumPlaylistSelected?.numOfSongs} songs
 				</h4>
 			</div>
 		</div>

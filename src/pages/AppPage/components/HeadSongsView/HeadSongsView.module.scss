@@ -3,7 +3,7 @@
 
 .container{
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 17% 83%;
     gap: clamp(.7rem , .45rem + .45vw, 1.4rem);
     align-items: center;
     padding-right: 1rem;
@@ -11,8 +11,8 @@
         grid-column-start: 1;
         grid-column-end: 2;
         width: 100%;
-        max-width: 15rem;
-        border-radius: 6px;
+        max-width: 16rem;
+        border-radius: 3.5px;
         aspect-ratio: 1/1;
         object-fit: cover;
     }   
@@ -24,13 +24,13 @@
         justify-content: center;
         gap: .3rem;
         &_secondText{
-            @include inter-Font($white_offWhite_font, .34vw, .5rem, 600);
+            @include inter-Font($white_offWhite_font, .36vw, .5rem, 600);
             &_pointSeparator{
                 margin: 0 .2rem;
             }
         }
         &_mainText{
-            @include inter-Font($white_font, 2.8vw, .2rem, 700);
+            @include inter-Font($white_font, 2.9vw, .2rem, 700);
         }
     }
 }

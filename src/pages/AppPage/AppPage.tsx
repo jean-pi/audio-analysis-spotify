@@ -73,14 +73,7 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 			</div>
 
 			<div className={styles.songContainer}>
-				<HeadSongsView
-					imgUrl='https://misc.scdn.co/liked-songs/liked-songs-300.png'
-					name= "Liked Songs"
-					type='Playlist'
-					by='JeanPierre'
-					numCaciones={10123}
-					duracion=" 61h 14min"
-				/>
+				<HeadSongsView/>
 				<SearchSongBar/>
 				<div className={styles.songContainer_cabezeraSongs}>
 					<span className={styles.songContainer_cabezeraSongs_span}>{HEAD_SONG_CONTAINER.numSong}</span>
