@@ -11,19 +11,9 @@ import { zustandBookStore } from '@/store';
 
 const PlaylistAlbumCard: React.FC  = () => {
 
-	const {userName, setAlbumPlaylistSelected, albumPlaylistSelected} = zustandBookStore()
+	const {userName} = zustandBookStore()
 
 	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, userName, "0");
-
-	// useEffect(()=> {
-	// 	setAlbumPlaylistSelected({
-	// 		photoUrl: savedSongsObj.getPhotoUrl(),
-	// 		type: savedSongsObj.getType(),
-	// 		owner: savedSongsObj.getOwner(),
-	// 		numOfSongs: savedSongsObj.getNumberOfSongs(),
-	// 		name: savedSongsObj.getName()
-	// 	})
-	// },[])
 
 	const {ref, inView} = useInView();
 
@@ -81,7 +71,7 @@ const PlaylistAlbumCard: React.FC  = () => {
 					if(objUserPlaylistAlbumUser.length - 5 === index){
 						return(
 							<div key={item.getId()} ref={ref} className={styles.playlistAlbumCard} onClick={()=> item.eventClick()}>
-								<img className={styles.playlistAlbumCard_img} src={item.getPhotoUrl()} alt="" />
+								<img className={styles.playlistAlbumCard_img} src={item.getPhotoUrl()} alt="" loading = 'lazy'/>
 								<h5 className={styles.playlistAlbumCard_name}>{item.getName()}</h5>
 								<p className={styles.playlistAlbumCard_details}>{item.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {item.getOwner()}</p>
 							</div>
@@ -89,7 +79,7 @@ const PlaylistAlbumCard: React.FC  = () => {
 					}  
 					return(
 						<div key={item.getId()} className={styles.playlistAlbumCard} onClick={()=> item.eventClick()}>
-							<img className={styles.playlistAlbumCard_img} src={item.getPhotoUrl()} alt="" />
+							<img className={styles.playlistAlbumCard_img} src={item.getPhotoUrl()} alt="" loading = 'lazy'/>
 							<h5 className={styles.playlistAlbumCard_name}>{item.getName()}</h5>
 							<p className={styles.playlistAlbumCard_details}>{item.getType()} <span className={styles.playlistAlbumCard_details_separation}>•</span> {item.getOwner()}</p>
 						</div>
