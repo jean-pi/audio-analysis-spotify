@@ -10,7 +10,7 @@
 
 .playlistAlbumCard {
     max-width: 12rem;
-    padding: clamp(.2rem, .4rem + .3vw, 10rem);
+    padding: clamp(.2rem, .3rem + .2vw, 5rem);
     border-radius: 6px;
     transition: background-color .1s ease-in 0ms;
     &:hover{

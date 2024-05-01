@@ -6,6 +6,7 @@ import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/const
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
+import { zustandBookStore } from '@/store';
 
 export type AppPageProps = {
 	// types...
@@ -14,6 +15,7 @@ export type AppPageProps = {
 const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 	const [tokenLoaded, setTokenLoaded] = useState(false);
+	const {albumPlaylistSelected} = zustandBookStore();
 
 
 	useEffect(()=>{
@@ -73,12 +75,17 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 			</div>
 
 			<div className={styles.songContainer}>
+				<div className={styles.songContainer_wrapper}>	
+				<div className={styles.songContainer_wrapper_fixedScrollHead}>
+					{albumPlaylistSelected?.name}
+				</div>
+				</div>
 				<HeadSongsView/>
 				<SearchSongBar/>
-				<div className={styles.songContainer_cabezeraSongs}>
-					<span className={styles.songContainer_cabezeraSongs_span}>{HEAD_SONG_CONTAINER.numSong}</span>
-					<span className={styles.songContainer_cabezeraSongs_span}>{HEAD_SONG_CONTAINER.title}</span>
-					<span className={styles.songContainer_cabezeraSongs_span}>{HEAD_SONG_CONTAINER.album}</span>
+				<div className={styles.songContainer_cabeceraSongs}>
+					<span className={styles.songContainer_cabeceraSongs_span}>{HEAD_SONG_CONTAINER.numSong}</span>
+					<span className={styles.songContainer_cabeceraSongs_span}>{HEAD_SONG_CONTAINER.title}</span>
+					<span className={styles.songContainer_cabeceraSongs_span}>{HEAD_SONG_CONTAINER.album}</span>
 				</div>
 
 				<SongIten 

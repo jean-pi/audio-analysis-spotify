@@ -8,7 +8,7 @@
     width: calc(100vw - 1rem);
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 31% calc(49% - 1rem) 20%;
+    grid-template-columns: 26% calc(54% - 1rem) 20%;
     grid-template-rows: 3.3rem calc(100vh - 7.3rem) 3rem;
     @media (max-width: 27.118em) {
         grid-template-rows: 3.3rem 100% 3rem;
@@ -140,7 +140,18 @@
         border-radius: 20px;  
         transition: background-color 5s ease-in 1000ms;
     }
-    &_cabezeraSongs{
+    &_wrapper{
+        position: -webkit-sticky; /* Para navegadores WebKit */
+        position: sticky;  
+        top: 0;
+        z-index: 100;  
+        background-color: white;
+        margin-bottom: 1rem;
+        &_fixedScrollHead{
+
+        }
+    }
+    &_cabeceraSongs{
         display: grid;
         grid-template-columns: 6% 52% calc(42% - .6rem);
         gap: .3rem;
