@@ -2,12 +2,6 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 
-.a{
-    margin: 5rem;
-    height: 10rem;
-    width: 10rem;
-}
-
 .playlistAlbumCard {
     max-width: 12rem;
     padding: clamp(.2rem, .3rem + .2vw, 5rem);

@@ -2,6 +2,7 @@
 @use "/src/styles/pallette.module.scss" as *;
 
 .container{
+    padding: clamp(.2rem, .3rem + .5vw, 2rem) clamp(.2rem, .3rem + .5vw, 2rem) 0 clamp(.2rem, .3rem + .5vw, 2rem);
     display: grid;
     grid-template-columns: 19% 81%;
     gap: clamp(.7rem , .45rem + .45vw, 1.4rem);

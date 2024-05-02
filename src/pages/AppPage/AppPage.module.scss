@@ -117,8 +117,6 @@
 .songContainer{
     background-color: $nonBlack;
     border-radius: 6px;
-    padding: clamp(.2rem, .3rem + .5vw, 2rem);
-    padding-right: clamp(.2rem, .1rem + .2vw, 2rem);
     overflow-y: scroll ;
     overflow-x: hidden;
     &:hover::-webkit-scrollbar-thumb{
@@ -130,41 +128,57 @@
     &::-webkit-scrollbar {
         width: .5rem;
         transition: background-color 2s ease-in 100ms;
-
+        position: absolute;
         @media (max-width: 27.118em) {
             display: none;
         }  
     }
-    &::-webkit-scrollbar-thumb {       
-        background-color: #00000000;
+    &::-webkit-scrollbar-thumb {      
+        position: absolute;
+        background-color: #c3232300;
         border-radius: 20px;  
         transition: background-color 5s ease-in 1000ms;
     }
-    &_wrapper{
+    &_fixedScrollHead{
         position: -webkit-sticky; /* Para navegadores WebKit */
         position: sticky;  
         top: 0;
+        min-width: calc(100% + 5rem);
+        height: 2.4rem;
         z-index: 100;  
-        background-color: white;
-        margin-bottom: 1rem;
-        &_fixedScrollHead{
-
-        }
+        background-color: $nonBlack;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-right: clamp(.2rem, .1rem + .2vw, 2rem);
+        padding-left: clamp(.2rem, .3rem + .5vw, 2rem);
+        color: white;
+        @include inter-Font($white_font, 1vw, .2rem, 700);
+        text-overflow: ellipsis
     }
-    &_cabeceraSongs{
-        display: grid;
-        grid-template-columns: 6% 52% calc(42% - .6rem);
-        gap: .3rem;
-        border-bottom: 1px solid #4d4d4d;
-        padding-bottom: .3rem;
-        margin-bottom: .4rem;
-        margin-top: 1rem;
-        &_span{
-            @include inter-Font($white_offWhite_font, .26vw, .5rem, 600);
-            &:nth-child(1){
-                text-align: center;
+
+    &_containerSongs{
+        margin-right: clamp(.2rem, .1rem + .2vw, 2rem);
+        margin-left: clamp(.2rem, .3rem + .5vw, 2rem);
+        &_cabeceraSongs{
+            display: grid;
+            grid-template-columns: 6% 52% calc(42% - .6rem);
+            gap: .2rem;
+            background-color: $nonBlack;
+            border-bottom: 1px solid #4d4d4d;
+            padding: .5rem 0 .4rem 0;
+            margin-bottom: .3rem;
+            margin-top: .6rem;
+            position: sticky;  
+            top: 0rem;
+            &_span{
+                @include inter-Font($white_offWhite_font, .26vw, .5rem, 600);
+                &:nth-child(1){
+                    text-align: center;
+                }
             }
         }
+
     }
 }
 
