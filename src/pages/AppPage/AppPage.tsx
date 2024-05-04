@@ -6,12 +6,9 @@ import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/const
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
+import { accessTokenEndpoint } from '@/models/endPoints/accessTokeEndpoint';
 
-export type AppPageProps = {
-	// types...
-}
-
-const AppPage: React.FC<AppPageProps>  = ({}) => {
+const AppPage: React.FC = ({}) => {
 
 	const [tokenLoaded, setTokenLoaded] = useState(false);
 
@@ -20,8 +17,8 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 		const isAccessToken = localStorage.getItem("access_token");
 
 		const getInfoAndAdapter = async() => {
-			const accessToken =  await getAccessToken();
-			localStorage.setItem("access_token", accessToken);
+			const accessToken: accessTokenEndpoint =  await getAccessToken();
+			localStorage.setItem("access_token", accessToken.access_token);
 			setTokenLoaded(true)
 		}
 

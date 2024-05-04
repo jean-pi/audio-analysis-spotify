@@ -22,10 +22,6 @@ const UserInfo: React.FC  = () => {
 	},[queryGetUserData.isLoading,queryGetUserData.data])
 	
 
-	if(queryGetUserData.isError){
-		console.log(queryGetUserData.error)
-	}
-
 	if(queryGetUserData.isLoading){
 		return (
 			<div className={styles.loadingContainer}>
@@ -43,7 +39,9 @@ const UserInfo: React.FC  = () => {
 			{objUser && (
 				<a tabIndex={0} data-descr={DATA_DESCR_USER_CARD} className={styles.userInfo} href={objUser?.getUrlToPerfil} target='_blank'>
 					<span className={styles.userInfo_nameUser}>{objUser?.getdisplayName}</span>
-					<img className={styles.userInfo_imgUser} src={objUser?.getPhotoUrl} />
+					<div className={styles.userInfo_imgContainer}>
+						<img className={styles.userInfo_imgContainer_imgUser} src={objUser?.getPhotoUrl} />
+					</div>
 				</a>
 			)}
 		</>

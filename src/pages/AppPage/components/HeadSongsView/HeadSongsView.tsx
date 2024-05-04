@@ -27,9 +27,7 @@ const HeadSongsView: React.FC = () => {
 		<div className={styles.container}>
 			<img className={styles.container_img} src={albumPlaylistSelected?.photoUrl} alt="" />
 			<div className={styles.container_detailsTextContainer}>
-
 				<h3 ref={mainTextRef} className={styles.container_detailsTextContainer_mainText}>{albumPlaylistSelected?.name}</h3>
-
 				<h4 className={styles.container_detailsTextContainer_secondText}>
 					{albumPlaylistSelected?.type} 
 					<span className={styles.container_detailsTextContainer_secondText_pointSeparator}>•</span>  

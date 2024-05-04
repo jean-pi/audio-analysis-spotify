@@ -7,7 +7,7 @@
   gap: .5rem;
   border: 1px solid #00000000;
   text-decoration: none;
-  padding-left: 6px;
+  padding: 2px 2px 0 7px;
   &:focus{
     border-radius: 100px;
     outline: 1px solid $white_focus;
@@ -36,15 +36,18 @@
       padding: .4rem;
       z-index: 1;
   }
-&[data-descr]:hover::after {
-    opacity: 1;
-}
+  &[data-descr]:hover::after {
+      opacity: 1;
+  }
   &_nameUser{
     @include inter-Font($white_font, .24vw, .6rem, 600);
   }
-  &_imgUser{
-    border-radius: 100%;
-    block-size: 1.7rem;
+  &_imgContainer{
+    min-width: 1.7rem;
+    &_imgUser{
+      border-radius: 100%;
+      block-size: 1.7rem;
+    }
   }
 }
 
@@ -55,7 +58,7 @@
   gap: .5rem;
   border: 1px solid #00000000;
   text-decoration: none;
-  padding-left: 6px;
+  padding: 2px 2px 0 7px;
   &_text{
     @include inter-Font(#00000000, .24vw, .6rem, 600);
     background-color: $loadingExistingItem;
@@ -63,8 +66,9 @@
   }
   &_img{
     border-radius: 100%;
-    min-width: 1.6rem;
-    min-height: 1.6rem;
+    min-width: 1.7rem;
+    min-height: 1.7rem;
     background-color: $loadingExistingItem;
   }
+
 }

@@ -1,18 +1,18 @@
 // "use client";
 import React from 'react';
 import styles from './ButtonConnectAcount.module.scss';
+import { IMG_SPOTIFY,CONNECT_SPOTIFY_ACCOUNT_TEXT } from '@/constants';
+import { linkAuth } from '@/services/auth/authSpotify';
 
-import { 
-	IMG_SPOTIFY,
-	CONNECT_SPOTIFY_ACCOUNT_TEXT } from '@/constants';
+/**
+*
+* @return {<ButtonConnectAcount/>}
+*/
 
-export type ButtonConnectAcountProps = {
-	eventClick:  () => void;
-}
 
-const ButtonConnectAcount: React.FC<ButtonConnectAcountProps>  = ({eventClick}) => {
+const ButtonConnectAcount: React.FC  = () => {
 	return (
-		<button className={styles.button} onClick={eventClick} >
+		<button className={styles.button} onClick={linkAuth} >
 			<img className={styles.button_img} src={IMG_SPOTIFY.url} alt={IMG_SPOTIFY.alt} />
 			<h4 className={styles.button_h4}>{CONNECT_SPOTIFY_ACCOUNT_TEXT}</h4>
 		</button>

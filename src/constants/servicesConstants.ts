@@ -1,6 +1,6 @@
 
 // export const redirectUrlConstant = 'https://audioanalysispotify.web.app/app';
-export const redirectUrlConstant = 'http://localhost:5173/app';
+export const redirectUrlConstant: string = 'http://localhost:5173/app';
 
 export const endPoints = {
     accessToken: "https://accounts.spotify.com/api/token",
@@ -11,8 +11,8 @@ export const endPoints = {
     savedAlbums: "https://api.spotify.com/v1/me/albums",
 }
 
-export const limitAlbumPlaylistItens = 22;
+export const limitAlbumPlaylistItens: number = 22;
 
-export const scopesAuth = 'user-read-private user-read-email playlist-read-private user-library-read';
+export const scopesAuth: string = 'user-read-private user-read-email playlist-read-private user-library-read';
 
 

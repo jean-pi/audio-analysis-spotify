@@ -12,18 +12,17 @@ import { zustandBookStore } from '@/store';
 const PlaylistAlbumCard: React.FC  = () => {
 
 	const {userName,setAlbumPlaylistSelected} = zustandBookStore()
-
 	const savedSongsObj = new AlbumPlaylistCardEntitie("Saved Songs", "https://misc.scdn.co/liked-songs/liked-songs-300.png", "Playlist", 1000, userName, "0");
 
 	useEffect(()=>{
 		setAlbumPlaylistSelected({
 			photoUrl: savedSongsObj.getPhotoUrl(),
 			type: savedSongsObj.getType(),
-			owner: savedSongsObj.getOwner(),
+			owner: userName,
 			numOfSongs: savedSongsObj.getNumberOfSongs(),
 			name: savedSongsObj.getName()
 		})
-	},[])
+	},[userName])
 
 	const {ref, inView} = useInView();
 
