@@ -6,7 +6,6 @@ import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/const
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
-import { zustandBookStore } from '@/store';
 
 export type AppPageProps = {
 	// types...
@@ -15,7 +14,6 @@ export type AppPageProps = {
 const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 	const [tokenLoaded, setTokenLoaded] = useState(false);
-	const {albumPlaylistSelected} = zustandBookStore();
 
 
 	useEffect(()=>{
