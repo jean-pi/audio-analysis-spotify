@@ -4,7 +4,7 @@ import { endPoints, redirectUrlConstant } from "@/constants";
 export const getAccessToken = async (): Promise<any> => {
     try {
         const accessTokenUrl: string = endPoints.accessToken;
-          const redirectUrl: string = redirectUrlConstant;
+        const redirectUrl: string = redirectUrlConstant;
 
         const urlParams = new URLSearchParams(window.location.search);
         const codeUrl: string | null = urlParams.get("code");
@@ -36,8 +36,7 @@ export const getAccessToken = async (): Promise<any> => {
         return data.access_token;
         
     } catch (error) {
-        console.error(error);
-        console.log("error en crear access token")
+        return error;
     }
 };
 

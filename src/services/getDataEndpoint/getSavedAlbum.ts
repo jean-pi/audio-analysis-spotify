@@ -8,19 +8,6 @@
 import { endPoints, limitAlbumPlaylistItens} from "@/constants";
 import { AlbumsUserEndpointModel, userAlbumItens } from "@/models";
 
-    //antes de usar useInfiniteQuery()
-// export const getSavedAlbum = async(): Promise<AlbumsUserEndpointModel> =>{
-//     const options = {
-//         method: 'GET', 
-//         headers: {
-//             'Authorization': 'Bearer ' + localStorage.getItem("access_token")
-//         }
-//     }
-//     const apiUrl:string = endPoints.savedAlbums + "?limit=13&offset=2";
-//     return (await fetch(apiUrl, options)).json();
-// }
-
-
 
 
 export const getSavedAlbum = async({pageParam}: {pageParam: number}): Promise<userAlbumItens[]> =>{

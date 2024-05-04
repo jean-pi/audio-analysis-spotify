@@ -44,10 +44,6 @@ const AppPage: React.FC<AppPageProps>  = ({}) => {
 
 
 
-
-
-
-
 	if(tokenLoaded){
 	return (
 
