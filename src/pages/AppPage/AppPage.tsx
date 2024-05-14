@@ -19,6 +19,7 @@ const AppPage: React.FC = ({}) => {
 		const getInfoAndAdapter = async() => {
 			const accessToken: accessTokenEndpoint =  await getAccessToken();
 			localStorage.setItem("access_token", accessToken.access_token);
+			localStorage.setItem("refresh_token", accessToken.refresh_token);
 			setTokenLoaded(true)
 		}
 
@@ -34,7 +35,7 @@ const AppPage: React.FC = ({}) => {
 
 	if(!tokenLoaded){
 		return(
-			<div className={styles.appPage}></div>
+			<div className={styles.appPage}>"no access token"</div>
 		)
 
 	}
