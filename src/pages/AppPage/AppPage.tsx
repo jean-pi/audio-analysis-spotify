@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './AppPage.module.scss';
 import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
-import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER } from '@/constants';
+import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER} from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
@@ -11,7 +11,6 @@ import { accessTokenEndpoint } from '@/models/endPoints/accessTokeEndpoint';
 const AppPage: React.FC = ({}) => {
 
 	const [tokenLoaded, setTokenLoaded] = useState(false);
-
 
 	useEffect(()=>{
 		const isAccessToken = localStorage.getItem("access_token");

@@ -17,8 +17,8 @@ const AuthGuard: React.FC = () => {
     const urlIsError = urlParams.get("error");
     const urlIsCode = urlParams.get("code");
     const isAccessToken = localStorage.getItem('access_token');
-
-    return !urlIsError && urlIsCode || isAccessToken? <Outlet/> : <Navigate replace to={publicRoutes.LANDING} />;
+    console.log(isAccessToken)
+    return !urlIsError && urlIsCode || !isAccessToken === null? <Outlet/> : <Navigate replace to={publicRoutes.LANDING} />;
 
     // const urlParams = new URLSearchParams(window.location.search);
     // const accessRespondUrl = urlParams.get("error");    
