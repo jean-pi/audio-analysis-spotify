@@ -7,6 +7,7 @@ import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
 import { accessTokenEndpoint } from '@/models/endPoints/accessTokeEndpoint';
+// import { SomethingWrong } from './components/SomethingWrong';
 
 const AppPage: React.FC = ({}) => {
 
@@ -35,6 +36,7 @@ const AppPage: React.FC = ({}) => {
 	if(!tokenLoaded){
 		return(
 			<div className={styles.appPage}>"no access token"</div>
+			// <SomethingWrong/>
 		)
 
 	}

@@ -67,3 +67,6 @@ export const HEAD_SONG_CONTAINER = {
     album: "Álbum"
 }
 
+
+// something worng 
+export const SOMETHING_WRONG_TEXT = "Back to main page"
