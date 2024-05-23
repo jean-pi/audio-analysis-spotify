@@ -3,38 +3,26 @@
 
 
 .somethingwrong {
-  
-    .button{
-        // max-height: 2rem;
-        border-radius: 9rem;
-        display: flex;
-        gap: .4rem;
-        padding: .9rem 1rem;
-        max-height: 1.9rem;
-        cursor: pointer;
-        align-items: center;
-        background-color: $green-main;
-        border: none;
-        -webkit-box-shadow: 0px 0px 24px -4px #51515197;
-        -moz-box-shadow: 0px 0px 24px -4px #51515197;
-        box-shadow: 0px 0px 24px -4px #51515197;
-        border: 1px solid #ffffff00;
-        &:focus{
-            outline: 1px solid $white_focus;
-            border: 1px solid $blackActive;
-        }
-        &:hover{
-            outline: 1px solid $white_focus;
-            border: 1px solid $blackActive;
-        }
-        &:active{
-            background-color: $green-main_active;
-        }
-        &_img{
-            block-size: .9rem;
-        }
-        &_h4{
-            @include inter-Font( $black_font, 0.31vw, .7rem, 500)
+    width: 100vw;
+    height: 100vh;
+    background-color: $nonBlack;
+    display: flex;
+    gap: .7rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &_img{
+        block-size: 8rem
+    }
+    &_h3{
+        @include inter-Font($white_font, .8vw, .5rem, 600);
+    }
+    &_h4{
+        @include inter-Font($white_offWhite_font, 0.37vw, .7rem, 400);
+        &_span{
+            cursor: pointer;
+            text-decoration: underline;
+            @include inter-Font($green-main, 0.36vw, .7rem, 400);
         }
     }
 }

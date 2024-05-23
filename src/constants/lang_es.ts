@@ -1,6 +1,9 @@
 import spotifyLogo_black from "@/assets/spotifyLogo_black.png"
 import lensIcon from "@/assets/lensIcon.png"
 import yourLibraryIcon from "@/assets/yourLibraryIcon.png"
+import connectivity_icon from "@/assets/Connectivity_icon.png";
+
+
 
 // connect - disconect spotify
 export const CONNECT_SPOTIFY_ACCOUNT_TEXT = "Connect Spotify"
@@ -69,4 +72,9 @@ export const HEAD_SONG_CONTAINER = {
 
 
 // something worng 
-export const SOMETHING_WRONG_TEXT = "Back to main page"
+export const SOMETHING_WRONG = {
+    action1: "That did´t work. ",
+    action2: "Log in again",
+    text: "Sorry, something went wrong.",
+    img: connectivity_icon
+} 
