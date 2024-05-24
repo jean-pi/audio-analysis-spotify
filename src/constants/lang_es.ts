@@ -1,7 +1,7 @@
 import spotifyLogo_black from "@/assets/spotifyLogo_black.png"
 import lensIcon from "@/assets/lensIcon.png"
 import yourLibraryIcon from "@/assets/yourLibraryIcon.png"
-import connectivity_icon from "@/assets/Connectivity_icon.png";
+import connectivity_icon from "@/assets/connectivity_icon.png";
 
 
 
@@ -53,7 +53,8 @@ export const DATA_DESCR_USER_CARD = "go to your spotify profile"
 export const YOUR_LIBRARY_HEAD = {
     text: "Your library",
     img: yourLibraryIcon,
-    altImg: "your library spotify icon",}
+    altImg: "your library spotify icon"
+}
 
 export const YOUR_LIBRARY_SEARCH_BAR = {
     textPaceholder: "Search your library",
@@ -73,8 +74,8 @@ export const HEAD_SONG_CONTAINER = {
 
 // something worng 
 export const SOMETHING_WRONG = {
-    action1: "That did´t work. ",
-    action2: "Log in again",
-    text: "Sorry, something went wrong.",
+    action1: "that did´t work ",
+    action2: "log in again",
+    text: "Ups  , something went wrong.",
     img: connectivity_icon
 } 

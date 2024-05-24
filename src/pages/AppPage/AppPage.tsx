@@ -11,29 +11,36 @@ import { SomethingWrong } from './components/SomethingWrong';
 
 const AppPage: React.FC = ({}) => {
 
-	const [tokenLoaded, setTokenLoaded] = useState(false);
+	const [tokenLoaded, setTokenLoaded] = useState("loading");
+		// loaded
+		// noLoaded
+		// loading
 
 	useEffect(()=>{
 		const isAccessToken = localStorage.getItem("access_token");
 
 		const getInfoAndAdapter = async() => {
-			const accessToken: accessTokenEndpoint =  await getAccessToken();
-			localStorage.setItem("access_token", accessToken.access_token);
-			localStorage.setItem("refresh_token", accessToken.refresh_token);
-			setTokenLoaded(true)
+			try {
+				const accessToken: accessTokenEndpoint =  await getAccessToken();
+				localStorage.setItem("access_token", accessToken.access_token);
+				localStorage.setItem("refresh_token", accessToken.refresh_token);
+				setTokenLoaded("loaded")
+			} catch (error) {
+				setTokenLoaded("noLoaded")
+			}
 		}
 
 		if(!isAccessToken){
 			getInfoAndAdapter();
 		}else{
-			setTokenLoaded(true)
+			setTokenLoaded("loaded")
 		}
 
 
 	},[])
 
 
-	if(!tokenLoaded){
+	if(tokenLoaded === "noLoaded"){
 		return(
 			// <div className={styles.appPage}>"no access token"</div>
 			<SomethingWrong/>
@@ -43,7 +50,7 @@ const AppPage: React.FC = ({}) => {
 
 
 
-	if(tokenLoaded){
+	if(tokenLoaded === "loaded"){
 	return (
 
 		<div className={styles.appPage}>

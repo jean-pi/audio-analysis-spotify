@@ -7,22 +7,23 @@
     height: 100vh;
     background-color: $nonBlack;
     display: flex;
-    gap: .7rem;
+    gap: .5rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     &_img{
-        block-size: 8rem
+        block-size: 3.8rem;
+        margin-bottom: .8rem
     }
     &_h3{
-        @include inter-Font($white_font, .8vw, .5rem, 600);
+        @include inter-Font($white_font, .60vw, .5rem, 600);
     }
     &_h4{
-        @include inter-Font($white_offWhite_font, 0.37vw, .7rem, 400);
+        @include inter-Font($white_offWhite_font, 0.35vw, .7rem, 400);
         &_span{
             cursor: pointer;
             text-decoration: underline;
-            @include inter-Font($green-main, 0.36vw, .7rem, 400);
+            @include inter-Font($green-main, 0.35vw, .7rem, 400);
         }
     }
 }

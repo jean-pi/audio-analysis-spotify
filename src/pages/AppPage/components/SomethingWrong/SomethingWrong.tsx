@@ -14,7 +14,7 @@ const SomethingWrong: React.FC = ({}) => {
 	}
 	return (
 		<div className={styles.somethingwrong}>
-			<img src={SOMETHING_WRONG.img} alt="connect error" />
+			<img className={styles.somethingwrong_img} src={SOMETHING_WRONG.img} alt="connect error" />
 			<h3 className={styles.somethingwrong_h3}>{SOMETHING_WRONG.text}</h3>
 			<h4 className={styles.somethingwrong_h4}>{SOMETHING_WRONG.action1} <span className={styles.somethingwrong_h4_span} onClick={logOut}>{SOMETHING_WRONG.action2}</span> </h4>
  		</div>
