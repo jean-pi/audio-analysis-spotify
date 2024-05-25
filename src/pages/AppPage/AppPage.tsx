@@ -57,7 +57,7 @@ const AppPage: React.FC = ({}) => {
  			
 			<header className={styles.layerHeaderApp}>
 				<ButtonDisconnectAccount/>
-				<SearchMainBar/>
+				{/* <SearchMainBar/> */}
 				<UserInfo/>
 			</header>
 			<div className={styles.usersLibraryContainer}>
@@ -75,9 +75,6 @@ const AppPage: React.FC = ({}) => {
 			</div>
 
 			<div className={styles.songContainer}>
-				{/* <div className={styles.songContainer_fixedScrollHead}>
-					{albumPlaylistSelected?.name}
-				</div> */}
 				<HeadSongsView/>
 				<SearchSongBar/>
 				<div className={styles.songContainer_containerSongs}>
@@ -263,7 +260,6 @@ const AppPage: React.FC = ({}) => {
 				<div className={styles.layerFooterApp_linkRight}>
 					<a tabIndex={0} className={styles.layerFooterApp_linkRight_a} href={LINKS_FOOTER_APP.github.url} target="_blank">{LINKS_FOOTER_APP.github.text}</a>
 					<a tabIndex={0} className={styles.layerFooterApp_linkRight_a} href={LINKS_FOOTER_APP.x.url} target="_blank">{LINKS_FOOTER_APP.x.text}</a>
-					<a tabIndex={0} className={styles.layerFooterApp_linkRight_a} href={LINKS_FOOTER_APP.instagran.url} target="_blank">{LINKS_FOOTER_APP.instagran.text}</a>
 				</div>
 			</footer>
 

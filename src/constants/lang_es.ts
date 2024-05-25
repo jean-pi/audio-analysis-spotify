@@ -32,7 +32,7 @@ export const SECOND_TEXT_PRESENTATION = "recover tone, timbre, time signature an
 
 // search bar 
 export const PLACEHOLDER_SEARCH_MAIN_BAR_TEXT = "What do you want to analyze?"
-export const PLACEHOLDER_SEARCH_SONG_BAR_TEXT = "Find a song in this playlist"
+export const PLACEHOLDER_SEARCH_SONG_BAR_TEXT = "Search"
 export const ICON_FIND = {
     url: lensIcon,
     alt: "find a track on spotify to analyze",
@@ -68,7 +68,7 @@ export const YOUR_LIBRARY_SEARCH_BAR = {
 export const HEAD_SONG_CONTAINER = {
     numSong:"#",
     title: "Title",
-    album: "Álbum"
+    album: "Album"
 }
 
 

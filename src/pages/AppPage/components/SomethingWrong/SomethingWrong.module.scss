@@ -16,7 +16,7 @@
         margin-bottom: .8rem
     }
     &_h3{
-        @include inter-Font($white_font, .60vw, .5rem, 600);
+        @include inter-Font($white_font, .60vw, .9rem, 600);
     }
     &_h4{
         @include inter-Font($white_offWhite_font, 0.35vw, .7rem, 400);
