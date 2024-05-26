@@ -1,7 +1,7 @@
 // "use client";
 import React, { useEffect, useState } from 'react';
 import styles from './AppPage.module.scss';
-import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
+import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchYourLibrary, UserInfo } from './components';
 import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER} from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
@@ -259,7 +259,6 @@ const AppPage: React.FC = ({}) => {
 				</div>
 				<div className={styles.layerFooterApp_linkRight}>
 					<a tabIndex={0} className={styles.layerFooterApp_linkRight_a} href={LINKS_FOOTER_APP.github.url} target="_blank">{LINKS_FOOTER_APP.github.text}</a>
-					<a tabIndex={0} className={styles.layerFooterApp_linkRight_a} href={LINKS_FOOTER_APP.x.url} target="_blank">{LINKS_FOOTER_APP.x.text}</a>
 				</div>
 			</footer>
 
