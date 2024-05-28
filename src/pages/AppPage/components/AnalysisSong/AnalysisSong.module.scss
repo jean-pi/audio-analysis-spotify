@@ -1,3 +1,61 @@
-.analysissong {
-  
+@use "/src/styles/fonts.module.scss" as *;
+@use "/src/styles/pallette.module.scss" as *;
+
+
+
+.analysisSong {
+    width: 100%;
+    height: 100%;
+    padding: clamp(.5rem, .4rem + .9vw, 3rem);
+    border-radius: 6px;
+    background-image: linear-gradient(
+        220deg,
+        hsl(198deg 54% 44%) 0%,
+        hsl(198deg 46% 40%) 8%,
+        hsl(197deg 38% 35%) 77%
+      );
+    // overflow-y: scroll;
+    &:hover::-webkit-scrollbar-thumb{
+        background-color: $scroll;
+    }
+    &::-webkit-scrollbar-thumb:active{
+        background-color: $scrollActive;
+    }
+    &::-webkit-scrollbar-thumb {       
+        background-color: #00000000;
+        border-radius: 20px;  
+        transition: background-color 5s ease-in 1000ms;
+    }
+    &::-webkit-scrollbar {
+        position: absolute;
+        width: .5rem;
+        transition: background-color 2s ease-in 100ms;
+        @media (max-width: 27.118em) {
+            display: none;
+        }  
+    }
+    &_img{
+        width: 100%;
+        border-radius: 6px;
+    }
+    &_SongName{
+
+    }
+    &_artistName{
+
+    }
+    &_iconSpotify{
+        block-size: 1.4rem;
+    }
+    &_analysisFeturesContainer{
+        &_item{
+
+        }
+    }
+    &_shareContaine{
+        &_icon{
+
+        }
+    }
 }
+

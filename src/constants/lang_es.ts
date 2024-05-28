@@ -2,6 +2,8 @@ import spotifyLogo_black from "@/assets/spotifyLogo_black.png"
 import lensIcon from "@/assets/lensIcon.png"
 import yourLibraryIcon from "@/assets/yourLibraryIcon.png"
 import connectivity_icon from "@/assets/connectivity_icon.png";
+import share_icon from "@/assets/share_icon.png";
+import spotifyLogo_white from "@/assets/spotifyLogo_white.png";
 
 
 
@@ -72,10 +74,26 @@ export const HEAD_SONG_CONTAINER = {
 }
 
 
-// something worng 
+// something worng component
 export const SOMETHING_WRONG = {
     action1: "that did´t work ",
     action2: "log in again",
     text: "Ups  , something went wrong.",
     img: connectivity_icon
 } 
+
+
+
+// analysis audio component
+export const ANALYSIS_AUDIO = {
+    share: "Share",
+    shareIcon: share_icon,
+    spotifyWhiteIcon: spotifyLogo_white,
+    Tonality:"Tonality:",   
+    Duration:"Duration:",
+    Released:"Released:",
+    Volume:"Volume:",
+    Mode:"Mode:",
+    Rhythm:"Rhythm:",
+    Tempo:"Tempo:",
+}

@@ -8,6 +8,7 @@ import { SongIten } from './components/SongIten';
 import { getAccessToken} from '@/services';
 import { accessTokenEndpoint } from '@/models/endPoints/accessTokeEndpoint';
 import { SomethingWrong } from './components/SomethingWrong';
+import { AnalysisSong } from './components/AnalysisSong';
 
 const AppPage: React.FC = ({}) => {
 
@@ -245,12 +246,11 @@ const AppPage: React.FC = ({}) => {
 						album='Lust fot life'
 					/>
 				
-			</div>
-				
-
+				</div>
 			</div>
 
 			<div className={styles.analysisAudioContainer}>
+				<AnalysisSong/>
 			</div>
 
 			<footer className={styles.layerFooterApp}>
