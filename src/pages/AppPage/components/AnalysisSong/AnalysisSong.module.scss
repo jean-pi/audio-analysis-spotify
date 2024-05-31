@@ -6,14 +6,37 @@
 .analysisSong {
     width: 100%;
     height: 100%;
-    padding: clamp(.5rem, .4rem + .9vw, 3rem);
+    padding: clamp(.5rem, .4rem + .6vw, 3rem);
     border-radius: 6px;
     background-image: linear-gradient(
         220deg,
-        hsl(198deg 54% 44%) 0%,
-        hsl(198deg 46% 40%) 8%,
-        hsl(197deg 38% 35%) 77%
-      );
+        hsl(198, 91%, 35%) 0%,
+        hsl(199, 34%, 57%) 8%,
+        hsl(196, 46%, 37%) 77%
+    );
+    // background-image: linear-gradient(
+    //     65deg,
+    //     hsl(0deg 43% 8%) 0%,
+    //     hsl(0deg 41% 8%) 6%,
+    //     hsl(0deg 38% 7%) 11%,
+    //     hsl(0deg 35% 7%) 17%,
+    //     hsl(0deg 32% 7%) 23%,
+    //     hsl(0deg 27% 6%) 30%,
+    //     hsl(0deg 21% 6%) 36%,
+    //     hsl(0deg 13% 5%) 44%,
+    //     hsl(0deg 0% 4%) 55%,
+    //     hsl(349deg 7% 5%) 66%,
+    //     hsl(349deg 12% 6%) 72%,
+    //     hsl(349deg 16% 6%) 77%,
+    //     hsl(349deg 18% 7%) 82%,
+    //     hsl(348deg 20% 7%) 86%,
+    //     hsl(348deg 22% 7%) 91%,
+    //     hsl(348deg 23% 8%) 96%,
+    //     hsl(348deg 24% 8%) 100%
+    //   );
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
     // overflow-y: scroll;
     &:hover::-webkit-scrollbar-thumb{
         background-color: $scroll;
@@ -38,23 +61,50 @@
         width: 100%;
         border-radius: 6px;
     }
-    &_SongName{
-
-    }
-    &_artistName{
-
-    }
-    &_iconSpotify{
-        block-size: 1.4rem;
-    }
-    &_analysisFeturesContainer{
-        &_item{
-
+    &_songNameArtistContainer{
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+        &_songName{
+            @include inter-Font($white_font, .50vw, .55rem, 500);
+        }
+        &_artistName{
+            @include inter-Font($white_offWhite_font, .27vw, .35rem, 500);
         }
     }
-    &_shareContaine{
+    &_iconSpotify{
+        max-width: 1.2rem;
+        aspect-ratio: 1 / 1;
+    }
+    &_analysisFeturesContainer{
+        background-color: #f5f5f513;
+        border-radius: 8px;
+        padding: .3rem 1.2rem;
+        &_item{
+            display: flex;
+            justify-content: space-between;
+            margin:.6rem 0;
+            align-items: center;
+            &_feature{
+                @include inter-Font($white_font, .38vw, .7rem, 500);
+                letter-spacing: .04rem;
+            }
+            &_featureData{
+                @include inter-Font($white_offWhite_font, .30vw, .4rem, 400);
+                letter-spacing: .04rem;
+            }
+        }
+    }
+    &_shareContainer{
+        @include inter-Font($white_offWhite_font, .40vw, .4rem, 400);
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-top: .3rem;
         &_icon{
-
+            max-width: 1.1rem;
         }
     }
 }
