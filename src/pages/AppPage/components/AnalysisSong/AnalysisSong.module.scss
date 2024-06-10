@@ -5,7 +5,7 @@
 
 .analysisSong {
     width: 100%;
-    height: 100%;
+    // height: 100%;
     padding: clamp(.5rem, .4rem + .6vw, 3rem);
     border-radius: 6px;
     background-image: linear-gradient(
@@ -14,26 +14,7 @@
         hsl(199, 34%, 57%) 8%,
         hsl(196, 46%, 37%) 77%
     );
-    // background-image: linear-gradient(
-    //     65deg,
-    //     hsl(0deg 43% 8%) 0%,
-    //     hsl(0deg 41% 8%) 6%,
-    //     hsl(0deg 38% 7%) 11%,
-    //     hsl(0deg 35% 7%) 17%,
-    //     hsl(0deg 32% 7%) 23%,
-    //     hsl(0deg 27% 6%) 30%,
-    //     hsl(0deg 21% 6%) 36%,
-    //     hsl(0deg 13% 5%) 44%,
-    //     hsl(0deg 0% 4%) 55%,
-    //     hsl(349deg 7% 5%) 66%,
-    //     hsl(349deg 12% 6%) 72%,
-    //     hsl(349deg 16% 6%) 77%,
-    //     hsl(349deg 18% 7%) 82%,
-    //     hsl(348deg 20% 7%) 86%,
-    //     hsl(348deg 22% 7%) 91%,
-    //     hsl(348deg 23% 8%) 96%,
-    //     hsl(348deg 24% 8%) 100%
-    //   );
+
     display: flex;
     flex-direction: column;
     gap: .6rem;
