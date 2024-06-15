@@ -11,10 +11,10 @@
     grid-template-columns: 26% calc(55% - 1rem) 19%;
     grid-template-rows: 3.3rem calc(100vh - 7.3rem) 3rem;
     @media (max-width: 75em) {
-        grid-template-columns: 20% calc(80% - 15rem ) 14rem;
+        grid-template-columns: 20% calc(80% - 18rem ) 17rem;
     }
-    @media (max-width: 56.25em) {
-        grid-template-columns: 10% calc(90% - 15rem ) 14rem;
+    @media (max-width: 47.5em) {
+        grid-template-columns: 20% calc(80% - 16rem ) 15rem;
     }
     @media (max-width: 27.118em) {
         grid-template-rows: 3.3rem 100% 3rem;
@@ -92,11 +92,11 @@
         @media (max-width: 20em) {
             grid-template-columns: 50% 50%;
         }
+        @media (max-width: 47.5em) {
+            grid-template-columns: 100%;
+        }
         @media (max-width: 75em) {
             grid-template-columns: 50% 50%;
-        }
-        @media (max-width: 56.25em) {
-            grid-template-columns: 100%;
         }
         @media (max-width: 27.118em) {
             padding-right: clamp(.3rem, .4rem + .4vw, 10rem);
