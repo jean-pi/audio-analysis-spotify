@@ -17,11 +17,11 @@
     box-shadow: 0px 0px 24px -4px #51515197;
     border: 1px solid #ffffff00;
     &:focus{
-        outline: 1px solid $white_focus;
+        outline: 2px solid $white_focus;
         border: 1px solid $blackActive;
     }
     &:hover{
-        outline: 1px solid $white_focus;
+        outline: 2px solid $white_focus;
         border: 1px solid $blackActive;
     }
     &:active{

@@ -64,8 +64,13 @@ const AppPage: React.FC = ({}) => {
 			<div className={styles.usersLibraryContainer}>
 				<div className={styles.usersLibraryContainer_cabecera}>
 					<div className={styles.usersLibraryContainer_cabecera_yourLibrary}>
-						<img  className={styles.usersLibraryContainer_cabecera_yourLibrary_img} src={YOUR_LIBRARY_HEAD.img} alt={YOUR_LIBRARY_HEAD.altImg} />
-						<span tabIndex={0} className={styles.usersLibraryContainer_cabecera_yourLibrary_span}>{YOUR_LIBRARY_HEAD.text}</span>
+						<div className={styles.usersLibraryContainer_cabecera_yourLibrary_leftText}>
+							<img  className={styles.usersLibraryContainer_cabecera_yourLibrary_leftText_img} src={YOUR_LIBRARY_HEAD.img} alt={YOUR_LIBRARY_HEAD.altImg} />
+							<span tabIndex={0} className={styles.usersLibraryContainer_cabecera_yourLibrary_leftText_span}>{YOUR_LIBRARY_HEAD.text}</span>
+						</div>
+						<button tabIndex={0} className={styles.usersLibraryContainer_cabecera_yourLibrary_fourSquareButton}>
+							<img className={styles.usersLibraryContainer_cabecera_yourLibrary_fourSquareButton_img} src={YOUR_LIBRARY_HEAD.img_foursquare} alt="" />
+						</button>
 					</div>
 					<SearchYourLibrary/>
 				</div>

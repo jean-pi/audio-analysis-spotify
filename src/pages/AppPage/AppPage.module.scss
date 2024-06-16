@@ -61,20 +61,39 @@
         padding-bottom: .8rem; 
         &_yourLibrary{
             display: flex;
-            gap: .3rem;
-            align-items: center;
-            &_img{
-                block-size: 1.4rem;
-                margin-bottom: .2rem;
+            justify-content: space-between;
+            width: 100%;
+            &_leftText{
+                display: flex;
+                gap: .3rem;
+                align-items: center;
+                &_img{
+                    block-size: 1.1rem;
+                    margin-bottom: .2rem;
+                }
+                &_span{
+                    border: 1px solid #00000000;
+                    @include inter-Font($white_offWhite_font, .44vw, .7rem, 600);
+                }
             }
-            &_span{
-                border: 1px solid #00000000;
-                @include inter-Font($white_offWhite_font, .44vw, .7rem, 600);
-                &:focus{
-                border-radius: 1px;
-                    outline: 1px solid $white_focus;
-                    outline-offset: 1px;
-                    border: 1px solid $blackActive;
+            &_fourSquareButton{
+                background-color: #00000000;
+                padding: none;
+                outline: none;
+                block-size: 1.4rem;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &_img{
+                    block-size: 1.4rem;
+                    &:hover{
+                        block-size: 1.45rem;
+                    }
+                    &:active{
+                        block-size: 1.4rem;
+
+                    }
                 }
             }
 

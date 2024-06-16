@@ -4,6 +4,7 @@ import yourLibraryIcon from "@/assets/yourLibraryIcon.png"
 import connectivity_icon from "@/assets/connectivity_icon.png";
 import share_icon from "@/assets/share_icon.png";
 import spotifyLogo_white from "@/assets/spotifyLogo_white.png";
+import four_square_icon from "@/assets/four_squares_icon.png";
 
 
 
@@ -55,6 +56,7 @@ export const DATA_DESCR_USER_CARD = "go to your spotify profile"
 export const YOUR_LIBRARY_HEAD = {
     text: "Your library",
     img: yourLibraryIcon,
+    img_foursquare: four_square_icon,
     altImg: "your library spotify icon"
 }
 
