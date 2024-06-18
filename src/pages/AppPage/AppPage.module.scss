@@ -58,8 +58,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: clamp(.5rem, .4rem + 1vw, 10rem);
-        padding-right: clamp(.5rem, .4rem + 1vw, 10rem);
+        padding-left: clamp(.5rem, .2rem + 1vw, 10rem);
+        padding-right: clamp(.5rem, .2rem + 1vw, 10rem);
         padding-top: clamp(.4rem, .3rem + .8vw, 10rem);
         padding-bottom: clamp(.4rem, .3rem + .8vw, 10rem); 
         &_yourLibrary{
@@ -96,7 +96,7 @@
                 background-color: #00000000;
                 padding: none;
                 outline: none;
-                block-size: 1.4rem;
+                block-size: 1.3rem;
                 border: none;
                 display: flex;
                 justify-content: center;
@@ -108,7 +108,7 @@
                         display: none;
                     }
                     &:hover{
-                        block-size: 1.45rem;
+                        block-size: 1.33rem;
                     }
                     &:active{
                         block-size: 1.4rem;
@@ -122,14 +122,13 @@
     &_content{
         display: grid;
         gap: .1rem;
-        padding-right: clamp(.1rem, .3rem + .3vw, 3rem);
+        padding-right: clamp(.1rem, .1rem + .2vw, .3rem);
         padding-left: clamp(.1rem, .3rem + .3vw, 3rem);
         grid-template-columns: 33.333% 33.333% 33.333%;
-        overflow: overlay;
-        scrollbar-gutter: auto;
-        scrollbar-color: transparent transparent;
-        scrollbar-width: thin;
+        overflow-y: scroll;
+        overflow-x: hidden;
         position: relative;
+
         @media (max-width: 75em) {
             // 1200px
             grid-template-columns: 50% 50%;
@@ -140,7 +139,12 @@
         }
         @media (max-width: 48em) {
             // 768px
-            grid-template-columns: 100%;
+            grid-template-columns: 100%;    
+            overflow: overlay;
+            scrollbar-gutter: auto;
+            padding: 0;
+            scrollbar-color: transparent transparent;
+
         } 
         @media (max-width: 20em) {
             // 320px
