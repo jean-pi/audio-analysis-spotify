@@ -11,14 +11,13 @@ export interface AnalysisSongProps {
 const AnalysisSong: React.FC<AnalysisSongProps>  = ({}) => {
 	return (
 		<div className={styles.analysisSong}>
-				<img className={styles.analysisSong_img} src="https://www.lahiguera.net/musicalia/artistas/lana_del_rey/disco/8313/lana_del_rey_lust_for_life-portada.jpg" alt="" />
+			<img className={styles.analysisSong_img} src="https://www.lahiguera.net/musicalia/artistas/lana_del_rey/disco/8313/lana_del_rey_lust_for_life-portada.jpg" alt="" />
 			{/* <img className={styles.analysisSong_img} src="https://i.scdn.co/image/ab67616d0000b273e2e352d89826aef6dbd5ff8f" alt="" /> */}
-
 			<div className={styles.analysisSong_songNameArtistContainer}>
 				<h5 className={styles.analysisSong_songNameArtistContainer_songName}>Summer Bummer (ft. A$AP Rocky, Playboi Carti)</h5>
 				<h6 className={styles.analysisSong_songNameArtistContainer_artistName}>Lana Del Rey</h6>
 			</div>
-				<img className={styles.analysisSong_iconSpotify} src={ANALYSIS_AUDIO.spotifyWhiteIcon} alt="" />
+			<img className={styles.analysisSong_iconSpotify} src={ANALYSIS_AUDIO.spotifyWhiteIcon} alt="" />
 			<div className={styles.analysisSong_analysisFeturesContainer}>
 				<div className={styles.analysisSong_analysisFeturesContainer_item}>
 					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Tonality}</p>
