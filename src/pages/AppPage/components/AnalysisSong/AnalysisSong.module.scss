@@ -18,6 +18,14 @@
     flex-direction: column;
     gap: .6rem;
     // overflow-y: scroll;
+    @media (max-width: 36.25em) {
+        // 580px
+        position: absolute;
+        bottom: 2.5rem;
+        left: 0.5rem;
+        max-height: 3rem;
+        width: calc(100vw - 1rem);
+    }
     &:hover::-webkit-scrollbar-thumb{
         background-color: $scroll;
     }
@@ -40,13 +48,14 @@
     &_img{
         width: 100%;
         border-radius: 6px;
+        display: none;
     }
     &_songNameArtistContainer{
         display: flex;
         flex-direction: column;
         gap: .2rem;
         &_songName{
-            @include inter-Font($white_font, .50vw, .55rem, 600);
+            @include inter-Font($white_font, .9vw, .55rem, 600);
         }
         &_artistName{
             @include inter-Font($white_offWhite_font, .27vw, .35rem, 500);
@@ -55,8 +64,12 @@
     &_iconSpotify{
         max-width: 1.2rem;
         aspect-ratio: 1 / 1;
+        display: none;
+
     }
     &_analysisFeturesContainer{
+        display: none;
+
         background-color: #f5f5f513;
         border-radius: 8px;
         padding: .3rem 1.2rem;
@@ -84,6 +97,8 @@
         cursor: pointer;
         margin-top: .3rem;
         &_icon{
+            display: none;
+
             max-width: 1.1rem;
         }
     }

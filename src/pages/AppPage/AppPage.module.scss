@@ -18,11 +18,16 @@
         // 768px
         grid-template-columns: 10% calc(90% - 16rem ) 15rem;
     }
+    @media (max-width: 36.25em) {
+        // 580px
+        grid-template-rows: 3rem calc(100vh - 6rem) 2rem;
+        grid-template-columns: 10% calc(90% - 1rem) ;
+    }
     @media (max-width: 27em) {
         // 432px
         grid-template-rows: 3.3rem 100% 3rem;
         grid-template-columns: calc(100vw - .5rem);
-    }  
+    }    
     gap: .5rem;
 }
 
@@ -256,6 +261,10 @@
     align-items: center;
     justify-content: space-between;
     padding: .7rem 1.8rem 1rem 1.8rem;
+    @media (max-width: 48em) {
+        // 768px
+        padding: .7rem .7rem 1rem .7rem;
+    }
     @include inter-Font($white_font, .30vw, .7rem, 400);
     @media (max-width: 27.188em) {
         display: none;
