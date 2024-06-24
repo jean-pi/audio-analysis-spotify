@@ -21,7 +21,7 @@
     @media (max-width: 36.25em) {
         // 580px
         grid-template-rows: 3rem calc(100vh - 6rem) 2rem;
-        grid-template-columns: 10% calc(90% - 1rem) ;
+        grid-template-columns: 10% calc(90% - 1rem) 0%;
     }
     @media (max-width: 27em) {
         // 432px
