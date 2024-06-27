@@ -1,7 +1,7 @@
 // "use client";
 import React, { useEffect, useState } from 'react';
 import styles from './AppPage.module.scss';
-import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchYourLibrary, UserInfo } from './components';
+import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBar, SearchYourLibrary, UserInfo } from './components';
 import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER} from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
@@ -58,7 +58,7 @@ const AppPage: React.FC = ({}) => {
  			
 			<header className={styles.layerHeaderApp}>
 				<ButtonDisconnectAccount/>
-				{/* <SearchMainBar/> */}
+				<SearchMainBar/>
 				<UserInfo/>
 			</header>
 			<div className={styles.usersLibraryContainer}>
