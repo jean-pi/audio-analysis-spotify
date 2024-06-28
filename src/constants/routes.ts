@@ -1,6 +1,6 @@
 
 export const publicRoutes = {
-    LANDING: "/"
+    LANDING: "/landing"
 }
 
 export const restrictedRoutes = {

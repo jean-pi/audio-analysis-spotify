@@ -9,7 +9,6 @@ export interface LazyWaitingProps {
 const LazyWaiting: React.FC<LazyWaitingProps>  = ({}) => {
 	return (
 		<div className={styles.lazywaiting}>
- 			
  		</div>
 	);
 };
