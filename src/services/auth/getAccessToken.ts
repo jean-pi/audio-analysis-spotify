@@ -1,7 +1,6 @@
 import { endPoints, redirectUrlConstant } from "@/constants";
 import { accessTokenEndpoint } from "@/models/endPoints/accessTokeEndpoint";
 
-
 export const getAccessToken = async (): Promise<accessTokenEndpoint> => {
 
     const accessTokenUrl: string = endPoints.accessToken;
@@ -15,6 +14,7 @@ export const getAccessToken = async (): Promise<accessTokenEndpoint> => {
     if (!codeUrl || !codeVerifier) {
         throw new Error('Código de autorización o verificador de código no encontrados.');
     }
+    
     const response = await fetch(accessTokenUrl, {
         method: 'POST',
         headers: {

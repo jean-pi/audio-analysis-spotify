@@ -61,6 +61,7 @@ const AppPage: React.FC = ({}) => {
 				<SearchMainBar/>
 				<UserInfo/>
 			</header>
+			
 			<div className={styles.usersLibraryContainer}>
 				<div className={styles.usersLibraryContainer_cabecera}>
 					<div className={styles.usersLibraryContainer_cabecera_yourLibrary}>

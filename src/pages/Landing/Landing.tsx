@@ -2,8 +2,7 @@
 import React from 'react';
 import styles from './Landing.module.scss';
 import { useEffect } from 'react';
-import { HydraBackground } from './components';
-import { ButtonConnectAcount } from './components/ButtonConnectAcount';
+import { HydraBackground, ButtonConnectAcount } from './components';
 import { MAIN_TEXT_PRESENTATION, SECOND_TEXT_PRESENTATION, LINK_WARNING_PRIVACY,TEXT_WARNING_PRIVACY } from '@/constants';
 
 

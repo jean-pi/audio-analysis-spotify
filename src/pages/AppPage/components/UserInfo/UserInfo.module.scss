@@ -58,7 +58,7 @@
   gap: .5rem;
   border: 1px solid #00000000;
   text-decoration: none;
-  padding: 2px 2px 0 7px;
+  padding: 2px 1px 0 3px;
   &_text{
     @include inter-Font(#00000000, .24vw, .6rem, 600);
     background-color: $loadingExistingItem;

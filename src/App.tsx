@@ -26,6 +26,7 @@ function App() {
             <Route path={publicRoutes.LANDING} element={<Landing/>}/>
           </Route>
           <Route path="*" element={<Navigate to={restrictedRoutes.APP}/>} />
+
         </Routes>
       </QueryClientProvider>
     </Suspense>
