@@ -5,7 +5,7 @@ import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBa
 import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER} from '@/constants';
 import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
-import { getAccessToken} from '@/services';
+import { getAccessToken, GetRefreshAccessToken} from '@/services';
 import { accessTokenEndpoint } from '@/models/endPoints/accessTokeEndpoint';
 import { SomethingWrong } from './components/SomethingWrong';
 import { AnalysisSong } from './components/AnalysisSong';
@@ -37,9 +37,12 @@ const AppPage: React.FC = ({}) => {
 			setTokenLoaded("loaded")
 		}
 
-
 	},[])
 
+	setTimeout(() => {
+		const a = GetRefreshAccessToken()
+		console.log(a)
+	}, 3000);
 
 	if(tokenLoaded === "noLoaded"){
 		return(

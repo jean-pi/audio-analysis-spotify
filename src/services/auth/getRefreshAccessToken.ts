@@ -2,7 +2,7 @@ import { endPoints} from "@/constants";
 import { accessTokenEndpoint } from "@/models/endPoints/accessTokeEndpoint";
 
 
-export const refreshAccessToken = async (): Promise<accessTokenEndpoint> => {
+export const GetRefreshAccessToken = async (): Promise<accessTokenEndpoint> => {
 
     const accessTokenUrl: string = endPoints.accessToken;
     const clientId = import.meta.env.VITE_APP_CLIENT_ID;
