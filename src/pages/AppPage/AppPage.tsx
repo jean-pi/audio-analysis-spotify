@@ -39,14 +39,13 @@ const AppPage: React.FC = ({}) => {
 
 	},[])
 
-	setTimeout(() => {
-		const a = GetRefreshAccessToken()
-		console.log(a)
-	}, 3000);
+	// setTimeout(async() => {
+	// 	const a = await GetRefreshAccessToken()
+	// 	console.log(a)
+	// }, 3000);
 
 	if(tokenLoaded === "noLoaded"){
 		return(
-			// <div className={styles.appPage}>"no access token"</div>
 			<SomethingWrong/>
 		)
 
