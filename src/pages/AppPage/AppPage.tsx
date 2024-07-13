@@ -18,40 +18,33 @@ const AppPage: React.FC = ({}) => {
 		// loading
 
 	useEffect(()=>{
-		const isAccessToken = localStorage.getItem("access_token");
+		const initializeApp = async () => {
+            try {
+                const isAccessToken = localStorage.getItem("access_token");
+                if (!isAccessToken) {
+                    const accessToken: accessTokenEndpoint = await getAccessToken();
+                    localStorage.setItem("access_token", accessToken.access_token);
+                    localStorage.setItem("refresh_token", accessToken.refresh_token);
+                }
+                setTokenLoaded("loaded");
+            } catch (error) {
+                setTokenLoaded("noLoaded");
+            }
+        };
 
-		const getInfoAndAdapter = async() => {
-			try {
-				const accessToken: accessTokenEndpoint =  await getAccessToken();
-				localStorage.setItem("access_token", accessToken.access_token);
-				localStorage.setItem("refresh_token", accessToken.refresh_token);
-				setTokenLoaded("loaded")
-			} catch (error) {
-				setTokenLoaded("noLoaded")
-			}
-		}
+        initializeApp();
 
-		if(!isAccessToken){
-			getInfoAndAdapter();
-		}else{
-			setTokenLoaded("loaded")
-		}
+
 
 	},[])
 
-	// setTimeout(async() => {
-	// 	const a = await GetRefreshAccessToken()
-	// 	console.log(a)
-	// }, 3000);
+
 
 	if(tokenLoaded === "noLoaded"){
 		return(
 			<SomethingWrong/>
 		)
-
 	}
-
-
 
 	if(tokenLoaded === "loaded"){
 	return (
