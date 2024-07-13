@@ -48,6 +48,37 @@ const AnalysisSong: React.FC<AnalysisSongProps>  = ({}) => {
 					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>3/4</p>
 				</div>
 			</div>
+			<div className={styles.analysisSong_analysisFeturesContainer}>
+				<div className={styles.analysisSong_analysisFeturesContainer_item}>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Tonality}</p>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>C#/D</p>
+				</div>
+				<div className={styles.analysisSong_analysisFeturesContainer_item}>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Duration}</p>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>2:14</p>
+				</div>
+				<div className={styles.analysisSong_analysisFeturesContainer_item}>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Released}</p>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>26/05/2004</p>
+				</div>
+				<div className={styles.analysisSong_analysisFeturesContainer_item}>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Volume}</p>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>30Db</p>
+				</div>
+				<div className={styles.analysisSong_analysisFeturesContainer_item}>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Mode}</p>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>Major</p>
+				</div>
+				<div className={styles.analysisSong_analysisFeturesContainer_item}>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Rhythm}</p>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>114bpm</p>
+				</div>
+				<div className={styles.analysisSong_analysisFeturesContainer_item}>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_feature}    >{ANALYSIS_AUDIO.Tempo}</p>
+					<p className={styles.analysisSong_analysisFeturesContainer_item_featureData}>3/4</p>
+				</div>
+			</div>
+
 			<span className={styles.analysisSong_shareContainer}><img className={styles.analysisSong_shareContainer_icon} src={ANALYSIS_AUDIO.shareIcon} alt="" />Share</span>
  		</div>
 	);
