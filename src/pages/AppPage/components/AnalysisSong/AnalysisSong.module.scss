@@ -54,6 +54,7 @@
     &_img{
         width: 100%;
         border-radius: 6px;
+        pointer-events: none;
     }
     &_songNameArtistContainer{
         display: flex;

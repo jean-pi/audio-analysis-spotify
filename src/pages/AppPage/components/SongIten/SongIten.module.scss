@@ -28,6 +28,7 @@
         grid-column-end: 3;
         display: flex;
         gap: .5rem;
+        pointer-events: none;
         &_img{
             width: clamp( 1.7rem, 1.3rem + 1.4vw, 3rem);
             border-radius: 4px;

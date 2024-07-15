@@ -16,6 +16,7 @@
         border-radius: 3.5px;
         aspect-ratio: 1/1;
         object-fit: cover;
+        pointer-events: none;
     }   
 
     &_detailsTextContainer{

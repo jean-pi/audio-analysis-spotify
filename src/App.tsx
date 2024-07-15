@@ -19,9 +19,9 @@ function App() {
     <Suspense fallback={<LazyWaiting/>}>
       <QueryClientProvider client={queryClient}>
         <Routes>
-          {/* <Route element={<AuthGuard/>}> */}
+          <Route element={<AuthGuard/>}>
               <Route path={restrictedRoutes.APP} element={<AppPage/>}/>
-          {/* </Route> */}
+          </Route>
           <Route element={<LandindGuard/>}>
             <Route path={publicRoutes.LANDING} element={<Landing/>}/>
           </Route>

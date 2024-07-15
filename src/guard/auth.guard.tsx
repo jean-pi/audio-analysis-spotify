@@ -15,11 +15,11 @@ const AuthGuard: React.FC = () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const urlIsError = urlParams.get("error");
-    const urlIsCode = urlParams.get("code");
+    // const urlIsCode = urlParams.get("code");
     const isAccessToken = localStorage.getItem('access_token');
 
     
-    return !urlIsError && urlIsCode || !isAccessToken === null? <Outlet/> : <Navigate replace to={publicRoutes.LANDING} />;
+    return !urlIsError || !isAccessToken === null? <Outlet/> : <Navigate replace to={publicRoutes.LANDING} />;
 }
 
 export default AuthGuard;
