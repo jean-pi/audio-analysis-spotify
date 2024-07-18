@@ -10,6 +10,7 @@ import { accessTokenEndpoint } from '@/models/endPoints/accessTokeEndpoint';
 import { SomethingWrong } from './components/SomethingWrong';
 import { AnalysisSong } from './components/AnalysisSong';
 
+
 const AppPage: React.FC = ({}) => {
 
 	const [tokenLoaded, setTokenLoaded] = useState("loading");
@@ -26,6 +27,11 @@ const AppPage: React.FC = ({}) => {
                     localStorage.setItem("access_token", accessToken.access_token);
                     localStorage.setItem("refresh_token", accessToken.refresh_token);
                 }
+				if (isAccessToken) {
+                    const refreshAccessToken: accessTokenEndpoint = await GetRefreshAccessToken();
+                    localStorage.setItem("access_token", refreshAccessToken.access_token);
+                    localStorage.setItem("refresh_token", refreshAccessToken.refresh_token);
+                }
                 setTokenLoaded("loaded");
             } catch (error) {
                 setTokenLoaded("noLoaded");
@@ -33,10 +39,12 @@ const AppPage: React.FC = ({}) => {
         };
 
         initializeApp();
-
-
-
 	},[])
+
+
+	setInterval(() => {
+		GetRefreshAccessToken()
+	}, 3300000);// each 55min
 
 
 
