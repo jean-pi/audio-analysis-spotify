@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './AppPage.module.scss';
 import { ButtonDisconnectAccount, HeadSongsView, PlaylistAlbumCard, SearchMainBar, UserInfo } from './components';
 import {LINKS_FOOTER_APP, YOUR_LIBRARY_HEAD, HEAD_SONG_CONTAINER} from '@/constants';
-import { SearchSongBar } from './components/SearchSongBar';
+// import { SearchSongBar } from './components/SearchSongBar';
 import { SongIten } from './components/SongIten';
 import { getAccessToken, GetRefreshAccessToken} from '@/services';
 import { accessTokenEndpoint } from '@/models/endPoints/accessTokeEndpoint';
@@ -86,7 +86,6 @@ const AppPage: React.FC = ({}) => {
 
 			<div className={styles.songContainer}>
 				<HeadSongsView/>
-				<SearchSongBar/>
 				<div className={styles.songContainer_containerSongs}>
 					<div className={styles.songContainer_containerSongs_cabeceraSongs}>
 						<span className={styles.songContainer_containerSongs_cabeceraSongs_span}>{HEAD_SONG_CONTAINER.numSong}</span>
